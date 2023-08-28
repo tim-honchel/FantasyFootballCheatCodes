@@ -1,6 +1,6 @@
 ﻿namespace Fantasy.Logic.Models
 {
-    public class RulesEPSN
+    public class RulesESPN
     {
         public int LeagueID { get; set; }
         public bool DraftComplete { get; set; }
