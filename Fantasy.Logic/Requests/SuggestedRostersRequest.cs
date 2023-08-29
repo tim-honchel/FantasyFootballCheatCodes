@@ -6,5 +6,6 @@ namespace Fantasy.Logic.Requests
     {
         List<Player> Players { get; set; }
         List<Roster> Rosters { get; set; }
+        List<int> PlayerIDs { get; set; }
     }
 }
