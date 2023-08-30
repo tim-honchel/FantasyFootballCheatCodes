@@ -25,3 +25,5 @@ C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\n
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\Fantasy.API.pdb
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\Fantasy.API.genruntimeconfig.cache
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\ref\Fantasy.API.dll
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\bin\Debug\net6.0\Fantasy.Logic.dll
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\bin\Debug\net6.0\Fantasy.Logic.pdb

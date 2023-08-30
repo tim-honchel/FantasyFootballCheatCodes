@@ -5,6 +5,6 @@ namespace Fantasy.Logic.Interfaces
 {
     public interface IExpectedValueLogic
     {
-        List<Player> Get(ExpectedValueRequest request);
+        List<Player> Get(CostAnalysis analysis, List<Player> allPlayers);
     }
 }

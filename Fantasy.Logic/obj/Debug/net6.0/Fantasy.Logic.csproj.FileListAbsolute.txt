@@ -1,0 +1,12 @@
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic\bin\Debug\net6.0\Fantasy.Logic.deps.json
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic\bin\Debug\net6.0\Fantasy.Logic.dll
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic\bin\Debug\net6.0\Fantasy.Logic.pdb
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic\obj\Debug\net6.0\Fantasy.Logic.csproj.AssemblyReference.cache
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic\obj\Debug\net6.0\Fantasy.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic\obj\Debug\net6.0\Fantasy.Logic.AssemblyInfoInputs.cache
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic\obj\Debug\net6.0\Fantasy.Logic.AssemblyInfo.cs
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic\obj\Debug\net6.0\Fantasy.Logic.csproj.CoreCompileInputs.cache
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic\obj\Debug\net6.0\Fantasy.Logic.dll
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic\obj\Debug\net6.0\refint\Fantasy.Logic.dll
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic\obj\Debug\net6.0\Fantasy.Logic.pdb
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic\obj\Debug\net6.0\ref\Fantasy.Logic.dll

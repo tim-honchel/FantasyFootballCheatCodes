@@ -4,6 +4,6 @@ namespace Fantasy.Logic.Interfaces
 {
     public interface IPointAveragesLogic
     {
-        PointAverages Get(List<Player> allPlayers);
+        PointAverages Get(List<Player> allPlayers, Rules rules);
     }
 }

@@ -4,8 +4,8 @@ namespace Fantasy.Logic.Requests
 {
     public class StrongerRosterRequest
     {
-        Rules Rules { get; set; }
-        Roster Roster { get; set; }
-        List<Player> Players { get; set; }
+        public Rules Rules { get; set; }
+        public Roster Roster { get; set; }
+        public List<Player> Players { get; set; }
     }
 }

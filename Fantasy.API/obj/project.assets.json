@@ -88,6 +88,16 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Fantasy.Logic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Fantasy.Logic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Fantasy.Logic.dll": {}
+        }
       }
     }
   },
@@ -216,10 +226,16 @@
         "swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Fantasy.Logic/1.0.0": {
+      "type": "project",
+      "path": "../Fantasy.Logic/Fantasy.Logic.csproj",
+      "msbuildProject": "../Fantasy.Logic/Fantasy.Logic.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Fantasy.Logic >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -249,7 +265,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Logic\\Fantasy.Logic.csproj": {
+              "projectPath": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Logic\\Fantasy.Logic.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

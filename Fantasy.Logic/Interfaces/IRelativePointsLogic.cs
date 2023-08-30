@@ -5,6 +5,6 @@ namespace Fantasy.Logic.Interfaces
 {
     public interface IRelativePointsLogic
     {
-        List<Player> Get(RelativePointsRequest request);
+        List<Player> Get(PointAverages averages, List<Player> players);
     }
 }

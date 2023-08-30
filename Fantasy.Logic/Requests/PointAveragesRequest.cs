@@ -2,9 +2,9 @@
 
 namespace Fantasy.Logic.Requests
 {
-    public class RelativePointsRequest
+    public class PointAveragesRequest
     {
-        public PointAverages PointAverages { get; set; }
+        public Rules Rules { get; set; }
         public List<Player> Players { get; set; }
     }
 }
