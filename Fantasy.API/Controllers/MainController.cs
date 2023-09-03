@@ -73,7 +73,7 @@ namespace Fantasy.API.Controllers
         [HttpPost("csvSuggestedRosters")]
         public IActionResult CsvSuggestedRosters(CsvSuggestedRosterRequest request)
         {
-            string csv = _csvSuggestedRostersLogic.Get(request.DraftBoard);
+            string csv = _csvSuggestedRostersLogic.Get(request.DraftBoards);
             var fileBytes = Encoding.UTF8.GetBytes(csv);
             return File(fileBytes, "text/csv", "FantasySuggestedRosters.csv");
         }

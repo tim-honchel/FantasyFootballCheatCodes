@@ -4,6 +4,6 @@ namespace Fantasy.Logic.Requests
 {
     public class CsvSuggestedRosterRequest
     {
-        public DraftBoard DraftBoard { get; set; } = new();
+        public List<DraftBoard> DraftBoards { get; set; } = new();
     }
 }

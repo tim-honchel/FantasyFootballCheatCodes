@@ -4,6 +4,6 @@ namespace Fantasy.Logic.Interfaces
 {
     public interface ICsvSuggestedRostersLogic
     {
-        string Get(DraftBoard suggestedRosters);
+        string Get(List<DraftBoard> suggestedRosters);
     }
 }
