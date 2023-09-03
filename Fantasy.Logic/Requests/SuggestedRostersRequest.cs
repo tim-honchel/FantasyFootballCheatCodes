@@ -4,8 +4,8 @@ namespace Fantasy.Logic.Requests
 {
     public class SuggestedRostersRequest
     {
-        public List<Player> Players { get; set; }
-        public List<Roster> Rosters { get; set; }
-        public List<int> PlayerIDs { get; set; }
+        public List<Player> Players { get; set; } = new();
+        public List<Roster> Rosters { get; set; } = new();
+        public List<int> PlayerIDs { get; set; } = new();
     }
 }

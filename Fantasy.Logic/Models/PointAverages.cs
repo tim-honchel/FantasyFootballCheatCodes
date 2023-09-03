@@ -2,21 +2,21 @@
 {
     public class PointAverages
     {
-        public double QB { get; set; }
-        public double RB1 { get; set; }
-        public double RB2 { get; set; }
-        public double WR1 { get; set; }
-        public double WR2 { get; set; }
-        public double TE { get; set; }
-        public double FLEX { get; set; }
-        public double DEF { get; set; }
-        public double K { get; set; }
-        public double total { get; set; }
-        public double FAQB { get; set; }
-        public double FARB { get; set; }
-        public double FAWR { get; set; }
-        public double FATE { get; set; }
-        public double FADEF { get; set; }
-        public double FAK { get; set; }
+        public double QB { get; set; } = 0;
+        public double RB1 { get; set; } = 0;
+        public double RB2 { get; set; } = 0;
+        public double WR1 { get; set; } = 0;
+        public double WR2 { get; set; } = 0;
+        public double TE { get; set; } = 0;
+        public double FLEX { get; set; } = 0;
+        public double DEF { get; set; } = 0;
+        public double K { get; set; } = 0;
+        public double Total { get; set; } = 0;
+        public double FAQB { get; set; } = 0;
+        public double FARB { get; set; } = 0;
+        public double FAWR { get; set; } = 0;
+        public double FATE { get; set; } = 0;
+        public double FADEF { get; set; } = 0;
+        public double FAK { get; set; } = 0;
     }
 }

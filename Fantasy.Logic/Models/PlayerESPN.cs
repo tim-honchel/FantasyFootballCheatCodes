@@ -2,22 +2,22 @@
 {
     public class PlayerESPN
     {
-        public int ID { get; set; }
-        public int DraftAuctionValue { get; set; }
-        public int KeeperValue { get; set; }
-        public int DefaultPositionID { get; set; }
-        public List<int> EligibleSlots { get; set; }
-        public string FirstName { get; set; } = "";
-        public string LastName { get; set; } = "";
-        public bool Active { get; set; }
-        public bool Injured { get; set; }
-        public string InjuryStatus { get; set; } = "";
-        public double AverageDraftPosition { get; set; }
-        public double PercentOwned { get; set; }
-        public double PercentStarted { get; set; }
-        public int ProTeamID { get; set; }
-        public double LastYearAveragePointsPerWeek { get; set; }
-        public double ThisYearProjectedPointsPerWeek { get; set; }
+        public int ID { get; set; } = 0;
+        public int DraftAuctionValue { get; set; } = 0;
+        public int KeeperValue { get; set; } = 0;
+        public int DefaultPositionID { get; set; } = 0;
+        public List<int> EligibleSlots { get; set; } = new();
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public bool Active { get; set; } = false;
+        public bool Injured { get; set; } = false;
+        public string InjuryStatus { get; set; } = string.Empty;
+        public double AverageDraftPosition { get; set; } = 0;
+        public double PercentOwned { get; set; } = 0;
+        public double PercentStarted { get; set; } = 0;
+        public int ProTeamID { get; set; } = 0;
+        public double LastYearAveragePointsPerWeek { get; set; } = 0;
+        public double ThisYearProjectedPointsPerWeek { get; set; } = 0;
 
 
     }

@@ -56,24 +56,24 @@ namespace Fantasy.API.Controllers
         }
 
         [HttpPost("costAnalysis")]
-        public IActionResult CostAnalysis([FromBody] List<Player> allPlayers)
+        public IActionResult CostAnalysis([FromBody] CostAnalysisRequest request)
         {
-            CostAnalysis analysis = _costAnalysisLogic.Get(allPlayers);
+            CostAnalysis analysis = _costAnalysisLogic.Get(request.Players);
             return new OkObjectResult(analysis);
         }
 
         [HttpPost("csvStarters")]
-        public IActionResult CsvStarters([FromBody] List<Player> players)
+        public IActionResult CsvStarters([FromBody] CsvStartersRequest request)
         {
-            string csv = _csvStartersLogic.Get(players);
+            string csv = _csvStartersLogic.Get(request.Players);
             var fileBytes = Encoding.UTF8.GetBytes(csv);
             return File(fileBytes, "text/csv", "FantasyStarters.csv");
         }
 
         [HttpPost("csvSuggestedRosters")]
-        public IActionResult CsvSuggestedRosters(DraftBoard suggestedRosters)
+        public IActionResult CsvSuggestedRosters(CsvSuggestedRosterRequest request)
         {
-            string csv = _csvSuggestedRostersLogic.Get(suggestedRosters);
+            string csv = _csvSuggestedRostersLogic.Get(request.DraftBoard);
             var fileBytes = Encoding.UTF8.GetBytes(csv);
             return File(fileBytes, "text/csv", "FantasySuggestedRosters.csv");
         }
@@ -93,30 +93,30 @@ namespace Fantasy.API.Controllers
         }
 
         [HttpGet("espnPlayers")]
-        public async Task<IActionResult> EspnPlayers([FromQuery] string leagueID, [FromQuery] string espn_s2, [FromQuery] string swid)
+        public async Task<IActionResult> EspnPlayers([FromBody]EspnPlayersRequest request)
         {
-            List<PlayerESPN> players = await _espnPlayersLogic.Get(leagueID, espn_s2, swid);
+            List<PlayerESPN> players = await _espnPlayersLogic.Get(request.LeagueID, request.espn_s2, request.swid);
             return new OkObjectResult(players);
         }
 
         [HttpGet("espnRules")]
-        public async Task<IActionResult> EspnRules([FromQuery] string leagueID, [FromQuery] string espn_s2, [FromQuery] string swid)
+        public async Task<IActionResult> EspnRules([FromBody] EspnRulesRequest request)
         {
-            RulesESPN rules = await _espnRulesLogic.Get(leagueID, espn_s2, swid);
+            RulesESPN rules = await _espnRulesLogic.Get(request.LeagueID, request.espn_s2, request.swid);
             return new OkObjectResult(rules);
         }
 
         [HttpPost("leagueRules")]
-        public IActionResult LeagueRules([FromBody] RulesESPN rawRules)
+        public IActionResult LeagueRules([FromBody] LeagueRulesRequest request)
         {
-            Rules parsedRules = _leagueRulesLogic.Get(rawRules);
+            Rules parsedRules = _leagueRulesLogic.Get(request.Rules);
             return new OkObjectResult(parsedRules);
         }
 
         [HttpPost("playerProjections")]
-        public IActionResult PlayerProjections([FromBody] List<PlayerESPN> rawPlayers)
+        public IActionResult PlayerProjections([FromBody] PlayerProjectionsRequest request)
         {
-            List<Player> parsedPlayers = _playerProjectionsLogic.Get(rawPlayers);
+            List<Player> parsedPlayers = _playerProjectionsLogic.Get(request.Players);
             return new OkObjectResult(parsedPlayers);
         }
 
@@ -128,7 +128,7 @@ namespace Fantasy.API.Controllers
         }
 
         [HttpPost("possibleRosters")]
-        public IActionResult PossibleRosters([FromBody] StrongerRosterRequest request)
+        public IActionResult PossibleRosters([FromBody] PossibleRostersRequest request)
         {
             List<Roster> rosters = _possibleRostersLogic.Get(request.Roster, request.Players, request.Rules);
             return new OkObjectResult(rosters);
@@ -142,7 +142,7 @@ namespace Fantasy.API.Controllers
         }
 
         [HttpGet("simplifiedDraftPool")]
-        public IActionResult SimplifiedDraftPool([FromBody] RelativePointsRequest request)
+        public IActionResult SimplifiedDraftPool([FromBody] SimplifiedDraftPoolRequest request)
         {
             List<Player> players = _simplifiedDraftPoolLogic.Get(request.Players, request.PointAverages);
             return new OkObjectResult(players);
@@ -156,7 +156,7 @@ namespace Fantasy.API.Controllers
         }
 
         [HttpPost("strongRoster")]
-        public IActionResult StrongRoster([FromBody] PointAveragesRequest request)
+        public IActionResult StrongRoster([FromBody] StrongRosterRequest request)
         {
             Roster roster = _strongRosterLogic.Get(request.Players, request.Rules);
             return new OkObjectResult(roster);
@@ -170,16 +170,16 @@ namespace Fantasy.API.Controllers
         }
 
         [HttpPut("tags")]
-        public IActionResult Tags([FromBody] List<Player> allPlayers)
+        public IActionResult Tags([FromBody] TagsRequest request)
         {
-            List<Player> taggedPlayers = _tagsLogic.Get(allPlayers);
+            List<Player> taggedPlayers = _tagsLogic.Get(request.Players);
             return new OkObjectResult(taggedPlayers);
         }
 
         [HttpPost("topRosterFrequency")]
-        public IActionResult TopRosterFrequency([FromBody] List<Roster> topRosters)
+        public IActionResult TopRosterFrequency([FromBody] TopRosterFrequencyRequest request)
         {
-            CountByID frequency = _topRosterFrequencyLogic.Get(topRosters);
+            CountByID frequency = _topRosterFrequencyLogic.Get(request.Rosters);
             return new OkObjectResult(frequency);
         }
 
@@ -191,7 +191,7 @@ namespace Fantasy.API.Controllers
         }
 
         [HttpPost("topRosterPlayers")]
-        public IActionResult TopRosterPlayers([FromBody] PointAveragesRequest request)
+        public IActionResult TopRosterPlayers([FromBody] TopRosterPlayersRequest request)
         {
             List<int> playerIDs = _topRosterPlayersLogic.Get(request.Players, request.Rules);
             return new OkObjectResult(playerIDs);

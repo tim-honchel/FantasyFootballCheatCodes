@@ -4,7 +4,7 @@ namespace Fantasy.Logic.Requests
 {
    public class TopRosterPercentRequest
     {
-        public CountByID Frequency { get; set; }
-        public List<Player> Players { get; set; }
+        public CountByID Frequency { get; set; } = new();
+        public List<Player> Players { get; set; } = new();
     }
 }

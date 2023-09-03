@@ -4,7 +4,7 @@ namespace Fantasy.Logic.Requests
 {
     public class ExpectedValueRequest
     {
-        public CostAnalysis CostAnalysis { get; set; }
-        public List<Player> Players { get; set; }
+        public CostAnalysis CostAnalysis { get; set; } = new();
+        public List<Player> Players { get; set; } = new();
     }
 }
