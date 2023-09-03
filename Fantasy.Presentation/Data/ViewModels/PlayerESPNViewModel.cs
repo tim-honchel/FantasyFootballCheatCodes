@@ -1,6 +1,6 @@
-﻿namespace Fantasy.Logic.Models
+﻿namespace Fantasy.Presentation.Data.ViewModels
 {
-    public class PlayerESPN
+    public class PlayerESPNViewModel
     {
         public int ID { get; set; } = 0;
         public int DraftAuctionValue { get; set; } = 0;

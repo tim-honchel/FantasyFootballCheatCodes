@@ -1,6 +1,6 @@
-﻿namespace Fantasy.Logic.Models
+﻿namespace Fantasy.Presentation.Data.ViewModels
 {
-    public class RulesESPN
+    public class RulesESPNViewModel
     {
         public int LeagueID { get; set; } = 0;
         public bool DraftComplete { get; set; } = false;

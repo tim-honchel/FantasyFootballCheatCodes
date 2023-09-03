@@ -1,4 +1,4 @@
-﻿namespace Fantasy.Logic.Models
+﻿namespace Fantasy.Presentation.Data.ViewModels
 {
     public class CostAnalysisViewModel
     {
