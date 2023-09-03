@@ -2,7 +2,6 @@
 
 namespace Fantasy.Presentation.Data.RequestObjects
 
-namespace Fantasy.Logic.Requests
 {
     public class RelativePointsRequestObject
     {

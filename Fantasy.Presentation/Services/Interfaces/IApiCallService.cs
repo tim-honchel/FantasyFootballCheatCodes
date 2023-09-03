@@ -1,5 +1,4 @@
 ﻿using Fantasy.Presentation.Data.RequestObjects;
-using Fantasy.Presentation.Data.RequestObjects.Fantasy.Logic.Requests;
 using Fantasy.Presentation.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 

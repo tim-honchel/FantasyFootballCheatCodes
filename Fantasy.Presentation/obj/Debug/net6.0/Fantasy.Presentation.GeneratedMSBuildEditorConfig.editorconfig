@@ -19,8 +19,40 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/EnterLeagueInformation.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW50ZXJMZWFndWVJbmZvcm1hdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/LeagueNotAccessible.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVhZ3VlTm90QWNjZXNzaWJsZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/LeagueNotFound.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVhZ3VlTm90Rm91bmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/LeagueNotSupported.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVhZ3VlTm90U3VwcG9ydGVkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/LeagueRulesAndProjections.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVhZ3VlUnVsZXNBbmRQcm9qZWN0aW9ucy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/Loading.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hZGluZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/StarterAnalysis.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhcnRlckFuYWx5c2lzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/SuggestedStarters.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3VnZ2VzdGVkU3RhcnRlcnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/_Imports.razor]

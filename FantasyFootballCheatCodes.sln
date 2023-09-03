@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantasy.API", "Fantasy.API\Fantasy.API.csproj", "{D7EA2581-FE6F-4277-8B55-BB7200F78E19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fantasy.API", "Fantasy.API\Fantasy.API.csproj", "{D7EA2581-FE6F-4277-8B55-BB7200F78E19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantasy.Logic", "Fantasy.Logic\Fantasy.Logic.csproj", "{EDA52F3E-D7F2-4874-9F2D-865A59311FA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fantasy.Logic", "Fantasy.Logic\Fantasy.Logic.csproj", "{EDA52F3E-D7F2-4874-9F2D-865A59311FA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantasy.Presentation", "Fantasy.Presentation\Fantasy.Presentation.csproj", "{55E7948E-B2FF-44D9-B133-367EA9100676}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fantasy.Presentation", "Fantasy.Presentation\Fantasy.Presentation.csproj", "{55E7948E-B2FF-44D9-B133-367EA9100676}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9CCA7E67-1225-4D4C-9780-BB51E63CF104}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantasy.Logic.Tests", "Fantasy.Logic.Tests\Fantasy.Logic.Tests.csproj", "{B8750FA1-E37F-434E-BFA8-FD27A0FA670F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fantasy.Logic.Tests", "Fantasy.Logic.Tests\Fantasy.Logic.Tests.csproj", "{B8750FA1-E37F-434E-BFA8-FD27A0FA670F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{639588C2-76A2-4D46-BC48-A539CB9D3507}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantasy.Presentation.Tests", "Fantasy.Presentation.Tests\Fantasy.Presentation.Tests.csproj", "{34AF7FDB-7FE6-4B35-80DC-7BBFF47A8E54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fantasy.Presentation.Tests", "Fantasy.Presentation.Tests\Fantasy.Presentation.Tests.csproj", "{34AF7FDB-7FE6-4B35-80DC-7BBFF47A8E54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
