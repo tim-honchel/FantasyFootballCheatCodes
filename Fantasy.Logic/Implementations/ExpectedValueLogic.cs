@@ -5,7 +5,32 @@ namespace Fantasy.Logic.Implementations
 {
     public class ExpectedValueLogic : IExpectedValueLogic
     {
-        public List<Player> Get(CostAnalysis analysis, List<Player> allPlayers)
+        [Test]
+        public void Get_Returns_ListOfPlayers_Given_CountByID()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test]
+        public void Get_Returns_ListOfPlayersWithTopRosterPercent_Given_CountByID()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test]
+        public void Get_Returns_ListOfPlayersWithCorrectTopRosterPercent_Given_CountByID()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test]
+        public void Get_Returns_CustomException_Given_EmptyListOfPlayers()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test]
+        public void Get_Returns_CustomException_Given_InvalidCountByID()
         {
             throw new NotImplementedException();
         }

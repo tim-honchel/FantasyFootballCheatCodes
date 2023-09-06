@@ -6,12 +6,6 @@ namespace Fantasy.Logic.Tests
     public class StrongRosterLogicTests
     {
         [Test]
-        public void Get_Returns_ListOfPlayers_Given_ListOfPlayersAndRules()
-        {
-            throw new NotImplementedException();
-        }
-
-        [Test]
         public void Get_Returns_ListOfPlayersWithEveryPosition_Given_ListOfPlayersAndRules()
         {
             throw new NotImplementedException();
