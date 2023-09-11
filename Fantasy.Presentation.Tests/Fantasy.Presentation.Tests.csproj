@@ -10,7 +10,7 @@
 		<Using Include="Bunit" />
 		<Using Include="Bunit.TestDoubles" />
 		<Using Include="Microsoft.Extensions.DependencyInjection" />
-		<Using Include="NUnit.Framework"/>
+		<Using Include="NUnit.Framework" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -26,6 +26,11 @@
 	<ItemGroup>
 		<PackageReference Include="NUnit" Version="3.13.3" />
 		<PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Fantasy.Presentation\Fantasy.Presentation.csproj" />
 	</ItemGroup>
 
 

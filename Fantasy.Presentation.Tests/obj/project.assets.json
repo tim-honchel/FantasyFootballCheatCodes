@@ -1689,6 +1689,19 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "Fantasy.Presentation/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Fantasy.Presentation.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Fantasy.Presentation.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -5570,10 +5583,16 @@
         "system.xml.xdocument.4.0.11.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "Fantasy.Presentation/1.0.0": {
+      "type": "project",
+      "path": "../Fantasy.Presentation/Fantasy.Presentation.csproj",
+      "msbuildProject": "../Fantasy.Presentation/Fantasy.Presentation.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Fantasy.Presentation >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.12.0",
       "NUnit >= 3.13.3",
       "NUnit3TestAdapter >= 4.5.0",
@@ -5607,7 +5626,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\Fantasy.Presentation.csproj": {
+              "projectPath": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\Fantasy.Presentation.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
