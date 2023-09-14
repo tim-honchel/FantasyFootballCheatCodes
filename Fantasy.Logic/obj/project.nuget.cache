@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "yYAdxxHDa+4SIJ5759ZP0ZqPelJeAcqWBcCQAHFreFtKisNDiPK9ZoE7tbaMJKpiRwiOUoXzdRnyDlbZ2+R1zw==",
+  "dgSpecHash": "rBp9xzpCj9mayNcwStatK5nVWO/Injp5V30vyIF+P0ZU2UXkR1p+wy+kmlnw7CImw8ji4P6ooOJdfY4JETE2ag==",
   "success": true,
   "projectFilePath": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Logic\\Fantasy.Logic.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\timho\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
