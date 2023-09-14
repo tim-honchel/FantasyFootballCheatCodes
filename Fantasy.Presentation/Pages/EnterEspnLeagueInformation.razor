@@ -1,0 +1,91 @@
+﻿@page "/EnterEspnLeagueInformation"
+@inject IApiCallService service
+@inject NavigationManager navigation
+@using Fantasy.Presentation.Data.Exceptions
+@using Fantasy.Presentation.Data.RequestObjects
+@using Fantasy.Presentation.Data.ViewModels
+@using Fantasy.Presentation.Services.Interfaces
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Forms
+
+<PageTitle>Enter League Information</PageTitle>
+
+<h1>Enter League Information</h1>
+
+<EditForm id="form" Model="espnModel" Context="espnContext" OnValidSubmit="HandleValidSubmit">
+
+
+
+    <label for="LeagueID" class="control-label">ESPN League ID: </label>
+    <br />
+    <InputText @bind-Value="espnModel.LeagueID" id="leagueID" />
+
+    <br />
+    <br />
+
+    <label for="espn_s2" class="control-label">espn_s2 Cookie: </label>
+    <br />
+    <InputText @bind-Value="espnModel.espn_s2" id="espn_s2" />
+
+    <br />
+    <br />
+
+
+    <label for="swid" class="control-label">swid Cookie: </label>
+    <br />
+    <InputText @bind-Value="espnModel.swid" id="swid" />
+
+    <br />
+    <br />
+
+    <button type="submit" class="btn btn-primary">Next</button>
+    <br />
+    <br />
+   
+
+</EditForm>
+
+@code {
+    private EspnRulesRequestObject espnModel = new(); 
+
+    public async void HandleValidSubmit()
+    {
+        RulesESPNViewModel espnRules = new();
+        try
+        {
+            espnRules = await service.EspnRules(espnModel);
+        }
+        catch (LeagueNotFoundException)
+        {
+            navigation.NavigateTo("LeagueNotFound");
+            return;
+        }
+        catch (LeagueNotAccessibleException)
+        {
+            navigation.NavigateTo("LeagueNotAccessible");
+            return;
+        }
+        
+
+        LeagueRulesRequestObject leagueRulesRequest = new() { Rules = espnRules};
+        RulesViewModel rules = service.LeagueRules(leagueRulesRequest);
+
+        EspnPlayersRequestObject espnPlayersRequest = new() { LeagueID = espnModel.LeagueID, espn_s2 = espnModel.espn_s2, swid = espnModel.swid };
+        List<PlayerESPNViewModel> espnPlayers = await service.EspnPlayers(espnPlayersRequest);
+
+        PlayerProjectionsRequestObject playerProjectionsRequest = new() { Players = espnPlayers };
+        List<PlayerViewModel> players = service.PlayerProjections(playerProjectionsRequest);
+
+        ValidRulesRequestObject validRulesRequest = new() { Rules = rules, Players = players };
+        RuleValidityViewModel ruleValidity = service.ValidRules(validRulesRequest);
+
+        if (ruleValidity.IsValid)
+        {
+            navigation.NavigateTo("LeagueRulesAndProjections");
+        }
+        else
+        {
+            navigation.NavigateTo("LeagueNotSupported");
+        }
+    }
+}

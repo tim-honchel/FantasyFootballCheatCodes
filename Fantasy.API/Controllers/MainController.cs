@@ -30,8 +30,9 @@ namespace Fantasy.API.Controllers
         public ITopRosterFrequencyLogic _topRosterFrequencyLogic;
         public ITopRosterPercentLogic _topRosterPercentLogic;
         public ITopRosterPlayersLogic _topRosterPlayersLogic;
+        public IValidRulesLogic _validRulesLogic;
 
-        public MainController(ICostAnalysisLogic costAnalysisLogic, ICsvStartersLogic csvStartersLogic, ICsvSuggestedRostersLogic csvSuggestedRostersLogic, IEditProjectionsLogic editProjectionsLogic, IEspnPlayersLogic espnPlayersLogic, IEspnRulesLogic espnRulesLogic, IExpectedValueLogic expectedValueLogic, ILeagueRulesLogic leagueRulesLogic, IPlayerProjectionsLogic playerProjectionsLogic, IPointAveragesLogic pointAveragesLogic, IPossibleRostersLogic possibleRostersLogic, IRelativePointsLogic relativePointsLogic, ISimplifiedDraftPoolLogic simplifiedDraftPoolLogic, IStrongRosterLogic strongRosterLogic, IStrongerRosterLogic strongerRosterLogic, ISuggestedRostersLogic suggestedRostersLogic, ITagsLogic tagsLogic, ITopRosterFrequencyLogic topRosterFrequencyLogic, ITopRosterPercentLogic topRosterPercentLogic, ITopRosterPlayersLogic topRosterPlayersLogic)
+        public MainController(ICostAnalysisLogic costAnalysisLogic, ICsvStartersLogic csvStartersLogic, ICsvSuggestedRostersLogic csvSuggestedRostersLogic, IEditProjectionsLogic editProjectionsLogic, IEspnPlayersLogic espnPlayersLogic, IEspnRulesLogic espnRulesLogic, IExpectedValueLogic expectedValueLogic, ILeagueRulesLogic leagueRulesLogic, IPlayerProjectionsLogic playerProjectionsLogic, IPointAveragesLogic pointAveragesLogic, IPossibleRostersLogic possibleRostersLogic, IRelativePointsLogic relativePointsLogic, ISimplifiedDraftPoolLogic simplifiedDraftPoolLogic, IStrongRosterLogic strongRosterLogic, IStrongerRosterLogic strongerRosterLogic, ISuggestedRostersLogic suggestedRostersLogic, ITagsLogic tagsLogic, ITopRosterFrequencyLogic topRosterFrequencyLogic, ITopRosterPercentLogic topRosterPercentLogic, ITopRosterPlayersLogic topRosterPlayersLogic, IValidRulesLogic validRulesLogic)
         {
             _costAnalysisLogic = costAnalysisLogic;
             _csvStartersLogic = csvStartersLogic;
@@ -53,6 +54,7 @@ namespace Fantasy.API.Controllers
             _topRosterFrequencyLogic = topRosterFrequencyLogic;
             _topRosterPercentLogic = topRosterPercentLogic;
             _topRosterPlayersLogic = topRosterPlayersLogic;
+            _validRulesLogic = validRulesLogic;
         }
 
         [HttpPost("costAnalysis")]
@@ -195,6 +197,13 @@ namespace Fantasy.API.Controllers
         {
             List<int> playerIDs = _topRosterPlayersLogic.Get(request.Players, request.Rules);
             return new OkObjectResult(playerIDs);
+        }
+
+        [HttpPost("validRules")]
+        public IActionResult ValidRules([FromBody] ValidRulesRequest request)
+        {
+            RuleValidity response = _validRulesLogic.Get(request.Rules, request.Players);
+            return new OkObjectResult(response);
         }
 
     }  

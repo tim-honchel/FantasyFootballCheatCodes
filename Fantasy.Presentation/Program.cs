@@ -1,3 +1,5 @@
+using Fantasy.Presentation.Services.Implementations;
+using Fantasy.Presentation.Services.Interfaces;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -6,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddScoped<IApiCallService, ApiCallService>();
 
 var app = builder.Build();
 

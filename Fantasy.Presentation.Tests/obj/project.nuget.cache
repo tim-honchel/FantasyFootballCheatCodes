@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "w5TKYlwDtMUVmx1cvVLuf4n+im0I2PatmjUVhuUv0R/4/cF3XWHjrfmGUcU2tte9BdjUNI4ooCUwDS+a8HSUYw==",
+  "dgSpecHash": "DOCxs76J4v0KvjNLu+CJc3195AB7gbIZOdMyG/KeEKe6Mu+eLcIJXxQiFVJjvGG3i4VgdY8aSokSzDexnq3t+w==",
   "success": true,
   "projectFilePath": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation.Tests\\Fantasy.Presentation.Tests.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\timho\\.nuget\\packages\\bunit\\1.22.19\\bunit.1.22.19.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\bunit.core\\1.22.19\\bunit.core.1.22.19.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\bunit.web\\1.22.19\\bunit.web.1.22.19.nupkg.sha512",
+    "C:\\Users\\timho\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.0\\microsoft.aspnetcore.authorization.6.0.0.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.0\\microsoft.aspnetcore.components.6.0.0.nupkg.sha512",
@@ -46,6 +47,7 @@
     "C:\\Users\\timho\\.nuget\\packages\\microsoft.netcore.targets\\1.0.1\\microsoft.netcore.targets.1.0.1.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.0.0\\microsoft.testplatform.objectmodel.17.0.0.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\microsoft.testplatform.testhost\\17.0.0\\microsoft.testplatform.testhost.17.0.0.nupkg.sha512",
+    "C:\\Users\\timho\\.nuget\\packages\\moq\\4.20.69\\moq.4.20.69.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
@@ -55,6 +57,7 @@
     "C:\\Users\\timho\\.nuget\\packages\\system.collections\\4.0.11\\system.collections.4.0.11.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\system.diagnostics.debug\\4.0.11\\system.diagnostics.debug.4.0.11.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "C:\\Users\\timho\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\system.diagnostics.tools\\4.0.1\\system.diagnostics.tools.4.0.1.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\system.dynamic.runtime\\4.0.11\\system.dynamic.runtime.4.0.11.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\system.globalization\\4.0.11\\system.globalization.4.0.11.nupkg.sha512",
@@ -92,16 +95,5 @@
     "C:\\Users\\timho\\.nuget\\packages\\system.xml.readerwriter\\4.0.11\\system.xml.readerwriter.4.0.11.nupkg.sha512",
     "C:\\Users\\timho\\.nuget\\packages\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Fantasy.Presentation.Tests depends on Microsoft.NET.Test.Sdk (>= 16.12.0) but Microsoft.NET.Test.Sdk 16.12.0 was not found. An approximate best match of Microsoft.NET.Test.Sdk 17.0.0 was resolved.",
-      "libraryId": "Microsoft.NET.Test.Sdk",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }
