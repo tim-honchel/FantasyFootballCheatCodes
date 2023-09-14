@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace Fantasy.Logic.Tests
 {
     [TestFixture]
-    public class SimplifiedRaftPoolLogicTests
+    public class SimplifiedDraftPoolLogicTests
     {
         [Test]
         public void Get_Returns_ListOfPlayers_Given_ListOfPlayersAndPointAverages()
