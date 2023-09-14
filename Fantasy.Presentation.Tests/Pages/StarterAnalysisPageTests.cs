@@ -9,24 +9,24 @@ namespace Fantasy.Presentation.Tests.Pages
         [Test]
         public void Page_Renders_CorrectHeaderText()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
         [Test]
         public void Page_Renders_ListOfPlayers()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void ExportButton_Calls_CsvStartersEndpoint()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void NextButton_NavigatesTo_SuggestedStartersPage()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
     }
 }

@@ -10,43 +10,43 @@ namespace Fantasy.Logic.Tests
         [Test]
         public void Get_Returns_ListOfPlayers_Given_ListOfPlayersAndCostAnalysis()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Returns_SameListOfPlayers_Given_ListOfPlayersAndCostAnalysis()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Returns_ListOfPlayersWithNonZeroExpectedValues_Given_ListOfPlayersAndCostAnalysis()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Returns_ListOfPlayersWithCorrectExpectedValues_Given_ListOfPlayersAndCostAnalysis()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Throws_CustomException_Given_EmptyListOfPlayersD()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Throws_CustomException_Given_InvalidListOfPlayersD()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Throws_CustomException_Given_InvalidCostAnalysis()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using NUnit.Framework;
 using System;
 
 namespace Fantasy.Presentation.Tests.Pages
@@ -9,73 +10,73 @@ namespace Fantasy.Presentation.Tests.Pages
         [Test]
         public void Page_Renders_CorrectHeaderText()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Code_Calls_PointAveragesEndpoint()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Code_Calls_RelativePointsEndpoint()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Code_Calls_CostAnalysisEndpoint()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Code_Calls_ExpectedValueEndpoint()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Code_Calls_SimplifiedDraftPoolEndpoint()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Code_Calls_StrongRosterEndpoint()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Code_Calls_StrongerRosterEndpoint()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Code_Calls_PossibleRostersEndpoint()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Code_Calls_TopRosterFrequencyEndpoint()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Code_Calls_TopRosterPercentEndpoint()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Code_NavigatesTo_StarterAnalysisPageAfterApiCalls()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
     }
 }

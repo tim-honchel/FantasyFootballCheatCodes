@@ -10,37 +10,37 @@ namespace Fantasy.Logic.Tests
         [Test]
         public void Get_Returns_ListOfPlayers_Given_ListOfPlayersAndPointAverages()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Returns_ListOfPlayersWithEveryPosition_Given_ListOfPlayersAndPointAverages()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Returns_ListOfPlayersWithFewerPlayersThanOriginalList_Given_ListOfPlayersAndPointAverages()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Throws_CustomException_Given_EmptyListOfPlayers()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Throws_CustomException_Given_InvalidListOfPlayers()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Throws_CustomException_Given_InvalidPointAverages()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
     }
 }

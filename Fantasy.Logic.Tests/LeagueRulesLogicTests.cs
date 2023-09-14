@@ -10,25 +10,25 @@ namespace Fantasy.Logic.Tests
         [Test]
         public void Get_Returns_Rules_Given_RawRules()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Returns_RulesWithNonZeroProperties_Given_RawRules()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Throws_CorrectRules_Given_RawRules()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Throws_CustomException_Given_InvalidRawRules()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
     }
 }

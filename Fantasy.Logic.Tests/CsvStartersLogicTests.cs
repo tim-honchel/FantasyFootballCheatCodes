@@ -8,25 +8,25 @@ namespace Fantasy.Logic.Tests
         [Test]
         public void Get_Returns_String_Given_ListOfPlayers()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Returns_NonEmptyString_Given_ListOfPlayers()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Returns_StringContainingAllPlayers_Given_ListOfPlayers()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_ThrowsCustomException_Given_EmptyListOfPlayers()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
     }
 }

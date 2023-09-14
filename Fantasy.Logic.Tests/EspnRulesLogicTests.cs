@@ -10,25 +10,25 @@ namespace Fantasy.Logic.Tests
         [Test]
         public void Get_Returns_ESPNRules_Given_ESPNStrings()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Throws_CustomException_Given_InvalidESPNStrings()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_ThrowsCustomException_Given_PageNotFoundResponse()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_ThrowsCustomException_Given_UnauthorizedResponse()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
     }
 }

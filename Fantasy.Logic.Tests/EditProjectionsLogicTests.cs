@@ -10,25 +10,25 @@ namespace Fantasy.Logic.Tests
         [Test]
         public void Get_Returns_ListOfPlayers_Given_ListOfPlayers()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Returns_SameListOfPlayers_Given_ListOfPlayers()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Returns_CustomException_Given_EmptyListOfPlayers()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
 
         [Test]
         public void Get_Returns_CustomException_Given_InvalidListOfPlayers()
         {
-            throw new NotImplementedException();
+            Assert.Ignore();
         }
     }
 }
