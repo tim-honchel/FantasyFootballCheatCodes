@@ -4,8 +4,12 @@ using Fantasy.Presentation.Data.ViewModels;
 using Fantasy.Presentation.Services.Interfaces;
 using Microsoft.Extensions.Logging;
 using Moq;
-using System;
+using Moq.Protected;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Threading;
 using TestContext = Bunit.TestContext;
 
 namespace Fantasy.Presentation.Tests
@@ -17,6 +21,12 @@ namespace Fantasy.Presentation.Tests
         {
             Mock<IApiCallService> mockService = new();
             return mockService;
+        }
+
+        public Mock<HttpMessageHandler> GetMockHandler()
+        {
+            var mockHandler = new Mock<HttpMessageHandler>(MockBehavior.Strict);
+            return mockHandler;
         }
 
         public Bunit.TestContext GetTestContextWithApiService(Mock<IApiCallService> service)
@@ -74,6 +84,13 @@ namespace Fantasy.Presentation.Tests
                 }
             }
             return mockApiService;
+        }
+
+        public Mock<HttpMessageHandler> SetupMockHandler(Mock<HttpMessageHandler> mockHandler, Endpoint endpoint, HttpMethod requestMethodType, HttpStatusCode responseStatusCode, string returnedJson = "success")
+        {
+            var content = new StringContent(returnedJson);
+            mockHandler.Protected().Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.Is<HttpRequestMessage>(request => request.Method == requestMethodType && request.RequestUri.ToString().Contains(endpoint.ToString())), ItExpr.IsAny<CancellationToken>()).ReturnsAsync(new HttpResponseMessage() { StatusCode = responseStatusCode, Content = content }).Verifiable();
+            return mockHandler;
         }
 
         public enum Endpoint

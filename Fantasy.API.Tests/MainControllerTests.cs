@@ -1,3 +1,8 @@
+using Fantasy.API.Controllers;
+using Fantasy.Logic.Models;
+using Fantasy.Logic.Requests;
+using Microsoft.AspNetCore.Mvc;
+
 namespace Fantasy.API.Tests
 {
     [TestFixture]
@@ -6,253 +11,270 @@ namespace Fantasy.API.Tests
 
 
         [Test]
-        public void CostAnalysis_ReturnsOkObjectResult_Given_ValidResponse()
+        public void CostAnalysis_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void CostAnalysis_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void CostAnalysis_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void CsvStarters_ReturnsFile_Given_ValidResponse()
+        public void CsvStarters_Returns_File_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void CsvStarters_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void CsvStarters_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void CsvSuggestedRosters_ReturnsFile_Given_ValidResponse()
+        public void CsvSuggestedRosters_Returns_File_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void CsvSuggestedRosters_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void CsvSuggestedRosters_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void EditProjections_ReturnsOkObjectResult_Given_ValidResponse()
+        public void EditProjections_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void EditProjections_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void EditProjections_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void EspnPlayers_ReturnsOkObjectResult_Given_ValidResponse()
+        public void EspnPlayers_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void EspnPlayers_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void EspnPlayers_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void EspnRules_ReturnsOkObjectResult_Given_ValidResponse()
+        public async Task EspnRules_Returns_OkObjectResult_Given_ValidResponse()
+        {
+            EspnRulesRequest request = new();
+            MainController controller = ControllerHelper.GetControllerWithMockedDependencies(ControllerHelper.Endpoint.espnRules, ControllerHelper.ReturnType.Default);
+
+            IActionResult response = await controller.EspnRules(request);
+
+            Assert.True(response is OkObjectResult);
+        }
+
+        [Test]
+        public async Task EspnRules_Returns_EspnRules_Given_ValidResponse()
+        {
+            EspnRulesRequest request = new();
+            MainController controller = ControllerHelper.GetControllerWithMockedDependencies(ControllerHelper.Endpoint.espnRules, ControllerHelper.ReturnType.Default);
+
+            IActionResult response = await controller.EspnRules(request);
+            OkObjectResult result = (OkObjectResult)response;
+
+            Assert.IsInstanceOf<RulesESPN>(result.Value);
+        }
+
+        [Test]
+        public void EspnRules_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void EspnRules_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void ExpectedValues_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void ExpectedValues_ReturnsOkObjectResult_Given_ValidResponse()
+        public void ExpectedValues_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void ExpectedValues_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void LeagueRules_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void LeagueRules_ReturnsOkObjectResult_Given_ValidResponse()
+        public void LeagueRules_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void LeagueRules_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void PlayerProjections_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void PlayerProjections_ReturnsOkObjectResult_Given_ValidResponse()
+        public void PlayerProjections_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void PlayerProjections_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void PointAverages_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void PointAverages_ReturnsOkObjectResult_Given_ValidResponse()
+        public void PointAverages_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void PointAverages_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void PossibleRosters_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void PossibleRosters_ReturnsOkObjectResult_Given_ValidResponse()
+        public void PossibleRosters_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void PossibleRosters_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void RelativePoints_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void RelativePoints_ReturnsOkObjectResult_Given_ValidResponse()
+        public void RelativePoints_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void RelativePoints_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void SimplifiedDraftPool_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void SimplifiedDraftPool_ReturnsOkObjectResult_Given_ValidResponse()
+        public void SimplifiedDraftPool_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void SimplifiedDraftPool_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void StrongerRoster_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void StrongerRoster_ReturnsOkObjectResult_Given_ValidResponse()
+        public void StrongerRoster_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void StrongerRoster_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void StrongRoster_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void StrongRoster_ReturnsOkObjectResult_Given_ValidResponse()
+        public void StrongRoster_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void StrongRoster_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void SuggestedRosters_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void SuggestedRosters_ReturnsOkObjectResult_Given_ValidResponse()
+        public void SuggestedRosters_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void SuggestedRosters_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void Tags_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void Tags_ReturnsOkObjectResult_Given_ValidResponse()
+        public void Tags_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void Tags_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void TopRosterFrequency_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void TopRosterFrequency_ReturnsOkObjectResult_Given_ValidResponse()
+        public void TopRosterFrequency_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void TopRosterFrequency_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void TopRosterPercent_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void TopRosterPercent_ReturnsOkObjectResult_Given_ValidResponse()
+        public void TopRosterPercent_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void TopRosterPercent_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void TopRosterPlayers_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void TopRosterPlayers_ReturnsOkObjectResult_Given_ValidResponse()
+        public void TopRosterPlayers_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void TopRosterPlayers_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void ValidRules_Returns_OkObjectResult_Given_ValidResponse()
         {
             Assert.Ignore();
         }
 
         [Test]
-        public void ValidRules_ReturnsOkObjectResult_Given_ValidResponse()
-        {
-            Assert.Ignore();
-        }
-
-        [Test]
-        public void ValidRules_ReturnsBadRequestObjectResult_Given_CustomException()
+        public void ValidRules_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();
         }

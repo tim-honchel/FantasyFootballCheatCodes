@@ -94,14 +94,14 @@ namespace Fantasy.API.Controllers
             return new OkObjectResult(updatedPlayers);
         }
 
-        [HttpGet("espnPlayers")]
+        [HttpPost("espnPlayers")]
         public async Task<IActionResult> EspnPlayers([FromBody]EspnPlayersRequest request)
         {
             List<PlayerESPN> players = await _espnPlayersLogic.Get(request.LeagueID, request.espn_s2, request.swid);
             return new OkObjectResult(players);
         }
 
-        [HttpGet("espnRules")]
+        [HttpPost("espnRules")]
         public async Task<IActionResult> EspnRules([FromBody] EspnRulesRequest request)
         {
             RulesESPN rules = await _espnRulesLogic.Get(request.LeagueID, request.espn_s2, request.swid);
@@ -143,7 +143,7 @@ namespace Fantasy.API.Controllers
             return new OkObjectResult(players);
         }
 
-        [HttpGet("simplifiedDraftPool")]
+        [HttpPost("simplifiedDraftPool")]
         public IActionResult SimplifiedDraftPool([FromBody] SimplifiedDraftPoolRequest request)
         {
             List<Player> players = _simplifiedDraftPoolLogic.Get(request.Players, request.PointAverages);

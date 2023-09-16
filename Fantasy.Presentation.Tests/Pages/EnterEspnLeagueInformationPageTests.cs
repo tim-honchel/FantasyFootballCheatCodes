@@ -42,7 +42,7 @@ namespace Fantasy.Presentation.Tests.Pages
             TestContext testContext = _helper.GetTestContextWithApiService(service);
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();
 
-            string espn_s2 = component.Find("input[id =\"espn_s2\"]").TextContent;
+            string espn_s2 = component.Find("textarea[id =\"espn_s2\"]").TextContent;
 
             Assert.IsNotNull(espn_s2);
         }

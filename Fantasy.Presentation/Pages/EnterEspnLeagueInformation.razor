@@ -18,14 +18,14 @@
 
     <label for="LeagueID" class="control-label">ESPN League ID: </label>
     <br />
-    <InputText @bind-Value="espnModel.LeagueID" id="leagueID" />
+    <InputText @bind-Value="espnModel.LeagueID" id="leagueID" style = "width:150px"/>
 
     <br />
     <br />
 
     <label for="espn_s2" class="control-label">espn_s2 Cookie: </label>
     <br />
-    <InputText @bind-Value="espnModel.espn_s2" id="espn_s2" />
+    <InputTextArea @bind-Value="espnModel.espn_s2" id="espn_s2" style="width:100%; height:80px"/>
 
     <br />
     <br />
@@ -33,7 +33,7 @@
 
     <label for="swid" class="control-label">swid Cookie: </label>
     <br />
-    <InputText @bind-Value="espnModel.swid" id="swid" />
+    <InputText @bind-Value="espnModel.swid" id="swid" style ="width:420px"/>
 
     <br />
     <br />
@@ -46,7 +46,12 @@
 </EditForm>
 
 @code {
-    private EspnRulesRequestObject espnModel = new(); 
+    private EspnRulesRequestObject espnModel = new()
+        {
+            LeagueID = "1472201749",
+            espn_s2 = "espn_s2=AEBUl2qnSDad1uBMx5bD5kwRp1%2BuMGyUn%2FVHGkXh1VcOzucbIMKtogYveuIhohTtzhmgO2Yzq8gsvWWNIKcF%2FPIYrWR9F8JyAUShUCDChkqo0JziBOrnw5OxA4sGD4HfgCIJ61Iz%2FaAy7kwFHcP0qhVMWgHUXUcjIPI1qXxdQt3%2BIzqN619fPtE3M4Wzu8C%2BVoekS0%2FcPwv1v13OojdUCLIlghkcUUwf6Q6rCc31fxTki62QjiHFoTZ8YPOoF0HkSa8KspuIM6oAcA0e0IDYxhGj;",
+            swid = "SWID={5392B6D6-D775-475C-833C-5AEB107000B2};"
+    }; 
 
     public async void HandleValidSubmit()
     {

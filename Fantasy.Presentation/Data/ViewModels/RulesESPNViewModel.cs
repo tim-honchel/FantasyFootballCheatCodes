@@ -12,8 +12,8 @@
         public int AuctionBudget { get; set; } = 0;
         public bool IsTradingEnabled { get; set; } = false;
         public int KeeperCount { get; set; } = 0;
-        public Dictionary<string, int> PositionSlotCounts { get; set; } = new();
-        public Dictionary<string, int> PositionLimits { get; set; } = new();
+        public Dictionary<int, int> PositionSlotCounts { get; set; } = new();
+        public Dictionary<int, int> PositionLimits { get; set; } = new();
         public int MatchupPeriods { get; set; } = 0;
         public int MatchupPeriodLength { get; set; } = 0;
         public int PlayoffMatchupPeriodLength { get; set; } = 0;

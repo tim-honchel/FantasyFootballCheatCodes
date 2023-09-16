@@ -2,11 +2,29 @@
 using Fantasy.Presentation.Data.ViewModels;
 using Fantasy.Presentation.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http.Headers;
 
 namespace Fantasy.Presentation.Services.Implementations
 {
     public class ApiCallService : IApiCallService
     {
+        HttpClient _client;
+
+        public ApiCallService()
+        {
+            _client = new HttpClient();
+            string url = "https://localhost:7164/";
+            _client.BaseAddress = new Uri(url);
+            _client.DefaultRequestHeaders.Clear();
+        }
+
+        public ApiCallService(HttpMessageHandler handler) // for unit testing, to allow mocking
+        {
+            _client = new HttpClient(handler);
+            _client.BaseAddress = new Uri("https://testing/");
+            _client.DefaultRequestHeaders.Clear();
+        }
+
         public CostAnalysisViewModel CostAnalysis(CostAnalysisRequestObject request)
         {
             throw new NotImplementedException();
@@ -27,9 +45,11 @@ namespace Fantasy.Presentation.Services.Implementations
             throw new NotImplementedException();
         }
 
-        public Task<RulesESPNViewModel> EspnRules(EspnRulesRequestObject request)
+        public async Task<RulesESPNViewModel> EspnRules(EspnRulesRequestObject request)
         {
-            throw new NotImplementedException();
+            HttpResponseMessage response = await _client.PostAsJsonAsync("espnRules", request);
+            RulesESPNViewModel rules = await response.Content.ReadFromJsonAsync<RulesESPNViewModel>();
+            return rules;
         }
 
         public List<PlayerViewModel> ExpectedValue(ExpectedValueRequestObject request)

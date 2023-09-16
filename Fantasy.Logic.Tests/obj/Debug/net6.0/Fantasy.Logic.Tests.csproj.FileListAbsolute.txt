@@ -97,3 +97,7 @@ C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic.Tests\obj
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic.Tests\obj\Debug\net6.0\Fantasy.Logic.Tests.pdb
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic.Tests\obj\Debug\net6.0\Fantasy.Logic.Tests.genruntimeconfig.cache
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic.Tests\obj\Debug\net6.0\ref\Fantasy.Logic.Tests.dll
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic.Tests\bin\Debug\net6.0\CoverletSourceRootsMapping
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic.Tests\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic.Tests\bin\Debug\net6.0\Fantasy.Logic.dll
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Logic.Tests\bin\Debug\net6.0\Fantasy.Logic.pdb
