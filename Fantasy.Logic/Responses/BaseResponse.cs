@@ -9,6 +9,6 @@ namespace Fantasy.Logic.Responses
 
     public enum ErrorType
     {
-
+        ProviderNotSupported
     }
 }

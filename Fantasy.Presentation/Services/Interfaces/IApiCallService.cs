@@ -12,7 +12,7 @@ namespace Fantasy.Presentation.Services.Interfaces
         List<PlayerViewModel> ExpectedValue(ExpectedValueRequestObject request);
         Task<List<PlayerESPNViewModel>> EspnPlayers(EspnPlayersRequestObject request);
         Task<RulesESPNViewModel> EspnRules(EspnRulesRequestObject request);
-        RulesViewModel LeagueRules(LeagueRulesRequestObject request);
+        Task<RulesViewModel> LeagueRules(LeagueRulesRequestObject request);
         List<PlayerViewModel> PlayerProjections(PlayerProjectionsRequestObject request);
         PointAveragesViewModel PointAverages(PointAveragesRequestObject request);
         List<RosterViewModel> PossibleRosters(PossibleRostersRequestObject request);

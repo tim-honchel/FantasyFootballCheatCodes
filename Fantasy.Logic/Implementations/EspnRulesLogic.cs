@@ -3,9 +3,7 @@ using Fantasy.Logic.Models;
 using Fantasy.Logic.Requests;
 using Fantasy.Logic.Responses;
 using Newtonsoft.Json.Linq;
-using System.Formats.Asn1;
 using System.Net.Http.Headers;
-using System.Security;
 
 namespace Fantasy.Logic.Implementations
 {

@@ -55,8 +55,6 @@
 
     public async void HandleValidSubmit()
     {
-
-
         RulesESPNViewModel espnRules = new();
         try
         {
@@ -73,8 +71,8 @@
             return;
         }
 
-        LeagueRulesRequestObject leagueRulesRequest = new() { Rules = espnRules};
-        RulesViewModel rules = service.LeagueRules(leagueRulesRequest);
+        LeagueRulesRequestObject leagueRulesRequest = new() { Provider = Provider.ESPN, EspnRules = espnRules};
+        RulesViewModel rules = await service.LeagueRules(leagueRulesRequest);
 
         EspnPlayersRequestObject espnPlayersRequest = new() { LeagueID = espnModel.LeagueID, espn_s2 = espnModel.espn_s2, swid = espnModel.swid };
         List<PlayerESPNViewModel> espnPlayers = await service.EspnPlayers(espnPlayersRequest);

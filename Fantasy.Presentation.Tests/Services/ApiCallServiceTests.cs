@@ -28,5 +28,19 @@ namespace Fantasy.Presentation.Tests.Services
 
             Assert.AreEqual(JsonSerializer.Serialize(response), JsonSerializer.Serialize(rules));
         }
+
+        [Test]
+        public async Task LeagueRules_Returns_Rules_GivenSuccessfulCall()
+        {
+            LeagueRulesRequestObject request = new();
+            RulesViewModel rules = new();
+            Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
+            _helper.SetupMockHandler(handler, ContextHelper.Endpoint.leagueRules, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(rules));
+            ApiCallService service = new ApiCallService(handler.Object);
+
+            RulesViewModel response = await service.LeagueRules(request);
+
+            Assert.AreEqual(JsonSerializer.Serialize(response), JsonSerializer.Serialize(rules));
+        }
     }
 }

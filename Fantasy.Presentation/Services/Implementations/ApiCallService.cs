@@ -71,9 +71,23 @@ namespace Fantasy.Presentation.Services.Implementations
             throw new NotImplementedException();
         }
 
-        public RulesViewModel LeagueRules(LeagueRulesRequestObject request)
+        public async Task<RulesViewModel> LeagueRules(LeagueRulesRequestObject request)
         {
-            throw new NotImplementedException();
+            HttpResponseMessage response = await _client.PostAsJsonAsync("leagueRules", request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ServerErrorException();
+            }
+
+            LeagueRulesResponseObject? result = await response.Content.ReadFromJsonAsync<LeagueRulesResponseObject>();
+            if (result == null)
+            {
+                throw new NullContentException();
+            }
+
+            RulesViewModel rules = result.Rules;
+
+            return rules;
         }
 
         public List<PlayerViewModel> PlayerProjections(PlayerProjectionsRequestObject request)

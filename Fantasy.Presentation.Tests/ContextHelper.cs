@@ -63,7 +63,7 @@ namespace Fantasy.Presentation.Tests
             else if (endpoint == Endpoint.leagueRules)
             {
                 RulesViewModel rules = new();
-                mockApiService.Setup(service => service.LeagueRules(It.IsAny<LeagueRulesRequestObject>())).Returns(rules);
+                mockApiService.Setup(service => service.LeagueRules(It.IsAny<LeagueRulesRequestObject>())).ReturnsAsync(rules);
             }
             else if (endpoint == Endpoint.playerProjections)
             {

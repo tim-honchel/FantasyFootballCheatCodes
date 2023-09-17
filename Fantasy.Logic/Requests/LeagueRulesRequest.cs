@@ -4,6 +4,12 @@ namespace Fantasy.Logic.Requests
 {
     public class LeagueRulesRequest
     {
-        public RulesESPN Rules { get; set; } = new();
+        public Provider Provider { get; set; }
+        public RulesESPN EspnRules { get; set; } = new();
+    }
+
+    public enum Provider
+    {
+        ESPN
     }
 }

@@ -4,6 +4,12 @@ namespace Fantasy.Presentation.Data.RequestObjects
 {
     public class LeagueRulesRequestObject
     {
-        public RulesESPNViewModel Rules { get; set; } = new();
+        public Provider Provider { get; set; }
+        public RulesESPNViewModel EspnRules { get; set; } = new();
+    }
+
+    public enum Provider
+    {
+        ESPN
     }
 }
