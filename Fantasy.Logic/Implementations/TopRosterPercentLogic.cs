@@ -1,11 +1,13 @@
 ﻿using Fantasy.Logic.Interfaces;
 using Fantasy.Logic.Models;
+using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Implementations
 {
     public class TopRosterPercentLogic : ITopRosterPercentLogic
     {
-        public List<Player> Get(List<Player> allPlayers, CountByID frequency)
+        public TopRosterPercentResponse Get(TopRosterPercentRequest request)
         {
             throw new NotImplementedException();
         }

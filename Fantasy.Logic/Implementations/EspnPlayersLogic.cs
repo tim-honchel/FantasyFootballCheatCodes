@@ -1,11 +1,12 @@
 ﻿using Fantasy.Logic.Interfaces;
-using Fantasy.Logic.Models;
+using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Implementations
 {
     public class EspnPlayersLogic : IEspnPlayersLogic
     {
-        public Task<List<PlayerESPN>> Get(string leagueID, string espn_s2, string swid)
+        public Task<EspnPlayersResponse> Get(EspnPlayersRequest request)
         {
             throw new NotImplementedException();
         }

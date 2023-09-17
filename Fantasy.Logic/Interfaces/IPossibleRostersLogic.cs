@@ -1,11 +1,10 @@
-﻿
-
-using Fantasy.Logic.Models;
+﻿using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Interfaces
 {
     public interface IPossibleRostersLogic
     {
-        List<Roster> Get(Roster strongerRoster, List<Player> allPlayers, Rules rules);
+        PossibleRostersResponse Get(PossibleRostersRequest request);
     }
 }

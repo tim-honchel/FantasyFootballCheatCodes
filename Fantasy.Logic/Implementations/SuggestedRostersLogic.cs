@@ -1,11 +1,13 @@
 ﻿using Fantasy.Logic.Interfaces;
 using Fantasy.Logic.Models;
+using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Implementations
 {
     public class SuggestedRostersLogic : ISuggestedRostersLogic
     {
-        public List<DraftBoard> Get(List<Player> allPlayers, List<Roster> topRosters, List<int> topPlayerIDs)
+        public SuggestedRostersResponse Get(SuggestedRostersRequest request)
         {
             throw new NotImplementedException();
         }

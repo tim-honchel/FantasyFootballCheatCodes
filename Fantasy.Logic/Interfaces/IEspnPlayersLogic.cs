@@ -1,9 +1,10 @@
-﻿using Fantasy.Logic.Models;
+﻿using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Interfaces
 {
     public interface IEspnPlayersLogic
     {
-        Task<List<PlayerESPN>> Get(string leagueID, string espn_s2, string swid);
+        Task<EspnPlayersResponse> Get(EspnPlayersRequest request);
     }
 }

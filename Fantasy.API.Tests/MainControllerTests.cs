@@ -1,6 +1,7 @@
 using Fantasy.API.Controllers;
 using Fantasy.Logic.Models;
 using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fantasy.API.Tests
@@ -87,10 +88,11 @@ namespace Fantasy.API.Tests
             EspnRulesRequest request = new();
             MainController controller = ControllerHelper.GetControllerWithMockedDependencies(ControllerHelper.Endpoint.espnRules, ControllerHelper.ReturnType.Default);
 
-            IActionResult response = await controller.EspnRules(request);
-            OkObjectResult result = (OkObjectResult)response;
+            OkObjectResult response = (OkObjectResult) await controller.EspnRules(request);
+            EspnRulesResponse? result = (EspnRulesResponse?)response.Value;
 
-            Assert.IsInstanceOf<RulesESPN>(result.Value);
+
+            Assert.IsNotNull(result?.Rules);
         }
 
         [Test]

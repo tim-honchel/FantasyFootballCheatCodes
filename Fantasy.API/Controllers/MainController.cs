@@ -1,6 +1,7 @@
 using Fantasy.Logic.Interfaces;
 using Fantasy.Logic.Models;
 using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 
@@ -60,14 +61,14 @@ namespace Fantasy.API.Controllers
         [HttpPost("costAnalysis")]
         public IActionResult CostAnalysis([FromBody] CostAnalysisRequest request)
         {
-            CostAnalysis analysis = _costAnalysisLogic.Get(request.Players);
-            return new OkObjectResult(analysis);
+            CostAnalysisResponse response = _costAnalysisLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("csvStarters")]
         public IActionResult CsvStarters([FromBody] CsvStartersRequest request)
         {
-            string csv = _csvStartersLogic.Get(request.Players);
+            string csv = _csvStartersLogic.Get(request);
             var fileBytes = Encoding.UTF8.GetBytes(csv);
             return File(fileBytes, "text/csv", "FantasyStarters.csv");
         }
@@ -75,134 +76,134 @@ namespace Fantasy.API.Controllers
         [HttpPost("csvSuggestedRosters")]
         public IActionResult CsvSuggestedRosters(CsvSuggestedRosterRequest request)
         {
-            string csv = _csvSuggestedRostersLogic.Get(request.DraftBoards);
+            string csv = _csvSuggestedRostersLogic.Get(request);
             var fileBytes = Encoding.UTF8.GetBytes(csv);
             return File(fileBytes, "text/csv", "FantasySuggestedRosters.csv");
         }
 
         [HttpPut("editProjections")]
-        public IActionResult EditProjections([FromBody] List<Player> editedPlayers)
+        public IActionResult EditProjections([FromBody] EditProjectionsRequest request)
         {
-            List<Player> players = _editProjectionsLogic.Get(editedPlayers);
-            return new OkObjectResult(players);
-        }
-
-        [HttpPut("expectedValue")]
-        public IActionResult ExpectedValue([FromBody] ExpectedValueRequest request)
-        {
-            List<Player> updatedPlayers = _expectedValueLogic.Get(request.CostAnalysis, request.Players);
-            return new OkObjectResult(updatedPlayers);
+            EditProjectionsResponse response = _editProjectionsLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("espnPlayers")]
         public async Task<IActionResult> EspnPlayers([FromBody]EspnPlayersRequest request)
         {
-            List<PlayerESPN> players = await _espnPlayersLogic.Get(request.LeagueID, request.espn_s2, request.swid);
-            return new OkObjectResult(players);
+            EspnPlayersResponse response = await _espnPlayersLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("espnRules")]
         public async Task<IActionResult> EspnRules([FromBody] EspnRulesRequest request)
         {
-            RulesESPN rules = await _espnRulesLogic.Get(request.LeagueID, request.espn_s2, request.swid);
-            return new OkObjectResult(rules);
+            EspnRulesResponse response = await _espnRulesLogic.Get(request);
+            return new OkObjectResult(response);
+        }
+
+        [HttpPut("expectedValue")]
+        public IActionResult ExpectedValue([FromBody] ExpectedValueRequest request)
+        {
+            ExpectedValueResponse response = _expectedValueLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("leagueRules")]
         public IActionResult LeagueRules([FromBody] LeagueRulesRequest request)
         {
-            Rules parsedRules = _leagueRulesLogic.Get(request.Rules);
-            return new OkObjectResult(parsedRules);
+            LeagueRulesResponse response = _leagueRulesLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("playerProjections")]
         public IActionResult PlayerProjections([FromBody] PlayerProjectionsRequest request)
         {
-            List<Player> parsedPlayers = _playerProjectionsLogic.Get(request.Players);
-            return new OkObjectResult(parsedPlayers);
+            PlayerProjectionsResponse response = _playerProjectionsLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("pointAverages")]
         public IActionResult PointAverages([FromBody] PointAveragesRequest request)
         {
-            PointAverages averages = _pointAveragesLogic.Get(request.Players, request.Rules);
-            return new OkObjectResult(averages);
+            PointAveragesResponse response = _pointAveragesLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("possibleRosters")]
         public IActionResult PossibleRosters([FromBody] PossibleRostersRequest request)
         {
-            List<Roster> rosters = _possibleRostersLogic.Get(request.Roster, request.Players, request.Rules);
-            return new OkObjectResult(rosters);
+            PossibleRostersResponse response = _possibleRostersLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("relativePoints")]
         public IActionResult RelativePoints([FromBody] RelativePointsRequest request)
         {
-            List<Player> players = _relativePointsLogic.Get(request.PointAverages, request.Players);
-            return new OkObjectResult(players);
+             RelativePointsResponse response = _relativePointsLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("simplifiedDraftPool")]
         public IActionResult SimplifiedDraftPool([FromBody] SimplifiedDraftPoolRequest request)
         {
-            List<Player> players = _simplifiedDraftPoolLogic.Get(request.Players, request.PointAverages);
-            return new OkObjectResult(players);
+            SimplifiedDraftPoolResponse response = _simplifiedDraftPoolLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPut("strongerRoster")]
         public IActionResult StrongerRoster([FromBody] StrongerRosterRequest request)
         {
-            Roster roster = _strongerRosterLogic.Get(request.Roster, request.Players, request.Rules);
-            return new OkObjectResult(roster);
+            StrongerRosterResponse response = _strongerRosterLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("strongRoster")]
         public IActionResult StrongRoster([FromBody] StrongRosterRequest request)
         {
-            Roster roster = _strongRosterLogic.Get(request.Players, request.Rules);
-            return new OkObjectResult(roster);
+            StrongRosterResponse response = _strongRosterLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("suggestedRosters")]
         public IActionResult SuggestedRosters([FromBody] SuggestedRostersRequest request)
         {
-            List<DraftBoard> draftBoard = _suggestedRostersLogic.Get(request.Players, request.Rosters, request.PlayerIDs);
-            return new OkObjectResult(draftBoard);
+            SuggestedRostersResponse response = _suggestedRostersLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPut("tags")]
         public IActionResult Tags([FromBody] TagsRequest request)
         {
-            List<Player> taggedPlayers = _tagsLogic.Get(request.Players);
-            return new OkObjectResult(taggedPlayers);
+            TagsResponse response = _tagsLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("topRosterFrequency")]
         public IActionResult TopRosterFrequency([FromBody] TopRosterFrequencyRequest request)
         {
-            CountByID frequency = _topRosterFrequencyLogic.Get(request.Rosters);
-            return new OkObjectResult(frequency);
+            TopRosterFrequencyResponse response = _topRosterFrequencyLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("topRosterPercent")]
         public IActionResult TopRosterPercent([FromBody] TopRosterPercentRequest request)
         {
-            List<Player> players = _topRosterPercentLogic.Get(request.Players, request.Frequency);
-            return new OkObjectResult(players);
+            TopRosterPercentResponse response = _topRosterPercentLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("topRosterPlayers")]
         public IActionResult TopRosterPlayers([FromBody] TopRosterPlayersRequest request)
         {
-            List<int> playerIDs = _topRosterPlayersLogic.Get(request.Players, request.Rules);
-            return new OkObjectResult(playerIDs);
+            TopRosterPlayersResponse response = _topRosterPlayersLogic.Get(request);
+            return new OkObjectResult(response);
         }
 
         [HttpPost("validRules")]
         public IActionResult ValidRules([FromBody] ValidRulesRequest request)
         {
-            RuleValidity response = _validRulesLogic.Get(request.Rules, request.Players);
+            ValidRulesResponse response = _validRulesLogic.Get(request);
             return new OkObjectResult(response);
         }
 

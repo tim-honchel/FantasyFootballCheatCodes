@@ -1,9 +1,10 @@
-﻿using Fantasy.Logic.Models;
+﻿using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Interfaces
 {
     public interface IEditProjectionsLogic
     {
-        List<Player> Get(List<Player> editedPlayers);
+        EditProjectionsResponse Get(EditProjectionsRequest request);
     }
 }

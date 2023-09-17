@@ -3,6 +3,8 @@ using Fantasy.API.Controllers;
 using Fantasy.Logic.Implementations;
 using Fantasy.Logic.Interfaces;
 using Fantasy.Logic.Models;
+using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 using Moq;
 
 namespace Fantasy.API.Tests
@@ -35,8 +37,8 @@ namespace Fantasy.API.Tests
 
             if (endpoint == Endpoint.espnRules)
             {
-                RulesESPN rules = new();
-                espnRulesLogic.Setup(logic => logic.Get(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(rules);
+                EspnRulesResponse response = new();
+                espnRulesLogic.Setup(logic => logic.Get(It.IsAny<EspnRulesRequest>())).ReturnsAsync(response);
             }
 
             MainController controller = new(costAnalysisLogic.Object, csvStartersLogic.Object, csvSuggestedRostersLogic.Object, editProjectionsLogic.Object, espnPlayersLogic.Object, espnRulesLogic.Object, expectedValueLogic.Object, leagueRulesLogic.Object, playerProjectionsLogic.Object, pointAveragesLogic.Object, possibleRostersLogic.Object, relativePointsLogic.Object, simplifiedDraftPoolLogic.Object, strongRosterLogic.Object, strongerRosterLogic.Object, suggestedRostersLogic.Object, tagsLogic.Object, topRosterFrequencyLogic.Object,topRosterPercentLogic.Object, topRosterPlayersLogic.Object, validRulesLogic.Object);

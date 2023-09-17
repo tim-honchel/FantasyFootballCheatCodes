@@ -1,11 +1,12 @@
 ﻿using Fantasy.Logic.Interfaces;
-using Fantasy.Logic.Models;
+using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Implementations
 {
     public class RelativePointsLogic : IRelativePointsLogic
     {
-        public List<Player> Get(PointAverages averages, List<Player> players)
+        public RelativePointsResponse Get(RelativePointsRequest request)
         {
             throw new NotImplementedException();
         }

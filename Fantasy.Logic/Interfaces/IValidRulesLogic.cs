@@ -1,9 +1,10 @@
-﻿using Fantasy.Logic.Models;
+﻿using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Interfaces
 {
     public interface IValidRulesLogic
     {
-        RuleValidity Get(Rules rules, List<Player> players);
+        ValidRulesResponse Get(ValidRulesRequest request);
     }
 }

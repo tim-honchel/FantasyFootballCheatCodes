@@ -1,11 +1,10 @@
-﻿
-
-using Fantasy.Logic.Models;
+﻿using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Interfaces
 {
     public interface ITopRosterPlayersLogic
     {
-        List<int> Get(List<Player> allPlayers, Rules rules);
+        TopRosterPlayersResponse Get(TopRosterPlayersRequest request);
     }
 }

@@ -1,11 +1,12 @@
 ﻿using Fantasy.Logic.Interfaces;
-using Fantasy.Logic.Models;
+using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Implementations
 {
     public class StrongerRosterLogic : IStrongerRosterLogic
     {
-        public Roster Get(Roster strongRoster, List<Player> allPlayers, Rules rules)
+        public StrongerRosterResponse Get(StrongerRosterRequest request)
         {
             throw new NotImplementedException();
         }

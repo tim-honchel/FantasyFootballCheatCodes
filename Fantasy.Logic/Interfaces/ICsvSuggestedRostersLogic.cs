@@ -1,9 +1,9 @@
-﻿using Fantasy.Logic.Models;
+﻿using Fantasy.Logic.Requests;
 
 namespace Fantasy.Logic.Interfaces
 {
     public interface ICsvSuggestedRostersLogic
     {
-        string Get(List<DraftBoard> suggestedRosters);
+        string Get(CsvSuggestedRosterRequest request);
     }
 }

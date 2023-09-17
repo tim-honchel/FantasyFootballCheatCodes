@@ -89,7 +89,7 @@ namespace Fantasy.Presentation.Tests
         public Mock<HttpMessageHandler> SetupMockHandler(Mock<HttpMessageHandler> mockHandler, Endpoint endpoint, HttpMethod requestMethodType, HttpStatusCode responseStatusCode, string returnedJson = "success")
         {
             var content = new StringContent(returnedJson);
-            mockHandler.Protected().Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.Is<HttpRequestMessage>(request => request.Method == requestMethodType && request.RequestUri.ToString().Contains(endpoint.ToString())), ItExpr.IsAny<CancellationToken>()).ReturnsAsync(new HttpResponseMessage() { StatusCode = responseStatusCode, Content = content }).Verifiable();
+            mockHandler.Protected().Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.Is<HttpRequestMessage>(request => request.Method == requestMethodType && request.RequestUri != null && request.RequestUri.ToString().Contains(endpoint.ToString())), ItExpr.IsAny<CancellationToken>()).ReturnsAsync(new HttpResponseMessage() { StatusCode = responseStatusCode, Content = content }).Verifiable();
             return mockHandler;
         }
 

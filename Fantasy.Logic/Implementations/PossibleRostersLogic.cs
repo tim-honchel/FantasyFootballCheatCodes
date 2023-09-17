@@ -1,11 +1,12 @@
 ﻿using Fantasy.Logic.Interfaces;
-using Fantasy.Logic.Models;
+using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Implementations
 {
     public class PossibleRostersLogic : IPossibleRostersLogic
     {
-        public List<Roster> Get(Roster strongerRoster, List<Player> allPlayers, Rules rules)
+        public PossibleRostersResponse Get(PossibleRostersRequest request)
         {
             throw new NotImplementedException();
         }

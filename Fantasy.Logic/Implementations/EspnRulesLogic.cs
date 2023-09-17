@@ -1,21 +1,31 @@
 ﻿using Fantasy.Logic.Interfaces;
 using Fantasy.Logic.Models;
+using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 using Newtonsoft.Json.Linq;
+using System.Formats.Asn1;
 using System.Net.Http.Headers;
+using System.Security;
 
 namespace Fantasy.Logic.Implementations
 {
     public class EspnRulesLogic : IEspnRulesLogic
     {
-        public async Task<RulesESPN> Get(string leagueID, string espn_s2, string swid)
+        public async Task<EspnRulesResponse> Get(EspnRulesRequest request)
         {
-            HttpClient client = SetupClient(leagueID, espn_s2, swid);
+            HttpClient client = SetupClient(request.LeagueID, request.espn_s2, request.swid);
 
-            string response = await client.GetStringAsync("");
+            string espnResponse = await client.GetStringAsync("");
 
-            RulesESPN rules = ParseRules(response, leagueID);
+            RulesESPN rules = ParseRules(espnResponse, request.LeagueID);
 
-            return rules;
+            EspnRulesResponse response = new()
+            {
+                Success = true,
+                Rules = rules
+            };
+
+            return response;
 
         }
 

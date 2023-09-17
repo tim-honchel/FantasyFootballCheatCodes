@@ -1,11 +1,12 @@
 ﻿using Fantasy.Logic.Interfaces;
-using Fantasy.Logic.Models;
+using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Implementations
 {
     public class PlayerProjectionsLogic : IPlayerProjectionsLogic
     {
-        public List<Player> Get(List<PlayerESPN> espnPlayers)
+        public PlayerProjectionsResponse Get(PlayerProjectionsRequest request)
         {
             throw new NotImplementedException();
         }

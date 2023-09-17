@@ -1,10 +1,10 @@
-﻿using Fantasy.Logic.Models;
-using Fantasy.Logic.Requests;
+﻿using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Interfaces
 {
     public interface IRelativePointsLogic
     {
-        List<Player> Get(PointAverages averages, List<Player> players);
+        RelativePointsResponse Get(RelativePointsRequest request);
     }
 }

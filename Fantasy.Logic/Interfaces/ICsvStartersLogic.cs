@@ -1,9 +1,10 @@
 ﻿using Fantasy.Logic.Models;
+using Fantasy.Logic.Requests;
 
 namespace Fantasy.Logic.Interfaces
 {
     public interface ICsvStartersLogic
     {
-        string Get(List<Player> playersToDisplay);
+        string Get(CsvStartersRequest request);
     }
 }

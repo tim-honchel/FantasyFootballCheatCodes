@@ -1,4 +1,6 @@
-﻿using Fantasy.Presentation.Data.RequestObjects;
+﻿using Fantasy.Presentation.Data.Exceptions;
+using Fantasy.Presentation.Data.RequestObjects;
+using Fantasy.Presentation.Data.Responses;
 using Fantasy.Presentation.Data.ViewModels;
 using Fantasy.Presentation.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -47,8 +49,20 @@ namespace Fantasy.Presentation.Services.Implementations
 
         public async Task<RulesESPNViewModel> EspnRules(EspnRulesRequestObject request)
         {
-            HttpResponseMessage response = await _client.PostAsJsonAsync("espnRules", request);
-            RulesESPNViewModel rules = await response.Content.ReadFromJsonAsync<RulesESPNViewModel>();
+            HttpResponseMessage response = await _client.PostAsJsonAsync("espnRules", request); 
+            if(!response.IsSuccessStatusCode)
+            {
+                throw new ServerErrorException();
+            }
+
+            EspnRulesResponseObject? result = await response.Content.ReadFromJsonAsync<EspnRulesResponseObject>();
+            if(result == null)
+            {
+                throw new NullContentException();
+            }
+
+            RulesESPNViewModel rules = result.Rules;
+            
             return rules;
         }
 

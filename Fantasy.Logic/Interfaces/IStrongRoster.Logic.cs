@@ -1,10 +1,11 @@
-﻿using Fantasy.Logic.Models;
+﻿using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Interfaces
 {
     public interface IStrongRosterLogic
     {
-        Roster Get(List<Player> playerShortList, Rules rules);
+        StrongRosterResponse Get(StrongRosterRequest request);
     }
 
 }

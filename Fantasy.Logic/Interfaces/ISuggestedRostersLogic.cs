@@ -1,9 +1,10 @@
-﻿using Fantasy.Logic.Models;
+﻿using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Interfaces
 {
     public interface ISuggestedRostersLogic
     {
-        List<DraftBoard> Get(List<Player> allPlayers, List<Roster> topRosters, List<int> topPlayerIDs);
+        SuggestedRostersResponse Get(SuggestedRostersRequest request);
     }
 }

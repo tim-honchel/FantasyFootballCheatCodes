@@ -1,11 +1,12 @@
 ﻿using Fantasy.Logic.Interfaces;
-using Fantasy.Logic.Models;
+using Fantasy.Logic.Requests;
+using Fantasy.Logic.Responses;
 
 namespace Fantasy.Logic.Implementations
 {
     public class SimplifiedDraftPoolLogic : ISimplifiedDraftPoolLogic
     {
-        public List<Player> Get(List<Player> allPlayers, PointAverages averages)
+        public SimplifiedDraftPoolResponse Get(SimplifiedDraftPoolRequest request)
         {
             throw new NotImplementedException();
         }
