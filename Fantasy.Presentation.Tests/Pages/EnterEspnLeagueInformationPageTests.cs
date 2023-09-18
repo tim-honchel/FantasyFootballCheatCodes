@@ -149,7 +149,7 @@ namespace Fantasy.Presentation.Tests.Pages
             component.Find("form").Submit();
 
             string page = navigation.Uri.Substring(navigation.BaseUri.Length).ToLower();
-            Assert.AreEqual(page, "leaguenotfound");
+            Assert.AreEqual(page, "error/leaguenotfound");
         }
         [Test]
         public void ButtonClick_NavigatesTo_LeagueNotAccessiblePage_Given_CustomException()
@@ -168,7 +168,7 @@ namespace Fantasy.Presentation.Tests.Pages
             component.Find("form").Submit();
 
             string page = navigation.Uri.Substring(navigation.BaseUri.Length).ToLower();
-            Assert.AreEqual(page, "leaguenotaccessible");
+            Assert.AreEqual(page, "error/leaguenotaccessible");
         }
         [Test]
         public void ButtonClick_NavigatesTo_LeagueNotSupportedPage_Given_InvalidRuleResponse()
@@ -187,7 +187,7 @@ namespace Fantasy.Presentation.Tests.Pages
             component.Find("form").Submit();
 
             string page = navigation.Uri.Substring(navigation.BaseUri.Length).ToLower();
-            Assert.AreEqual(page, "leaguenotsupported");
+            Assert.AreEqual(page, "error/leaguenotsupported");
         }
         [Test]
         public void ButtonClick_NavigatesTo_LeagueRulesAndProjections_Given_SuccesssfulAPIResponses()

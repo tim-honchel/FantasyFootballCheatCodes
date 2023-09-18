@@ -1,0 +1,32 @@
+﻿@page "/Error/{error}"
+
+<h1>@error</h1>
+<p>@message</p>
+
+@code {
+    [Parameter]
+    public string error { get; set; } = "";
+
+    public string message = "";
+
+    public Dictionary<string, string> errorMessages = new()
+    {
+        {"LeagueNotAccessible", "A league was found, but could not be accessed using the provided authorization. Please double check the cookies/credentials and try again."},
+        {"LeagueNotFound", "A league was not found for the League ID provided. Please dobule check the league ID and try again."},
+        {"LeagueNotSupported", "A league was found, but the rule structure is currently not supported."}
+    };
+
+    protected override Task OnInitializedAsync()
+    {
+        if ( errorMessages.ContainsKey(error))
+        {
+            message = errorMessages[error];
+            error = error + " Error";
+        }
+        else{
+            error = "Error";
+            message = "An error occurred while processing your request. Please try again and report the problem if the error continues.";
+        }
+        return base.OnInitializedAsync();
+    }
+}

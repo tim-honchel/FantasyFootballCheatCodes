@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{639588C2-76A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fantasy.Presentation.Tests", "Fantasy.Presentation.Tests\Fantasy.Presentation.Tests.csproj", "{34AF7FDB-7FE6-4B35-80DC-7BBFF47A8E54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fantasy.API.Tests", "Fantasy.API.Tests\Fantasy.API.Tests.csproj", "{A80CDDF4-36E9-436D-A33C-9D5700CDF4CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fantasy.API.Tests", "Fantasy.API.Tests\Fantasy.API.Tests.csproj", "{A80CDDF4-36E9-436D-A33C-9D5700CDF4CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

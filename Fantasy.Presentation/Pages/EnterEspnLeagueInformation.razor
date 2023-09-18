@@ -62,12 +62,12 @@
         }
         catch (LeagueNotFoundException)
         {
-            navigation.NavigateTo("LeagueNotFound");
+            navigation.NavigateTo("Error/LeagueNotFound");
             return;
         }
         catch (LeagueNotAccessibleException)
         {
-            navigation.NavigateTo("LeagueNotAccessible");
+            navigation.NavigateTo("Error/LeagueNotAccessible");
             return;
         }
 
@@ -89,7 +89,7 @@
         }
         else
         {
-            navigation.NavigateTo("LeagueNotSupported");
+            navigation.NavigateTo("Error/LeagueNotSupported");
         }
     }
 }
