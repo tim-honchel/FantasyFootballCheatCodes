@@ -16,6 +16,54 @@ namespace Fantasy.Presentation.Tests.Services
         ContextHelper _helper = new ContextHelper();
 
         [Test]
+        public void CostAnalysis_Returns_CostAnalysis_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void CostAnalysis_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void CsvStarters_Returns_File_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void CsvStarters_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void CsvSuggestedRosters_Returns_File_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void CsvSuggestedRosters_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void EspnPlayers_Returns_Players_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void EspnPlayers_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
         public async Task EspnRules_Returns_Rules_GivenSuccessfulCall()
         {
             EspnRulesRequestObject request = new();
@@ -30,6 +78,25 @@ namespace Fantasy.Presentation.Tests.Services
         }
 
         [Test]
+        public void EspnRules_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+
+        [Test]
+        public void ExpectedValue_Returns_Players_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void ExpectedValue_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
         public async Task LeagueRules_Returns_Rules_GivenSuccessfulCall()
         {
             LeagueRulesRequestObject request = new();
@@ -41,6 +108,161 @@ namespace Fantasy.Presentation.Tests.Services
             RulesViewModel response = await service.LeagueRules(request);
 
             Assert.AreEqual(JsonSerializer.Serialize(response), JsonSerializer.Serialize(rules));
+        }
+
+        [Test]
+        public void LeagueRules_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void PlayerProjections_Returns_Players_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void PlayerProjections_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+
+        [Test]
+        public void PointAverages_Returns_PointAverages_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void PointAverages_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+
+        [Test]
+        public void PossibleRosters_Returns_CostAnalysis_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void PossibleRosters_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+
+        [Test]
+        public void RelativePoints_Returns_Players_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void RelativePoints_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+
+        [Test]
+        public void StrongerRoster_Returns_CostAnalysis_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void StrongerRoster_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+
+        [Test]
+        public void StrongRoster_Returns_CostAnalysis_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void StrongRoster_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void SuggestedRosters_Returns_DraftBoards_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void SuggestedRosters_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void Tags_Returns_Players_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void Tags_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void TopRosterFrequency_Returns_CountByID_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void TopRosterFrequency_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void TopRosterPercent_Returns_Players_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void TopRosterPercent_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void TopRosterPlayers_Returns_Dictionary_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void TopRosterPlayers_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void ValidRules_Returns_RuleValidity_GivenSuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void ValidRules_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
         }
     }
 }

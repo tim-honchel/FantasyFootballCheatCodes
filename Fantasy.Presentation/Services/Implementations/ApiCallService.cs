@@ -27,17 +27,17 @@ namespace Fantasy.Presentation.Services.Implementations
             _client.DefaultRequestHeaders.Clear();
         }
 
-        public CostAnalysisViewModel CostAnalysis(CostAnalysisRequestObject request)
+        public Task<CostAnalysisViewModel> CostAnalysis(CostAnalysisRequestObject request)
         {
             throw new NotImplementedException();
         }
 
-        public FileContentResult CsvStarters(CsvStartersRequestObject request)
+        public Task<FileContentResult> CsvStarters(CsvStartersRequestObject request)
         {
             throw new NotImplementedException();
         }
 
-        public FileContentResult CsvSuggestedRosters(SuggestedRostersRequestObject request)
+        public Task<FileContentResult> CsvSuggestedRosters(SuggestedRostersRequestObject request)
         {
             throw new NotImplementedException();
         }
@@ -66,7 +66,7 @@ namespace Fantasy.Presentation.Services.Implementations
             return rules;
         }
 
-        public List<PlayerViewModel> ExpectedValue(ExpectedValueRequestObject request)
+        public Task<List<PlayerViewModel>> ExpectedValue(ExpectedValueRequestObject request)
         {
             throw new NotImplementedException();
         }
@@ -90,61 +90,61 @@ namespace Fantasy.Presentation.Services.Implementations
             return rules;
         }
 
-        public List<PlayerViewModel> PlayerProjections(PlayerProjectionsRequestObject request)
+        public Task<List<PlayerViewModel>> PlayerProjections(PlayerProjectionsRequestObject request)
         {
             throw new NotImplementedException();
         }
 
-        public PointAveragesViewModel PointAverages(PointAveragesRequestObject request)
+        public Task<PointAveragesViewModel> PointAverages(PointAveragesRequestObject request)
         {
             throw new NotImplementedException();
         }
 
-        public List<RosterViewModel> PossibleRosters(PossibleRostersRequestObject request)
+        public Task<List<RosterViewModel>> PossibleRosters(PossibleRostersRequestObject request)
         {
             throw new NotImplementedException();
         }
 
-        public List<PlayerViewModel> RelativePoints(RelativePointsRequestObject request)
+        public Task<List<PlayerViewModel>> RelativePoints(RelativePointsRequestObject request)
         {
             throw new NotImplementedException();
         }
 
-        public RosterViewModel StrongerRoster(StrongerRosterRequestObject request)
+        public Task<RosterViewModel> StrongerRoster(StrongerRosterRequestObject request)
         {
             throw new NotImplementedException();
         }
 
-        public RosterViewModel StrongRoster(StrongRosterRequestObject request)
+        public Task<RosterViewModel> StrongRoster(StrongRosterRequestObject request)
         {
             throw new NotImplementedException();
         }
 
-        public List<DraftBoardViewModel> SuggestedRosters(SuggestedRostersRequestObject request)
+        public Task<List<DraftBoardViewModel>> SuggestedRosters(SuggestedRostersRequestObject request)
         {
             throw new NotImplementedException();
         }
 
-        public List<PlayerViewModel> Tags(TagsRequestObject request)
+        public Task<List<PlayerViewModel>> Tags(TagsRequestObject request)
         {
             throw new NotImplementedException();
         }
 
-        public CountByIDViewModel TopRosterFrequency(TopRosterFrequencyRequestObject request)
+        public Task<CountByIDViewModel> TopRosterFrequency(TopRosterFrequencyRequestObject request)
         {
             throw new NotImplementedException();
         }
 
-        public List<PlayerViewModel> TopRosterPercent(TopRosterPercentRequestObject request)
+        public Task<List<PlayerViewModel>> TopRosterPercent(TopRosterPercentRequestObject request)
         {
             throw new NotImplementedException();
         }
 
-        public List<int> TopRosterPlayers(TopRosterPlayersRequestObject request)
+        public Task<List<int>> TopRosterPlayers(TopRosterPlayersRequestObject request)
         {
             throw new NotImplementedException();
         }
-        public RuleValidityViewModel ValidRules(ValidRulesRequestObject request)
+        public Task<RuleValidityViewModel> ValidRules(ValidRulesRequestObject request)
         {
             throw new NotImplementedException();
         }

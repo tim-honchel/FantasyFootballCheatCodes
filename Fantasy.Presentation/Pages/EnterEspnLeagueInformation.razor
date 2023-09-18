@@ -78,10 +78,10 @@
         List<PlayerESPNViewModel> espnPlayers = await service.EspnPlayers(espnPlayersRequest);
 
         PlayerProjectionsRequestObject playerProjectionsRequest = new() { Players = espnPlayers };
-        List<PlayerViewModel> players = service.PlayerProjections(playerProjectionsRequest);
+        List<PlayerViewModel> players = await service.PlayerProjections(playerProjectionsRequest);
 
         ValidRulesRequestObject validRulesRequest = new() { Rules = rules, Players = players };
-        RuleValidityViewModel ruleValidity = service.ValidRules(validRulesRequest);
+        RuleValidityViewModel ruleValidity = await service.ValidRules(validRulesRequest);
 
         if (ruleValidity.IsValid)
         {
