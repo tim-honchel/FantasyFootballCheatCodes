@@ -1,8 +1,10 @@
 ﻿
 using Fantasy.Presentation.Data.RequestObjects;
+using Fantasy.Presentation.Data.Responses;
 using Fantasy.Presentation.Data.ViewModels;
 using Fantasy.Presentation.Services.Implementations;
 using Moq;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
@@ -52,9 +54,21 @@ namespace Fantasy.Presentation.Tests.Services
         }
 
         [Test]
-        public void EspnPlayers_Returns_Players_GivenSuccessfulCall()
+        public async Task EspnPlayers_Returns_Players_GivenSuccessfulCall()
         {
-            Assert.Ignore();
+            EspnPlayersRequestObject request = new();
+            List<PlayerESPNViewModel> players = new();
+            EspnPlayersResponseObject mockResponse = new()
+            {
+                Players = players,
+            }; 
+            Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
+            _helper.SetupMockHandler(handler, ContextHelper.Endpoint.espnPlayers, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
+            ApiCallService service = new ApiCallService(handler.Object);
+
+            List<PlayerESPNViewModel> response = await service.EspnPlayers(request);
+
+            Assert.AreEqual(JsonSerializer.Serialize(response), JsonSerializer.Serialize(players));
         }
 
         [Test]
@@ -68,8 +82,12 @@ namespace Fantasy.Presentation.Tests.Services
         {
             EspnRulesRequestObject request = new();
             RulesESPNViewModel rules = new();
+            EspnRulesResponseObject mockResponse = new()
+            {
+                Rules = rules
+            };
             Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
-            _helper.SetupMockHandler(handler, ContextHelper.Endpoint.espnRules, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(rules));
+            _helper.SetupMockHandler(handler, ContextHelper.Endpoint.espnRules, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
             ApiCallService service = new ApiCallService(handler.Object);
 
             RulesESPNViewModel response = await service.EspnRules(request);

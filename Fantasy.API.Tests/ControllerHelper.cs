@@ -40,6 +40,11 @@ namespace Fantasy.API.Tests
                 EspnRulesResponse response = new();
                 espnRulesLogic.Setup(logic => logic.Get(It.IsAny<EspnRulesRequest>())).ReturnsAsync(response);
             }
+            else if (endpoint == Endpoint.espnPlayers)
+            {
+                EspnPlayersResponse response = new();
+                espnPlayersLogic.Setup(logic => logic.Get(It.IsAny<EspnPlayersRequest>())).ReturnsAsync(response);
+            }
 
             MainController controller = new(costAnalysisLogic.Object, csvStartersLogic.Object, csvSuggestedRostersLogic.Object, editProjectionsLogic.Object, espnPlayersLogic.Object, espnRulesLogic.Object, expectedValueLogic.Object, leagueRulesLogic.Object, playerProjectionsLogic.Object, pointAveragesLogic.Object, possibleRostersLogic.Object, relativePointsLogic.Object, simplifiedDraftPoolLogic.Object, strongRosterLogic.Object, strongerRosterLogic.Object, suggestedRostersLogic.Object, tagsLogic.Object, topRosterFrequencyLogic.Object,topRosterPercentLogic.Object, topRosterPlayersLogic.Object, validRulesLogic.Object);
 

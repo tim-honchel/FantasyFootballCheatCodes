@@ -74,7 +74,7 @@
         LeagueRulesRequestObject leagueRulesRequest = new() { Provider = Provider.ESPN, EspnRules = espnRules};
         RulesViewModel rules = await service.LeagueRules(leagueRulesRequest);
 
-        EspnPlayersRequestObject espnPlayersRequest = new() { LeagueID = espnModel.LeagueID, espn_s2 = espnModel.espn_s2, swid = espnModel.swid };
+        EspnPlayersRequestObject espnPlayersRequest = new() { LeagueID = espnModel.LeagueID, espn_s2 = espnModel.espn_s2, swid = espnModel.swid, Rules = rules};
         List<PlayerESPNViewModel> espnPlayers = await service.EspnPlayers(espnPlayersRequest);
 
         PlayerProjectionsRequestObject playerProjectionsRequest = new() { Players = espnPlayers };

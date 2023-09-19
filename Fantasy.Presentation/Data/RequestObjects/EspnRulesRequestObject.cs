@@ -1,4 +1,6 @@
-﻿namespace Fantasy.Presentation.Data.RequestObjects
+﻿using Fantasy.Presentation.Data.ViewModels;
+
+namespace Fantasy.Presentation.Data.RequestObjects
 {
     public class EspnRulesRequestObject
     {

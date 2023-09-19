@@ -2,6 +2,7 @@
 using Fantasy.Logic.Models;
 using Fantasy.Logic.Requests;
 using Fantasy.Logic.Responses;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
 
@@ -9,6 +10,11 @@ namespace Fantasy.Logic.Implementations
 {
     public class EspnRulesLogic : IEspnRulesLogic
     {
+        public readonly IConfiguration _configuration;
+        public EspnRulesLogic(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         public async Task<EspnRulesResponse> Get(EspnRulesRequest request)
         {
             HttpClient client = SetupClient(request.LeagueID, request.espn_s2, request.swid);
@@ -100,7 +106,7 @@ namespace Fantasy.Logic.Implementations
         public HttpClient SetupClient(string leagueID, string espn_s2, string swid)
         {
             HttpClient client = new HttpClient();
-            string url = $"https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/{DateTime.Now.Year.ToString()}/segments/0/leagues/{leagueID}?view=mSettings&view=mTeam&view=modular&view=mNav";
+            string url = _configuration["ESPNRulesURL"].Replace("[year]", DateTime.Now.Year.ToString()).Replace("[leagueID]", leagueID.ToString());
             client.BaseAddress = new Uri(url);
             client.DefaultRequestHeaders.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

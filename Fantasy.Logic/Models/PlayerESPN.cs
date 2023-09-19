@@ -6,7 +6,7 @@
         public int DraftAuctionValue { get; set; } = 0;
         public int KeeperValue { get; set; } = 0;
         public int DefaultPositionID { get; set; } = 0;
-        public List<int> EligibleSlots { get; set; } = new();
+        public string EligibleSlots { get; set; } = string.Empty;
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public bool Active { get; set; } = false;

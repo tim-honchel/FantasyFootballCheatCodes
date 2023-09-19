@@ -68,19 +68,19 @@ namespace Fantasy.Presentation.Tests
             else if (endpoint == Endpoint.playerProjections)
             {
                 List<PlayerViewModel> players = new();
-                mockApiService.Setup(service => service.PlayerProjections(It.IsAny<PlayerProjectionsRequestObject>())).Returns(players);
+                mockApiService.Setup(service => service.PlayerProjections(It.IsAny<PlayerProjectionsRequestObject>())).ReturnsAsync(players);
             }
             else if (endpoint == Endpoint.validRules)
             {
                 if (returnType == ReturnType.Default)
                 {
                     RuleValidityViewModel ruleValidity = new() { IsValid = true};
-                    mockApiService.Setup(service => service.ValidRules(It.IsAny<ValidRulesRequestObject>())).Returns(ruleValidity);
+                    mockApiService.Setup(service => service.ValidRules(It.IsAny<ValidRulesRequestObject>())).ReturnsAsync(ruleValidity);
                 }
                 else if (returnType == ReturnType.LeagueNotSupported)
                 {
                     RuleValidityViewModel ruleValidity = new() { IsValid = false };
-                    mockApiService.Setup(service => service.ValidRules(It.IsAny<ValidRulesRequestObject>())).Returns(ruleValidity);
+                    mockApiService.Setup(service => service.ValidRules(It.IsAny<ValidRulesRequestObject>())).ReturnsAsync(ruleValidity);
                 }
             }
             return mockApiService;

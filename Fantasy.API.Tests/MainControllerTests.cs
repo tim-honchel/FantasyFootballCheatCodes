@@ -60,9 +60,27 @@ namespace Fantasy.API.Tests
         }
 
         [Test]
-        public void EspnPlayers_Returns_OkObjectResult_Given_ValidResponse()
+        public async Task EspnPlayers_Returns_OkObjectResult_Given_ValidResponse()
         {
-            Assert.Ignore();
+            EspnPlayersRequest request = new();
+            MainController controller = ControllerHelper.GetControllerWithMockedDependencies(ControllerHelper.Endpoint.espnPlayers, ControllerHelper.ReturnType.Default);
+
+            IActionResult response = await controller.EspnPlayers(request);
+
+            Assert.True(response is OkObjectResult);
+        }
+
+        [Test]
+        public async Task EspnPlayers_Returns_EspnPlayers_Given_ValidResponse()
+        {
+            EspnPlayersRequest request = new();
+            MainController controller = ControllerHelper.GetControllerWithMockedDependencies(ControllerHelper.Endpoint.espnPlayers, ControllerHelper.ReturnType.Default);
+
+            OkObjectResult response = (OkObjectResult)await controller.EspnPlayers(request);
+            EspnPlayersResponse? result = (EspnPlayersResponse?)response.Value;
+
+
+            Assert.IsNotNull(result?.Players);
         }
 
         [Test]

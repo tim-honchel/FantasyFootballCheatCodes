@@ -42,9 +42,23 @@ namespace Fantasy.Presentation.Services.Implementations
             throw new NotImplementedException();
         }
 
-        public Task<List<PlayerESPNViewModel>> EspnPlayers(EspnPlayersRequestObject request)
+        public async Task<List<PlayerESPNViewModel>> EspnPlayers(EspnPlayersRequestObject request)
         {
-            throw new NotImplementedException();
+            HttpResponseMessage response = await _client.PostAsJsonAsync("espnPlayers", request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ServerErrorException();
+            }
+
+            EspnPlayersResponseObject? result = await response.Content.ReadFromJsonAsync<EspnPlayersResponseObject>();
+            if (result == null)
+            {
+                throw new NullContentException();
+            }
+
+            List<PlayerESPNViewModel> players = result.Players;
+
+            return players;
         }
 
         public async Task<RulesESPNViewModel> EspnRules(EspnRulesRequestObject request)
