@@ -173,8 +173,8 @@ namespace Fantasy.Logic.Implementations
             int draftAuctionValue = Convert.ToInt16(JObject.Parse(rawPlayer).GetValue("draftAuctionValue").ToString());
             int keeperValue = Convert.ToInt16(JObject.Parse(rawPlayer).GetValue("keeperValue").ToString());
             string eligibleSlots = JObject.Parse(playerDetail).GetValue("eligibleSlots").ToString();
-            string firstInitial = positionID != 16? JObject.Parse(playerDetail).GetValue("firstName").ToString()[0].ToString() : "DEF";
-            string lastName = positionID != 16? JObject.Parse(playerDetail).GetValue("lastName").ToString() : JObject.Parse(playerDetail).GetValue("firstName").ToString();
+            string firstName = JObject.Parse(playerDetail).GetValue("firstName").ToString();
+            string lastName = JObject.Parse(playerDetail).GetValue("lastName").ToString();
             bool active = Convert.ToBoolean(JObject.Parse(playerDetail).GetValue("active").ToString());
             bool injured = Convert.ToBoolean(JObject.Parse(playerDetail).GetValue("injured").ToString());
             string injuryStatus = positionID != 16? JObject.Parse(playerDetail).GetValue("injuryStatus").ToString() : "N/A";
@@ -192,7 +192,7 @@ namespace Fantasy.Logic.Implementations
                 KeeperValue = keeperValue,
                 DefaultPositionID = positionID,
                 EligibleSlots = eligibleSlots,
-                FirstName = firstInitial,
+                FirstName = firstName,
                 LastName = lastName,
                 Active = active,
                 Injured = injured,
