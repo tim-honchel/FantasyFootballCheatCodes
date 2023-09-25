@@ -119,8 +119,12 @@ namespace Fantasy.Presentation.Tests.Services
         {
             LeagueRulesRequestObject request = new();
             RulesViewModel rules = new();
+            LeagueRulesResponseObject mockResponse = new()
+            {
+                Rules = rules
+            };
             Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
-            _helper.SetupMockHandler(handler, ContextHelper.Endpoint.leagueRules, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(rules));
+            _helper.SetupMockHandler(handler, ContextHelper.Endpoint.leagueRules, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
             ApiCallService service = new ApiCallService(handler.Object);
 
             RulesViewModel response = await service.LeagueRules(request);
@@ -135,9 +139,21 @@ namespace Fantasy.Presentation.Tests.Services
         }
 
         [Test]
-        public void PlayerProjections_Returns_Players_GivenSuccessfulCall()
+        public async Task PlayerProjections_Returns_Players_GivenSuccessfulCall()
         {
-            Assert.Ignore();
+            PlayerProjectionsRequestObject request = new();
+            List<PlayerViewModel> players = new();
+            PlayerProjectionsResponseObject mockResponse = new()
+            {
+                Players = players
+            };
+            Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
+            _helper.SetupMockHandler(handler, ContextHelper.Endpoint.playerProjections, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
+            ApiCallService service = new ApiCallService(handler.Object);
+
+            List<PlayerViewModel> response = await service.PlayerProjections(request);
+
+            Assert.AreEqual(JsonSerializer.Serialize(response), JsonSerializer.Serialize(players));
         }
 
         [Test]

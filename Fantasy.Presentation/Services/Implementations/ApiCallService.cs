@@ -104,9 +104,23 @@ namespace Fantasy.Presentation.Services.Implementations
             return rules;
         }
 
-        public Task<List<PlayerViewModel>> PlayerProjections(PlayerProjectionsRequestObject request)
+        public async Task<List<PlayerViewModel>> PlayerProjections(PlayerProjectionsRequestObject request)
         {
-            throw new NotImplementedException();
+            HttpResponseMessage response = await _client.PostAsJsonAsync("playerProjections", request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ServerErrorException();
+            }
+
+            PlayerProjectionsResponseObject? result = await response.Content.ReadFromJsonAsync<PlayerProjectionsResponseObject>();
+            if (result == null)
+            {
+                throw new NullContentException();
+            }
+
+            List<PlayerViewModel> players = result.Players;
+
+            return players;
         }
 
         public Task<PointAveragesViewModel> PointAverages(PointAveragesRequestObject request)
