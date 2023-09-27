@@ -288,9 +288,29 @@ namespace Fantasy.Presentation.Tests.Services
         }
 
         [Test]
-        public void ValidRules_Returns_RuleValidity_GivenSuccessfulCall()
+        public async Task ValidRules_Returns_RuleValidity_GivenSuccessfulCall()
         {
-            Assert.Ignore();
+
+            RulesViewModel rules = new();
+            PlayerViewModel player = new PlayerViewModel();
+            List<PlayerViewModel> players = new List<PlayerViewModel>();
+            players.Add(player);
+            ValidRulesRequestObject request = new()
+            {
+                Players = players,
+                Rules = rules
+            };
+            ValidRulesResponseObject mockResponse = new()
+            {
+                Success = true
+            };
+            Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
+            _helper.SetupMockHandler(handler, ContextHelper.Endpoint.validRules, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
+            ApiCallService service = new ApiCallService(handler.Object);
+
+            RuleValidityViewModel response = await service.ValidRules(request);
+
+            Assert.AreEqual(response.IsValid, mockResponse.Success);
         }
 
         [Test]

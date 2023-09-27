@@ -172,9 +172,27 @@ namespace Fantasy.Presentation.Services.Implementations
         {
             throw new NotImplementedException();
         }
-        public Task<RuleValidityViewModel> ValidRules(ValidRulesRequestObject request)
+        public async Task<RuleValidityViewModel> ValidRules(ValidRulesRequestObject request)
         {
-            throw new NotImplementedException();
+            HttpResponseMessage response = await _client.PostAsJsonAsync("validRules", request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ServerErrorException();
+            }
+
+            ValidRulesResponseObject? result = await response.Content.ReadFromJsonAsync<ValidRulesResponseObject>();
+            if (result == null)
+            {
+                throw new NullContentException();
+            }
+
+            RuleValidityViewModel ruleValidity = new()
+            {
+                IsValid = result.Success,
+                ReasonsNotSupported = result.ValidationErrors
+            };
+
+            return ruleValidity;
         }
     }
 }
