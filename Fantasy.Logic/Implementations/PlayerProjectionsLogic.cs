@@ -2,6 +2,7 @@
 using Fantasy.Logic.Models;
 using Fantasy.Logic.Requests;
 using Fantasy.Logic.Responses;
+using Fantasy.Logic.Services;
 
 namespace Fantasy.Logic.Implementations
 {
@@ -42,20 +43,20 @@ namespace Fantasy.Logic.Implementations
         {
             Dictionary<int, string> positionFinder = new()
             {
-                {0, "TQB" },
-                {1, "QB" },
-                {2, "RB" },
-                {3, "WR" },
-                {4, "TE" },
-                {5, "K" },
-                {6, "P" },
-                {7, "HC" },
-                {8, "DT" },
-                {9, "DE" },
-                {10, "LB" },
-                {11, "CB" },
-                {12, "S" },
-                {16, "DEF" },
+                {0, PositionConstants.TeamQuarterback },
+                {1, PositionConstants.Quarterback },
+                {2, PositionConstants.RunningBack },
+                {3, PositionConstants.WideReceiver },
+                {4, PositionConstants.TightEnd },
+                {5, PositionConstants.Kicker },
+                {6, PositionConstants.Punter },
+                {7, PositionConstants.Coach },
+                {8, PositionConstants.DefensiveTackle },
+                {9, PositionConstants.DefensiveEnd },
+                {10, PositionConstants.Linebacker },
+                {11, PositionConstants.Cornerback },
+                {12, PositionConstants.Safety },
+                {16, PositionConstants.TeamDefense },
 
             };
 
@@ -68,38 +69,38 @@ namespace Fantasy.Logic.Implementations
         {
             var teamFinder = new Dictionary<int, string>()
             {
-                {1, "ATL" },
-                {2, "BUF" },
-                {3, "CHI" },
-                {4, "CIN" },
-                {5, "CLE" },
-                {6, "DAL" },
-                {7, "DEN" },
-                {8, "DET" },
-                {9, "GB" },
-                {10, "TEN" },
-                {11, "IND" },
-                {12, "KC" },
-                {13, "LV" },
-                {14, "LAR" },
-                {15, "MIA" },
-                {16, "MIN" },
-                {17, "NE" },
-                {18, "NO" },
-                {19, "NYG" },
-                {20, "NYJ" },
-                {21, "PHI" },
-                {22, "ARI" },
-                {23, "PIT" },
-                {24, "LAC" },
-                {25, "SF" },
-                {26, "SEA" },
-                {27, "TB" },
-                {28, "WAS" },
-                {29, "CAR" },
-                {30, "JAC" },
-                {33, "BAL" },
-                {34, "HOU" }
+                {1, TeamConstants.AtlantaFalcons },
+                {2, TeamConstants.BuffaloBills },
+                {3, TeamConstants.ChicagoBears },
+                {4, TeamConstants.CincinnatiBengals },
+                {5, TeamConstants.ClevelandBrowns },
+                {6, TeamConstants.DallasCowboys },
+                {7, TeamConstants.DenverBroncos },
+                {8, TeamConstants.DetroitLions },
+                {9, TeamConstants.GreenBayPackers },
+                {10, TeamConstants.TennesseeTitans },
+                {11, TeamConstants.IndianapolisColts },
+                {12, TeamConstants.KansasCityChiefs },
+                {13, TeamConstants.LasVegasRaiders },
+                {14, TeamConstants.LosAngelesRams},
+                {15, TeamConstants.MiamiDolphins },
+                {16, TeamConstants.MinnesotaVikings },
+                {17, TeamConstants.NewEnglandPatriots },
+                {18, TeamConstants.NewOrleansSaints },
+                {19, TeamConstants.NewYorkGiants },
+                {20, TeamConstants.NewYorkJets },
+                {21, TeamConstants.PhiladelphiaEagles },
+                {22, TeamConstants.ArizonaCardinals },
+                {23, TeamConstants.PittsburghSteelers },
+                {24, TeamConstants.LosAngelesChargers },
+                {25, TeamConstants.SanFrancisco49ers },
+                {26, TeamConstants.SeattleSeahawks },
+                {27, TeamConstants.TampaBayBucaneers },
+                {28, TeamConstants.WashingtonCommanders },
+                {29, TeamConstants.CarolinaPanthers },
+                {30, TeamConstants.JacksonvilleJaguars },
+                {33, TeamConstants.BaltimoreRavens },
+                {34, TeamConstants.HoustonTexans }
             };
 
             string team = teamFinder.ContainsKey(teamID) ? teamFinder[teamID] : teamID.ToString();

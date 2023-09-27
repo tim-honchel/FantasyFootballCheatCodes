@@ -2,12 +2,9 @@
 using Fantasy.Logic.Models;
 using Fantasy.Logic.Requests;
 using Fantasy.Logic.Responses;
+using Fantasy.Logic.Services;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using System.Net.Http.Headers;
-using System.Numerics;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Fantasy.Logic.Implementations
 {
@@ -44,56 +41,68 @@ namespace Fantasy.Logic.Implementations
             
             Dictionary<string, double> shareOPU = new()
             {
-                {"QB", 0.6}, {"RB", 0.4}, {"WR", 0.2}, {"TE", 0.1}
+                {PositionConstants.Quarterback, 0.6}, {PositionConstants.RunningBack, 0.4}, {PositionConstants.WideReceiver, 0.2}, {PositionConstants.TightEnd, 0.1}
             };
 
             Dictionary<string, double> shareFLEX = new()
             {
-                {"RB", 0.9}, {"WR", 0.3}, {"TE", 0.1}
+                {PositionConstants.RunningBack, 0.9}, {PositionConstants.WideReceiver, 0.3}, {PositionConstants.TightEnd, 0.1}
             };
 
             Dictionary<string, double> shareRBWR = new()
             {
-                {"RB", 0.9}, {"WR", 0.4 }
+                {PositionConstants.RunningBack, 0.9}, {PositionConstants.WideReceiver, 0.4 }
             };
 
             Dictionary<string, double> shareWRTE = new()
             {
-                {"WR", 1}, {"TE", 0.3}
+                {PositionConstants.WideReceiver, 1}, {PositionConstants.TightEnd, 0.3}
             };
 
             Dictionary<string, double> shareDPU = new()
             {
-                {"DT", 0.3}, {"DE", 0.3}, {"LB", 0.3}, {"CB", 0.3}, {"S", 0.3}
+                {PositionConstants.DefensiveTackle, 0.3}, {PositionConstants.DefensiveEnd, 0.3}, {PositionConstants.Linebacker, 0.3}, {PositionConstants.Cornerback, 0.3}, {PositionConstants.Safety, 0.3}
             };
 
             Dictionary<string, double> shareDL = new()
             {
-                {"DT", 0.5}, {"DE", 0.8}
+                {PositionConstants.DefensiveTackle, 0.5}, {PositionConstants.DefensiveEnd, 0.8}
             };
 
             Dictionary<string, double> shareDB = new()
             {
-                {"CB", 0.7}, {"S", 0.6}
+                {PositionConstants.Cornerback, 0.7}, {PositionConstants.Safety, 0.6}
             };
 
             Dictionary<string, int> limits = new();
 
-            limits["QB"] = (int)((multiplier * teams) * (positions.Quarterbacks[0] + positions.OffensivePlayerUtilities * shareOPU["QB"]));
-            limits["RB"] = (int)((multiplier * teams) * (positions.RunningBacks[0] + positions.FLEX * shareFLEX["RB"] + positions.BacksAndReceivers * shareRBWR["RB"] + positions.OffensivePlayerUtilities * shareOPU["RB"]));
-            limits["WR"] = (int)((multiplier * teams) * (positions.WideReceivers[0] + positions.FLEX * shareFLEX["WR"] + positions.BacksAndReceivers * shareFLEX["WR"] + positions.ReceiversAndEnds * shareWRTE["WR"] + positions.OffensivePlayerUtilities * shareOPU["WR"]));
-            limits["TE"] = (int)((multiplier * teams) * (positions.TightEnds[0] + positions.FLEX * shareFLEX["TE"] + positions.ReceiversAndEnds * shareWRTE["TE"] + positions.OffensivePlayerUtilities * shareOPU["TE"]));
-            limits["K"] = (int) ((multiplier * teams) * (positions.Kickers[0]));
-            limits["DEF"] = (int)((multiplier * teams) * (positions.TeamDefenses[0]));
+            limits[PositionConstants.Quarterback] = (int)((multiplier * teams) * (positions.Quarterbacks[0] + positions.OffensivePlayerUtilities * shareOPU[PositionConstants.Quarterback]));
 
-            limits["TQB"] = (int)((multiplier * teams) * (positions.TeamQuarterbacks[0]));
-            limits["P"] = (int)((multiplier * teams) * (positions.Punters[0]));
-            limits["HC"] = (int)((multiplier * teams) * (positions.Coaches[0]));
-            limits["DT"] = (int)((multiplier * teams) * (positions.DefensiveTackles[0] + positions.DefensivePlayerUtilities * shareDPU["DT"] + positions.Linemen * shareDL["DT"]));
-            limits["DE"] = (int)((multiplier * teams) * (positions.DefensiveEnds[0] + positions.DefensivePlayerUtilities * shareDPU["DE"] + positions.Linemen * shareDL["DE"]));
-            limits["LB"] = (int)((multiplier * teams) * (positions.Linebackers[0] + positions.DefensivePlayerUtilities * shareDPU["LB"]));
-            limits["CB"] = (int)((multiplier * teams) * (positions.Cornerbacks[0] + positions.DefensivePlayerUtilities * shareDPU["CB"] + positions.Linemen * shareDB["CB"]));
-            limits["S"] = (int)((multiplier * teams) * (positions.Safeties[0] + positions.DefensivePlayerUtilities * shareDPU["S"] + positions.Linemen * shareDB["S"]));
+            limits[PositionConstants.RunningBack] = (int)((multiplier * teams) * (positions.RunningBacks[0] + positions.FLEX * shareFLEX[PositionConstants.RunningBack] + positions.BacksAndReceivers * shareRBWR[PositionConstants.RunningBack] + positions.OffensivePlayerUtilities * shareOPU[PositionConstants.RunningBack]));
+
+            limits[PositionConstants.WideReceiver] = (int)((multiplier * teams) * (positions.WideReceivers[0] + positions.FLEX * shareFLEX[PositionConstants.WideReceiver] + positions.BacksAndReceivers * shareFLEX[PositionConstants.WideReceiver] + positions.ReceiversAndEnds * shareWRTE[PositionConstants.WideReceiver] + positions.OffensivePlayerUtilities * shareOPU[PositionConstants.WideReceiver]));
+
+            limits[PositionConstants.TightEnd] = (int)((multiplier * teams) * (positions.TightEnds[0] + positions.FLEX * shareFLEX["TE"] + positions.ReceiversAndEnds * shareWRTE[PositionConstants.TightEnd] + positions.OffensivePlayerUtilities * shareOPU[PositionConstants.TightEnd]));
+
+            limits[PositionConstants.Kicker] = (int) ((multiplier * teams) * (positions.Kickers[0]));
+
+            limits[PositionConstants.TeamDefense] = (int)((multiplier * teams) * (positions.TeamDefenses[0]));
+
+            limits[PositionConstants.TeamQuarterback] = (int)((multiplier * teams) * (positions.TeamQuarterbacks[0]));
+
+            limits[PositionConstants.Punter] = (int)((multiplier * teams) * (positions.Punters[0]));
+
+            limits[PositionConstants.Coach] = (int)((multiplier * teams) * (positions.Coaches[0]));
+
+            limits[PositionConstants.DefensiveTackle] = (int)((multiplier * teams) * (positions.DefensiveTackles[0] + positions.DefensivePlayerUtilities * shareDPU[PositionConstants.DefensiveTackle] + positions.Linemen * shareDL[PositionConstants.DefensiveTackle]));
+
+            limits[PositionConstants.DefensiveEnd] = (int)((multiplier * teams) * (positions.DefensiveEnds[0] + positions.DefensivePlayerUtilities * shareDPU[PositionConstants.DefensiveEnd] + positions.Linemen * shareDL[PositionConstants.DefensiveEnd]));
+
+            limits[PositionConstants.Linebacker] = (int)((multiplier * teams) * (positions.Linebackers[0] + positions.DefensivePlayerUtilities * shareDPU[PositionConstants.Linebacker]));
+
+            limits[PositionConstants.Cornerback] = (int)((multiplier * teams) * (positions.Cornerbacks[0] + positions.DefensivePlayerUtilities * shareDPU[PositionConstants.Cornerback] + positions.DefensiveBacks * shareDB[PositionConstants.Cornerback]));
+
+            limits[PositionConstants.Safety] = (int)((multiplier * teams) * (positions.Safeties[0] + positions.DefensivePlayerUtilities * shareDPU[PositionConstants.Safety] + positions.DefensiveBacks * shareDB[PositionConstants.Safety]));
 
             return limits;
         }
