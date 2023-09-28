@@ -1,4 +1,5 @@
 ﻿using Fantasy.Presentation.Data.RequestObjects;
+using Fantasy.Presentation.Data.State;
 using Fantasy.Presentation.Pages;
 using Fantasy.Presentation.Services.Interfaces;
 using Microsoft.AspNetCore.Components;
@@ -16,8 +17,10 @@ namespace Fantasy.Presentation.Tests.Pages
         [Test]
         public void Page_Renders_CorrectHeaderText()
         {
-            Mock<IApiCallService> service = _helper.GetMockApiService();
-            TestContext testContext = _helper.GetTestContextWithApiService(service);
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = _helper.GetMockApiService();
+            services.UserData = _helper.GetUserData();
+            TestContext testContext = _helper.GetTestContextWithServices(services);
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();
 
             string header = component.Find("h1").TextContent;
@@ -27,8 +30,10 @@ namespace Fantasy.Presentation.Tests.Pages
         [Test]
         public void Page_Renders_LeagueIDInput()
         {
-            Mock<IApiCallService> service = _helper.GetMockApiService();
-            TestContext testContext = _helper.GetTestContextWithApiService(service);
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = _helper.GetMockApiService();
+            services.UserData = _helper.GetUserData();
+            TestContext testContext = _helper.GetTestContextWithServices(services);
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();
 
             string leagueID = component.Find("input[id =\"leagueID\"]").TextContent;
@@ -38,8 +43,10 @@ namespace Fantasy.Presentation.Tests.Pages
         [Test]
         public void Page_Renders_ESPN2CookieInput()
         {
-            Mock<IApiCallService> service = _helper.GetMockApiService();
-            TestContext testContext = _helper.GetTestContextWithApiService(service);
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = _helper.GetMockApiService();
+            services.UserData = _helper.GetUserData();
+            TestContext testContext = _helper.GetTestContextWithServices(services);
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();
 
             string espn_s2 = component.Find("textarea[id =\"espn_s2\"]").TextContent;
@@ -49,8 +56,10 @@ namespace Fantasy.Presentation.Tests.Pages
         [Test]
         public void Page_Renders_SWIDCookieInput()
         {
-            Mock<IApiCallService> service = _helper.GetMockApiService();
-            TestContext testContext = _helper.GetTestContextWithApiService(service);
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = _helper.GetMockApiService();
+            services.UserData = _helper.GetUserData();
+            TestContext testContext = _helper.GetTestContextWithServices(services);
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();
 
             string swid = component.Find("input[id =\"swid\"]").TextContent;
@@ -60,88 +69,106 @@ namespace Fantasy.Presentation.Tests.Pages
         [Test]
         public void ButtonClick_Calls_EspnRulesEndpoint()
         {
-            Mock<IApiCallService> service = _helper.GetMockApiService();
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
-            TestContext testContext = _helper.GetTestContextWithApiService(service);
-
+            Mock<IApiCallService> apiCall = _helper.GetMockApiService();
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = apiCall;
+            services.UserData = _helper.GetUserData();
+            TestContext testContext = _helper.GetTestContextWithServices(services);
+            
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();
 
             component.Find("form").Submit();
 
-            service.Verify(service => service.EspnRules(It.IsAny<EspnRulesRequestObject>()), Times.Once);
+            apiCall.Verify(service => service.EspnRules(It.IsAny<EspnRulesRequestObject>()), Times.Once);
         }
         [Test]
         public void ButtonClick_Calls_LeagueRulesEndpoint()
         {
-            Mock<IApiCallService> service = _helper.GetMockApiService();
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
-            TestContext testContext = _helper.GetTestContextWithApiService(service);
+            Mock<IApiCallService> apiCall = _helper.GetMockApiService();
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = apiCall;
+            services.UserData = _helper.GetUserData();
+            TestContext testContext = _helper.GetTestContextWithServices(services);
 
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();
 
             component.Find("form").Submit();
 
-            service.Verify(service => service.LeagueRules(It.IsAny<LeagueRulesRequestObject>()), Times.Once);
+            apiCall.Verify(service => service.LeagueRules(It.IsAny<LeagueRulesRequestObject>()), Times.Once);
         }
         [Test]
         public void ButtonClick_Calls_EspnPlayersEndpoint()
         {
-            Mock<IApiCallService> service = _helper.GetMockApiService();
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
-            TestContext testContext = _helper.GetTestContextWithApiService(service);
+            Mock<IApiCallService> apiCall = _helper.GetMockApiService();
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = apiCall;
+            services.UserData = _helper.GetUserData();
+            TestContext testContext = _helper.GetTestContextWithServices(services);
 
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();
 
             component.Find("form").Submit();
 
-            service.Verify(service => service.EspnPlayers(It.IsAny<EspnPlayersRequestObject>()), Times.Once);
+            apiCall.Verify(service => service.EspnPlayers(It.IsAny<EspnPlayersRequestObject>()), Times.Once);
         }
         [Test]
         public void ButtonClick_Calls_PlayerProjectionsEndpoint()
         {
-            Mock<IApiCallService> service = _helper.GetMockApiService();
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.playerProjections, ContextHelper.ReturnType.Default);
-            TestContext testContext = _helper.GetTestContextWithApiService(service);
+            Mock<IApiCallService> apiCall = _helper.GetMockApiService();
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.playerProjections, ContextHelper.ReturnType.Default);
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = apiCall;
+            services.UserData = _helper.GetUserData();
+            TestContext testContext = _helper.GetTestContextWithServices(services);
 
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();
 
             component.Find("form").Submit();
 
-            service.Verify(service => service.PlayerProjections(It.IsAny<PlayerProjectionsRequestObject>()), Times.Once);
+            apiCall.Verify(service => service.PlayerProjections(It.IsAny<PlayerProjectionsRequestObject>()), Times.Once);
         }
         [Test]
         public void ButtonClick_Calls_ValidRulesEndpoint()
         {
-            Mock<IApiCallService> service = _helper.GetMockApiService();
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.playerProjections, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.validRules, ContextHelper.ReturnType.Default);
-            TestContext testContext = _helper.GetTestContextWithApiService(service);
+            Mock<IApiCallService> apiCall = _helper.GetMockApiService();
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.playerProjections, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.validRules, ContextHelper.ReturnType.Default);
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = apiCall;
+            services.UserData = _helper.GetUserData();
+            TestContext testContext = _helper.GetTestContextWithServices(services);
 
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();
 
             component.Find("form").Submit();
 
-            service.Verify(service => service.ValidRules(It.IsAny<ValidRulesRequestObject>()), Times.Once);
+            apiCall.Verify(service => service.ValidRules(It.IsAny<ValidRulesRequestObject>()), Times.Once);
         }
         [Test]
         public void ButtonClick_NavigatesTo_LeagueNotFoundPage_Given_CustomException()
         {
-            Mock<IApiCallService> service = _helper.GetMockApiService();
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.LeagueNotFound);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.playerProjections, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.validRules, ContextHelper.ReturnType.Default);
-            TestContext testContext = _helper.GetTestContextWithApiService(service);
+            Mock<IApiCallService> apiCall = _helper.GetMockApiService();
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.LeagueNotFound);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.playerProjections, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.validRules, ContextHelper.ReturnType.Default);
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = apiCall;
+            services.UserData = _helper.GetUserData();
+            TestContext testContext = _helper.GetTestContextWithServices(services);
             NavigationManager navigation = testContext.Services.GetRequiredService<NavigationManager>();
 
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();
@@ -154,13 +181,16 @@ namespace Fantasy.Presentation.Tests.Pages
         [Test]
         public void ButtonClick_NavigatesTo_LeagueNotAccessiblePage_Given_CustomException()
         {
-            Mock<IApiCallService> service = _helper.GetMockApiService();
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.LeagueNotAccessible);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.playerProjections, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.validRules, ContextHelper.ReturnType.Default);
-            TestContext testContext = _helper.GetTestContextWithApiService(service);
+            Mock<IApiCallService> apiCall = _helper.GetMockApiService();
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.LeagueNotAccessible);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.playerProjections, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.validRules, ContextHelper.ReturnType.Default);
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = apiCall;
+            services.UserData = _helper.GetUserData();
+            TestContext testContext = _helper.GetTestContextWithServices(services);
             NavigationManager navigation = testContext.Services.GetRequiredService<NavigationManager>();
 
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();
@@ -173,13 +203,16 @@ namespace Fantasy.Presentation.Tests.Pages
         [Test]
         public void ButtonClick_NavigatesTo_LeagueNotSupportedPage_Given_InvalidRuleResponse()
         {
-            Mock<IApiCallService> service = _helper.GetMockApiService();
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.playerProjections, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.validRules, ContextHelper.ReturnType.LeagueNotSupported);
-            TestContext testContext = _helper.GetTestContextWithApiService(service);
+            Mock<IApiCallService> apiCall = _helper.GetMockApiService();
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.playerProjections, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.validRules, ContextHelper.ReturnType.LeagueNotSupported);
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = apiCall;
+            services.UserData = _helper.GetUserData();
+            TestContext testContext = _helper.GetTestContextWithServices(services);
             NavigationManager navigation = testContext.Services.GetRequiredService<NavigationManager>();
 
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();
@@ -192,13 +225,16 @@ namespace Fantasy.Presentation.Tests.Pages
         [Test]
         public void ButtonClick_NavigatesTo_LeagueRulesAndProjections_Given_SuccesssfulAPIResponses()
         {
-            Mock<IApiCallService> service = _helper.GetMockApiService();
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.playerProjections, ContextHelper.ReturnType.Default);
-            service = _helper.SetupMockApiService(service, ContextHelper.Endpoint.validRules, ContextHelper.ReturnType.Default);
-            TestContext testContext = _helper.GetTestContextWithApiService(service);
+            Mock<IApiCallService> apiCall = _helper.GetMockApiService();
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnRules, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.leagueRules, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.espnPlayers, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.playerProjections, ContextHelper.ReturnType.Default);
+            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.validRules, ContextHelper.ReturnType.Default);
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = apiCall;
+            services.UserData = _helper.GetUserData();
+            TestContext testContext = _helper.GetTestContextWithServices(services);
             NavigationManager navigation = testContext.Services.GetRequiredService<NavigationManager>();
 
             IRenderedComponent<EnterEspnLeagueInformation> component = testContext.RenderComponent<EnterEspnLeagueInformation>();

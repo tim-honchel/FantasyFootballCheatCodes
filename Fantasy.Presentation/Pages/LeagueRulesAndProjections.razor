@@ -1,9 +1,280 @@
 ﻿@page "/LeagueRulesAndProjections"
 
+@inject IApiCallService service
+@inject NavigationManager navigation
+@inject UserData userData;
+@using Fantasy.Presentation.Data.RequestObjects
+@using Fantasy.Presentation.Data.State;
+@using Fantasy.Presentation.Data.ViewModels
+@using Fantasy.Presentation.Services.Interfaces
+
 <PageTitle>League Rules And Projections</PageTitle>
 
 <h1>League Rules And Projections</h1>
+<p>League ID: @userData.Rules.LeagueID</p>
+<br />
+
+<h2>Rules</h2>
+<table id="positions">
+    <tr>
+        <td>POSITIONS</td>
+        <td></td>
+    </tr>
+    @if (userData.Rules.Positions.TeamQuarterbacks[0] > 0)
+    {
+        <tr>
+            <td>TQB</td>
+            <td>@userData.Rules.Positions.TeamQuarterbacks[0]</td>
+        </tr>
+    }
+    @if(userData.Rules.Positions.Quarterbacks[0] > 0)
+    {
+        <tr>
+            <td>QB</td>
+            <td>@userData.Rules.Positions.Quarterbacks[0]</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.RunningBacks[0] > 0)
+    {
+        <tr>
+            <td>RB</td>
+            <td>@userData.Rules.Positions.RunningBacks[0]</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.WideReceivers[0] > 0)
+    {
+        <tr>
+            <td>WR</td>
+        <td>@userData.Rules.Positions.WideReceivers[0]</td>
+    </tr>
+    }
+    @if (userData.Rules.Positions.TightEnds[0] > 0)
+    {
+        <tr>
+            <td>TE</td>
+        <td>@userData.Rules.Positions.TightEnds[0]</td>
+    </tr>
+    }
+    @if (userData.Rules.Positions.OffensivePlayerUtilities > 0)
+    {
+        <tr>
+            <td>OPU</td>
+            <td>@userData.Rules.Positions.OffensivePlayerUtilities</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.FLEX > 0)
+    {
+        <tr>
+            <td>FLEX</td>
+            <td>@userData.Rules.Positions.FLEX</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.BacksAndReceivers > 0)
+    {
+        <tr>
+            <td>RB/WR</td>
+            <td>@userData.Rules.Positions.BacksAndReceivers</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.ReceiversAndEnds > 0)
+    {
+        <tr>
+            <td>WR/TE</td>
+            <td>@userData.Rules.Positions.ReceiversAndEnds</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.TeamDefenses[0] > 0)
+    {
+        <tr>
+            <td>DEF</td>
+            <td>@userData.Rules.Positions.TeamDefenses[0]</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.DefensiveTackles[0] > 0)
+    {
+        <tr>
+            <td>DT</td>
+            <td>@userData.Rules.Positions.DefensiveTackles[0]</td>
+        </tr>
+    }
+        @if (userData.Rules.Positions.DefensiveEnds[0] > 0)
+    {
+        <tr>
+            <td>DE</td>
+            <td>@userData.Rules.Positions.DefensiveEnds[0]</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.Linebackers[0] > 0)
+    {
+        <tr>
+            <td>LB</td>
+            <td>@userData.Rules.Positions.Linebackers[0]</td>
+        </tr>
+    }
+        @if (userData.Rules.Positions.Cornerbacks[0] > 0)
+    {
+        <tr>
+            <td>CB</td>
+            <td>@userData.Rules.Positions.Cornerbacks[0]</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.Safeties[0] > 0)
+    {
+        <tr>
+            <td>S</td>
+            <td>@userData.Rules.Positions.Safeties[0]</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.DefensivePlayerUtilities > 0)
+    {
+        <tr>
+            <td>DPU</td>
+            <td>@userData.Rules.Positions.DefensivePlayerUtilities</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.Linemen > 0)
+    {
+        <tr>
+            <td>DL</td>
+            <td>@userData.Rules.Positions.Linemen</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.DefensiveBacks > 0)
+    {
+        <tr>
+            <td>DB</td>
+            <td>@userData.Rules.Positions.DefensiveBacks</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.Kickers[0] > 0)
+    {
+        <tr>
+            <td>K</td>
+            <td>@userData.Rules.Positions.Kickers[0]</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.Punters[0] > 0)
+    {
+        <tr>
+            <td>P</td>
+            <td>@userData.Rules.Positions.Punters[0]</td>
+        </tr>
+    }
+    @if (userData.Rules.Positions.Coaches[0] > 0)
+    {
+        <tr>
+            <td>HC</td>
+            <td>@userData.Rules.Positions.Coaches[0]</td>
+        </tr>
+    }
+    <tr>
+        <td>Bench</td>
+        <td>@userData.Rules.Positions.Bench</td>
+    </tr>
+    <tr>
+        <td>IR</td>
+        <td>@userData.Rules.Positions.InjuredReserve</td>
+    </tr>
+</table>
+
+<br />
+
+<table id="settings">
+    <tr>
+        <td>SETTINGS</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Draft Type</td>
+        <td>@userData.Rules.Settings.DraftType</td>
+    </tr>
+    <tr>
+        <td>Salary Cap</td>
+        <td>@userData.Rules.Settings.SalaryCap</td>
+    </tr>
+</table>
+
+<br />
+
+<table id="size">
+    <tr>
+        <td>SIZE</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Teams</td>
+        <td>@userData.Rules.Size.Teams</td>
+    </tr>
+    <tr>
+        <td>Teams</td>
+        <td>@userData.Rules.Size.PlayoffTeams</td>
+    </tr>
+</table>
+
+<br />
+
+<table id="status">
+    <tr>
+        <td>STATUS</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Active</td>
+        <td>@userData.Rules.Status.IsActive</td>
+    </tr>
+    <tr>
+        <td>Draft Complete</td>
+        <td>@userData.Rules.Status.DraftComplete</td>
+    </tr>
+</table>
+
+<br />
+
+<h2>Players</h2>
+<p>You may edit the projected cost and points per week before requesting a draft strategy.</p>
+
+<table id="players">
+    <tr>
+        <th>Pos</th>
+        <th>Name</th>
+        <th>Team</th>
+        <th>Cost</th>
+        <th>Points</th>
+    </tr>
+    @foreach (var player in userData.Players)
+    {
+        <tr>
+            <td>@player.Position</td>
+            <td>@player.FirstInitial @player.LastName</td>
+            <td>@player.Team</td>
+            <td><div contenteditable>@player.Cost</div></td>
+            <td><div contenteditable>@player.WeeklyPoints</div></td>
+        </tr>
+    }
+</table>
+
+<br />
+<br />
+
+<button type="submit" class="btn btn-primary" id="edit-projections" @onclick="EditProjections">Save Changes</button>
+
+<br />
+<br />
+
+<button type="submit" class="btn-primary" id="next-page" @onclick="NextPage">Generate Strategy</button>
+
+<br />
+<br />
 
 @code {
+    public async Task EditProjections()
+    {
+        EditProjectionsRequestObject editProjectionsRequest = new() { Players = userData.Players };
+        List<PlayerViewModel> players = await service.EditProjections(editProjectionsRequest);
+    }
 
+    public void NextPage()
+    {
+        navigation.NavigateTo("Loading");
+    }
 }

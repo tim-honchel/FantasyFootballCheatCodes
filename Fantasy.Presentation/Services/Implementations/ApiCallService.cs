@@ -42,6 +42,11 @@ namespace Fantasy.Presentation.Services.Implementations
             throw new NotImplementedException();
         }
 
+        public Task<List<PlayerViewModel>> EditProjections(EditProjectionsRequestObject request)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<List<PlayerESPNViewModel>> EspnPlayers(EspnPlayersRequestObject request)
         {
             HttpResponseMessage response = await _client.PostAsJsonAsync("espnPlayers", request);

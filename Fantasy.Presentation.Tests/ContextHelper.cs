@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Threading;
 using TestContext = Bunit.TestContext;
+using Fantasy.Presentation.Data.State;
 
 namespace Fantasy.Presentation.Tests
 {
@@ -28,18 +29,36 @@ namespace Fantasy.Presentation.Tests
             var mockHandler = new Mock<HttpMessageHandler>(MockBehavior.Strict);
             return mockHandler;
         }
+        
 
-        public Bunit.TestContext GetTestContextWithApiService(Mock<IApiCallService> service)
+        public RegisteredServices GetServiceObject()
+        {
+            return new RegisteredServices();
+        }
+
+        public Bunit.TestContext GetTestContextWithServices(RegisteredServices services)
         {
 
             TestContext testContext = new(); 
-            testContext.Services.AddSingleton(service.Object); 
+            testContext.Services.AddSingleton(services.MockApiCallService.Object);
+            testContext.Services.AddSingleton(services.UserData);
             return testContext;
+        }
+
+        public UserData GetUserData()
+        {
+            UserData userData = new UserData();
+            return userData;
         }
 
         public Mock<IApiCallService> SetupMockApiService(Mock<IApiCallService> mockApiService, Endpoint endpoint, ReturnType returnType)
         {
-            if (endpoint == Endpoint.espnPlayers)
+            if (endpoint == Endpoint.editProjections)
+            {
+                List<PlayerViewModel> players = new();
+                mockApiService.Setup(service => service.EditProjections(It.IsAny<EditProjectionsRequestObject>())).ReturnsAsync(players);
+            }
+            else if (endpoint == Endpoint.espnPlayers)
             {
                 List<PlayerESPNViewModel> players = new();
                 mockApiService.Setup(service => service.EspnPlayers(It.IsAny<EspnPlayersRequestObject>())).ReturnsAsync(players);
@@ -95,6 +114,7 @@ namespace Fantasy.Presentation.Tests
 
         public enum Endpoint
         {
+            editProjections,
             espnPlayers,
             espnRules,
             leagueRules,
@@ -108,6 +128,13 @@ namespace Fantasy.Presentation.Tests
             LeagueNotAccessible,
             LeagueNotFound,
             LeagueNotSupported
+        }
+
+        public class RegisteredServices
+        {
+            public Mock<IApiCallService> MockApiCallService { get; set; } = new();
+            public UserData UserData { get; set; } = new();
+
         }
     }
 }

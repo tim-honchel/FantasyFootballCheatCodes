@@ -1,8 +1,10 @@
 ﻿@page "/EnterEspnLeagueInformation"
 @inject IApiCallService service
 @inject NavigationManager navigation
+@inject UserData userData
 @using Fantasy.Presentation.Data.Exceptions
 @using Fantasy.Presentation.Data.RequestObjects
+@using Fantasy.Presentation.Data.State
 @using Fantasy.Presentation.Data.ViewModels
 @using Fantasy.Presentation.Services.Interfaces
 @using Microsoft.AspNetCore.Components
@@ -85,6 +87,8 @@
 
         if (ruleValidity.IsValid)
         {
+            userData.Rules = rules;
+            userData.Players = players;
             navigation.NavigateTo("LeagueRulesAndProjections");
         }
         else

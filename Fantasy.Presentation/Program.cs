@@ -1,7 +1,6 @@
+using Fantasy.Presentation.Data.State;
 using Fantasy.Presentation.Services.Implementations;
 using Fantasy.Presentation.Services.Interfaces;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<IApiCallService, ApiCallService>();
+builder.Services.AddSingleton<UserData>();
 
 var app = builder.Build();
 
