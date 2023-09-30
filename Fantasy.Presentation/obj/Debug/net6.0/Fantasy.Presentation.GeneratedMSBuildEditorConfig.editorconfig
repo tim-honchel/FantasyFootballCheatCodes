@@ -31,6 +31,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSdWxlc1RhYmxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Components/TopBar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUb3BCYXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/EnterEspnLeagueInformation.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW50ZXJFc3BuTGVhZ3VlSW5mb3JtYXRpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -51,6 +55,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hZGluZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/SignIn.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbkluLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/StarterAnalysis.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhcnRlckFuYWx5c2lzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,10 +74,6 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-saceoeq5iq
-
-[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Shared/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-empvfvjp3n
 
 [C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s

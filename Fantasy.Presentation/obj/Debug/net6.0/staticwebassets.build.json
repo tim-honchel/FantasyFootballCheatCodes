@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nuaYkWPf6SAF6v9i/kG+HuBCj0ZQCye0YKQhLArDJqY=",
+  "Hash": "K1qdJOeT9TKu0ou6d6LZJNX1xsaHIB2mg6w7yw7+ajc=",
   "Source": "Fantasy.Presentation",
   "BasePath": "_content/Fantasy.Presentation",
   "Mode": "Default",
@@ -372,6 +372,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\loading\\4.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\images\\site-logo.jpg",
+      "SourceId": "Fantasy.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\",
+      "BasePath": "_content/Fantasy.Presentation",
+      "RelativePath": "images/site-logo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\site-logo.jpg"
     }
   ]
 }

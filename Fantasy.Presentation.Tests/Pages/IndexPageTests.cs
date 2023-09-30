@@ -18,7 +18,7 @@ namespace Fantasy.Presentation.Tests.Pages
 
             string header = component.Find("h1").TextContent;
 
-            Assert.AreEqual(header, "Fantasy Football Cheat Codes");
+            Assert.AreEqual(header, "Your Best Draft is Here");
         }
 
         [Test]

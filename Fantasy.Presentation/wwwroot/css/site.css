@@ -40,6 +40,12 @@ html, body {
     width: 150px;
 }
 
+.top-row {
+    background-color: rgb(32,32,32);
+    border-bottom: 1px solid #d6d5d5;
+    height: max-content;
+}
+
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }
@@ -75,7 +81,40 @@ html, body {
     width: 150px;
 }
 
+#header {
+    vertical-align:middle;
+    width:100%;
+}
+
 #loading-image {
     height:300px;
+}
+
+#slogan{
+    color: white;
+/*    display:inline-block;*/
+    font-family: Albertus;
+    font-size: 40px;
+    margin-top: 8px;
+}
+
+#sign-in-link {
+    background-color:transparent;
+    border: none;
+    color: white;
+    float: right;
+    font-weight: bold;
+/*    margin-top: 25px;
+    vertical-align: text-bottom;*/
+}
+
+#site-logo {
+    background: url("../images/site-logo.jpg") no-repeat;
+    background-size: contain;
+    border: none;
+/*    display: inline-block;*/
+    height: 60px;
+    width:100px;
+/*    margin: 10px 10px 10px;*/
 }
 

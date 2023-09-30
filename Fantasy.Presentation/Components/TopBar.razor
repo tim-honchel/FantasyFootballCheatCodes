@@ -1,0 +1,25 @@
+﻿@inject NavigationManager navigation
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Forms
+
+<div class="top-row px-4">
+@*    <button id="site-logo" @onclick="@( () => navigation.NavigateTo(""))"></button>
+    <p id="slogan">Winning Starts Now</p>
+    <button id="sign-in-link" @onclick="@( () => navigation.NavigateTo("SignIn"))">Sign In</button>*@
+    <table id="header">
+        <colgroup>
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 80%;">
+            <col span="1" style="width: 10%;">
+        </colgroup>
+        <tr>
+            <td><button id="site-logo" @onclick="@( () => navigation.NavigateTo(""))"></button></td>
+            <td><p id="slogan">Winning Starts Now</p></td>
+            <td><button id="sign-in-link" @onclick="@( () => navigation.NavigateTo("SignIn"))">Sign In</button></td>
+        </tr>
+    </table>
+</div>
+
+@code {
+
+}
