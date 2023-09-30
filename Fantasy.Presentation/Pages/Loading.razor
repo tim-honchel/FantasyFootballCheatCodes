@@ -3,7 +3,46 @@
 <PageTitle>Loading</PageTitle>
 
 <h1>Loading...</h1>
+<br />
+<h3>***@stat***</h3>
+<br />
+<p>@text</p>
+<br />
+<img id="loading-image" src="@imagePath"/>
 
 @code {
+    public int imageID =0;
+    public string imagePath = "";
+    public int textID = 0;
+    public string text = "";
+    public string stat = "";
+    public Dictionary<int, string> textOptions = new()
+    {
+        {0,"49.3;In Week 10 of the 2010 season on Monday Night Football, Philadelphia's Michael Vick scored an all-time fantasy QB record of 49.3 points. He threw for 333 yards and 4 touchdowns, adding 80 yards and 2 touchdowns on the ground."},
+        {1,"55.4;In Week 14 of the 2003 season, Washington's Clinton Portis scored an all-time fantasy RB record of 55.4 points. He rushed for 218 yards and 5 touchdowns, adding 36 receiving yards."}
+    };
 
+    protected override void OnParametersSet()
+    {
+        int imageCount = Directory.GetFiles(@"wwwroot/images/loading").Length;
+        if (imageCount > 0)
+        {
+            imageID = new Random().Next(imageCount);
+            imagePath = $"images/loading/{imageID.ToString()}.jpg";
+        }
+
+        int textCount = textOptions.Count();
+        if (textCount > 0)
+        {
+            textID = new Random().Next(textCount);
+            string[] fullText = textOptions[textID].Split(";");
+            if (fullText != null && fullText.Length >= 2)
+            {
+                stat = fullText.First();
+                text = fullText.Last();
+            }
+        }   
+
+        base.OnParametersSet();
+    }
 }
