@@ -16,7 +16,6 @@ namespace Fantasy.API.Tests
             Mock<ICostAnalysisLogic> costAnalysisLogic = new();
             Mock<ICsvStartersLogic> csvStartersLogic = new();
             Mock<ICsvSuggestedRostersLogic> csvSuggestedRostersLogic = new();
-            Mock<IEditProjectionsLogic> editProjectionsLogic = new();
             Mock<IEspnPlayersLogic> espnPlayersLogic = new();
             Mock<IEspnRulesLogic> espnRulesLogic = new();
             Mock<IExpectedValueLogic> expectedValueLogic = new();
@@ -46,7 +45,7 @@ namespace Fantasy.API.Tests
                 espnPlayersLogic.Setup(logic => logic.Get(It.IsAny<EspnPlayersRequest>())).ReturnsAsync(response);
             }
 
-            MainController controller = new(costAnalysisLogic.Object, csvStartersLogic.Object, csvSuggestedRostersLogic.Object, editProjectionsLogic.Object, espnPlayersLogic.Object, espnRulesLogic.Object, expectedValueLogic.Object, leagueRulesLogic.Object, playerProjectionsLogic.Object, pointAveragesLogic.Object, possibleRostersLogic.Object, relativePointsLogic.Object, simplifiedDraftPoolLogic.Object, strongRosterLogic.Object, strongerRosterLogic.Object, suggestedRostersLogic.Object, tagsLogic.Object, topRosterFrequencyLogic.Object,topRosterPercentLogic.Object, topRosterPlayersLogic.Object, validRulesLogic.Object);
+            MainController controller = new(costAnalysisLogic.Object, csvStartersLogic.Object, csvSuggestedRostersLogic.Object, espnPlayersLogic.Object, espnRulesLogic.Object, expectedValueLogic.Object, leagueRulesLogic.Object, playerProjectionsLogic.Object, pointAveragesLogic.Object, possibleRostersLogic.Object, relativePointsLogic.Object, simplifiedDraftPoolLogic.Object, strongRosterLogic.Object, strongerRosterLogic.Object, suggestedRostersLogic.Object, tagsLogic.Object, topRosterFrequencyLogic.Object,topRosterPercentLogic.Object, topRosterPlayersLogic.Object, validRulesLogic.Object);
 
             return controller;
         }

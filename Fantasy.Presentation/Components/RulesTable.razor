@@ -1,0 +1,98 @@
+﻿@inject UserData userData;
+@using Fantasy.Presentation.Components
+@using Fantasy.Presentation.Data.State;
+
+
+<div>
+    <table id="positions">
+    <tr>
+        <td>POSITIONS</td>
+        <td></td>
+    </tr>
+    <PositionCount position="TQB" count="userData.Rules.Positions.TeamQuarterbacks[0]"></PositionCount>
+    <PositionCount position="QB" count="userData.Rules.Positions.Quarterbacks[0]"></PositionCount>
+    <PositionCount position="RB" count="userData.Rules.Positions.RunningBacks[0]"></PositionCount>
+    <PositionCount position="WR" count="userData.Rules.Positions.WideReceivers[0]"></PositionCount>
+    <PositionCount position="TE" count="userData.Rules.Positions.TightEnds[0]"></PositionCount>
+    <PositionCount position="OPU" count="userData.Rules.Positions.OffensivePlayerUtilities"></PositionCount>
+    <PositionCount position="FLEX" count="userData.Rules.Positions.FLEX"></PositionCount>
+    <PositionCount position="RB/WR" count="userData.Rules.Positions.BacksAndReceivers"></PositionCount>
+    <PositionCount position="WR/TE" count="userData.Rules.Positions.ReceiversAndEnds"></PositionCount>
+    <PositionCount position="DEF" count="userData.Rules.Positions.TeamDefenses[0]"></PositionCount>
+    <PositionCount position="DT" count="userData.Rules.Positions.DefensiveTackles[0]"></PositionCount>
+    <PositionCount position="DE" count="userData.Rules.Positions.DefensiveEnds[0]"></PositionCount>
+    <PositionCount position="LB" count="userData.Rules.Positions.Linebackers[0]"></PositionCount>
+    <PositionCount position="CB" count="userData.Rules.Positions.Cornerbacks[0]"></PositionCount>
+    <PositionCount position="S" count="userData.Rules.Positions.Safeties[0]"></PositionCount>
+    <PositionCount position="DPU" count="userData.Rules.Positions.DefensivePlayerUtilities"></PositionCount>
+    <PositionCount position="DL" count="userData.Rules.Positions.Linemen"></PositionCount>
+    <PositionCount position="DB" count="userData.Rules.Positions.DefensiveBacks"></PositionCount>
+    <PositionCount position="K" count="userData.Rules.Positions.Kickers[0]"></PositionCount>
+    <PositionCount position="P" count="userData.Rules.Positions.Punters[0]"></PositionCount>
+    <PositionCount position="HC" count="userData.Rules.Positions.Coaches[0]"></PositionCount>
+    <tr>
+        <td>Bench</td>
+        <td>@userData.Rules.Positions.Bench</td>
+    </tr>
+    <tr>
+        <td>IR</td>
+        <td>@userData.Rules.Positions.InjuredReserve</td>
+    </tr>
+</table>
+
+<br />
+
+<table id="settings">
+    <tr>
+        <td>SETTINGS</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Draft Type</td>
+        <td>@userData.Rules.Settings.DraftType</td>
+    </tr>
+    <tr>
+        <td>Salary Cap</td>
+        <td>@userData.Rules.Settings.SalaryCap</td>
+    </tr>
+</table>
+
+<br />
+
+<table id="size">
+    <tr>
+        <td>SIZE</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Teams</td>
+        <td>@userData.Rules.Size.Teams</td>
+    </tr>
+    <tr>
+        <td>Teams</td>
+        <td>@userData.Rules.Size.PlayoffTeams</td>
+    </tr>
+</table>
+
+<br />
+
+<table id="status">
+    <tr>
+        <td>STATUS</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Active</td>
+        <td>@userData.Rules.Status.IsActive</td>
+    </tr>
+    <tr>
+        <td>Draft Complete</td>
+        <td>@userData.Rules.Status.DraftComplete</td>
+    </tr>
+</table>
+
+</div>
+
+@code {
+
+}

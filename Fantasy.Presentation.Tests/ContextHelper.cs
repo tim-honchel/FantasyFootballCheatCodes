@@ -53,12 +53,7 @@ namespace Fantasy.Presentation.Tests
 
         public Mock<IApiCallService> SetupMockApiService(Mock<IApiCallService> mockApiService, Endpoint endpoint, ReturnType returnType)
         {
-            if (endpoint == Endpoint.editProjections)
-            {
-                List<PlayerViewModel> players = new();
-                mockApiService.Setup(service => service.EditProjections(It.IsAny<EditProjectionsRequestObject>())).ReturnsAsync(players);
-            }
-            else if (endpoint == Endpoint.espnPlayers)
+            if (endpoint == Endpoint.espnPlayers)
             {
                 List<PlayerESPNViewModel> players = new();
                 mockApiService.Setup(service => service.EspnPlayers(It.IsAny<EspnPlayersRequestObject>())).ReturnsAsync(players);
@@ -114,7 +109,6 @@ namespace Fantasy.Presentation.Tests
 
         public enum Endpoint
         {
-            editProjections,
             espnPlayers,
             espnRules,
             leagueRules,

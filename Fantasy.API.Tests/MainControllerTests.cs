@@ -48,12 +48,6 @@ namespace Fantasy.API.Tests
         }
 
         [Test]
-        public void EditProjections_Returns_OkObjectResult_Given_ValidResponse()
-        {
-            Assert.Ignore();
-        }
-
-        [Test]
         public void EditProjections_Returns_BadRequestObjectResult_Given_CustomException()
         {
             Assert.Ignore();

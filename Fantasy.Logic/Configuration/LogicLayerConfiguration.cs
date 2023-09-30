@@ -12,7 +12,6 @@ namespace Fantasy.Logic.Configuration
             services.AddTransient<ICostAnalysisLogic, CostAnalysisLogic>();
             services.AddTransient<ICsvStartersLogic, CsvStartersLogic>();
             services.AddTransient<ICsvSuggestedRostersLogic, CsvSuggestedRostersLogic>();
-            services.AddTransient<IEditProjectionsLogic, EditProjectionsLogic>();
             services.AddTransient<IEspnPlayersLogic, EspnPlayersLogic>();
             services.AddTransient<IEspnRulesLogic, EspnRulesLogic>();
             services.AddTransient<IExpectedValueLogic, ExpectedValueLogic>();

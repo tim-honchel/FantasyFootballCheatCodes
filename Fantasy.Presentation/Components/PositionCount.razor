@@ -1,0 +1,16 @@
+﻿@if (count > 0)
+{
+    <tr>
+        <td>@position</td>
+        <td>@count</td>
+    </tr>
+}
+
+@code {
+
+    [Parameter]
+    public int count { get; set; } = 0;
+
+    [Parameter]
+    public string position { get; set; } = "";
+}

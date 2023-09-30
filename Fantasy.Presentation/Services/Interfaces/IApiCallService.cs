@@ -1,5 +1,4 @@
 ﻿using Fantasy.Presentation.Data.RequestObjects;
-using Fantasy.Presentation.Data.Responses;
 using Fantasy.Presentation.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +9,6 @@ namespace Fantasy.Presentation.Services.Interfaces
         Task<CostAnalysisViewModel> CostAnalysis(CostAnalysisRequestObject request);
         Task<FileContentResult> CsvStarters(CsvStartersRequestObject request);
         Task<FileContentResult> CsvSuggestedRosters(SuggestedRostersRequestObject request);
-        Task<List<PlayerViewModel>> EditProjections(EditProjectionsRequestObject request);
         Task<List<PlayerViewModel>> ExpectedValue(ExpectedValueRequestObject request);
         Task<List<PlayerESPNViewModel>> EspnPlayers(EspnPlayersRequestObject request);
         Task<RulesESPNViewModel> EspnRules(EspnRulesRequestObject request);

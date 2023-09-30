@@ -14,7 +14,6 @@ namespace Fantasy.API.Controllers
         public ICostAnalysisLogic _costAnalysisLogic;
         public ICsvStartersLogic _csvStartersLogic;
         public ICsvSuggestedRostersLogic _csvSuggestedRostersLogic;
-        public IEditProjectionsLogic _editProjectionsLogic;
         public IEspnPlayersLogic _espnPlayersLogic;
         public IEspnRulesLogic _espnRulesLogic;
         public IExpectedValueLogic _expectedValueLogic;
@@ -33,12 +32,11 @@ namespace Fantasy.API.Controllers
         public ITopRosterPlayersLogic _topRosterPlayersLogic;
         public IValidRulesLogic _validRulesLogic;
 
-        public MainController(ICostAnalysisLogic costAnalysisLogic, ICsvStartersLogic csvStartersLogic, ICsvSuggestedRostersLogic csvSuggestedRostersLogic, IEditProjectionsLogic editProjectionsLogic, IEspnPlayersLogic espnPlayersLogic, IEspnRulesLogic espnRulesLogic, IExpectedValueLogic expectedValueLogic, ILeagueRulesLogic leagueRulesLogic, IPlayerProjectionsLogic playerProjectionsLogic, IPointAveragesLogic pointAveragesLogic, IPossibleRostersLogic possibleRostersLogic, IRelativePointsLogic relativePointsLogic, ISimplifiedDraftPoolLogic simplifiedDraftPoolLogic, IStrongRosterLogic strongRosterLogic, IStrongerRosterLogic strongerRosterLogic, ISuggestedRostersLogic suggestedRostersLogic, ITagsLogic tagsLogic, ITopRosterFrequencyLogic topRosterFrequencyLogic, ITopRosterPercentLogic topRosterPercentLogic, ITopRosterPlayersLogic topRosterPlayersLogic, IValidRulesLogic validRulesLogic)
+        public MainController(ICostAnalysisLogic costAnalysisLogic, ICsvStartersLogic csvStartersLogic, ICsvSuggestedRostersLogic csvSuggestedRostersLogic, IEspnPlayersLogic espnPlayersLogic, IEspnRulesLogic espnRulesLogic, IExpectedValueLogic expectedValueLogic, ILeagueRulesLogic leagueRulesLogic, IPlayerProjectionsLogic playerProjectionsLogic, IPointAveragesLogic pointAveragesLogic, IPossibleRostersLogic possibleRostersLogic, IRelativePointsLogic relativePointsLogic, ISimplifiedDraftPoolLogic simplifiedDraftPoolLogic, IStrongRosterLogic strongRosterLogic, IStrongerRosterLogic strongerRosterLogic, ISuggestedRostersLogic suggestedRostersLogic, ITagsLogic tagsLogic, ITopRosterFrequencyLogic topRosterFrequencyLogic, ITopRosterPercentLogic topRosterPercentLogic, ITopRosterPlayersLogic topRosterPlayersLogic, IValidRulesLogic validRulesLogic)
         {
             _costAnalysisLogic = costAnalysisLogic;
             _csvStartersLogic = csvStartersLogic;
             _csvSuggestedRostersLogic = csvSuggestedRostersLogic;
-            _editProjectionsLogic = editProjectionsLogic;
             _espnPlayersLogic = espnPlayersLogic;
             _espnRulesLogic = espnRulesLogic;
             _expectedValueLogic = expectedValueLogic;
@@ -79,13 +77,6 @@ namespace Fantasy.API.Controllers
             string csv = _csvSuggestedRostersLogic.Get(request);
             var fileBytes = Encoding.UTF8.GetBytes(csv);
             return File(fileBytes, "text/csv", "FantasySuggestedRosters.csv");
-        }
-
-        [HttpPut("editProjections")]
-        public IActionResult EditProjections([FromBody] EditProjectionsRequest request)
-        {
-            EditProjectionsResponse response = _editProjectionsLogic.Get(request);
-            return new OkObjectResult(response);
         }
 
         [HttpPost("espnPlayers")]

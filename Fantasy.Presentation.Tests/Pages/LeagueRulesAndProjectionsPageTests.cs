@@ -67,27 +67,6 @@ namespace Fantasy.Presentation.Tests.Pages
         }
 
         [Test]
-        public void EditButton_Click_Calls_EditProjectionsEndpoint()
-        {
-            Mock<IApiCallService> apiCall = _helper.GetMockApiService();
-            apiCall = _helper.SetupMockApiService(apiCall, ContextHelper.Endpoint.editProjections, ContextHelper.ReturnType.Default);
-            PlayerViewModel player = new();
-            List<PlayerViewModel> players = new();
-            players.Add(player);
-            UserData userData = _helper.GetUserData();
-            userData.Players = players;
-            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
-            services.MockApiCallService = apiCall;
-            services.UserData = userData;
-            TestContext testContext = _helper.GetTestContextWithServices(services);
-            IRenderedComponent<LeagueRulesAndProjections> component = testContext.RenderComponent<LeagueRulesAndProjections>();
-            
-            component.Find("button[id=\"edit-projections\"]").Click();
-
-            apiCall.Verify(service => service.EditProjections(It.IsAny<EditProjectionsRequestObject>()), Times.Once);
-        }
-
-        [Test]
         public void NextButton_Click_NavigatesTo_LoadingPage()
         {
             PlayerViewModel player = new();
