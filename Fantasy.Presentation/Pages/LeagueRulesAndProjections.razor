@@ -24,7 +24,14 @@
 <h2>Players</h2>
 <p>You may edit the projected cost and points per week before requesting a draft strategy.</p>
 
-<table id="players">
+<table class=rules-table id="players">
+    <colgroup>
+        <col span="1" style="width: 50px;">
+        <col span="1" style="width: 150px;">
+        <col span="1" style="width: 50px;">
+        <col span="1" style="width: 50px;">
+        <col span="1" style="width: 50px;">
+    </colgroup>
     <tr>
         <th>Pos</th>
         <th>Name</th>
@@ -53,7 +60,7 @@
 <br />
 <br />
 
-<button type="submit" class="btn-primary" id="next-page" @onclick="NextPage">Generate Strategy</button>
+<button type="submit" class="btn-primary next-button" id="next-page" @onclick="NextPage">Generate Strategy</button>
 
 <br />
 <br />
