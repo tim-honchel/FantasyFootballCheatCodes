@@ -9,17 +9,18 @@
 <p>@text</p>
 <br />
 <img id="loading-image" src="@imagePath"/>
+<p>Photo Credit: @photoCredit</p>
 
 @code {
-    public int imageID =0;
+    public int id =0;
     public string imagePath = "";
-    public int textID = 0;
-    public string text = "";
     public string stat = "";
+    public string text = "";
+    public string photoCredit = "";
+
     public Dictionary<int, string> textOptions = new()
     {
-        {0,"49.3;In Week 10 of the 2010 season on Monday Night Football, Philadelphia's Michael Vick scored an all-time fantasy QB record of 49.3 points. He threw for 333 yards and 4 touchdowns, adding 80 yards and 2 touchdowns on the ground."},
-        {1,"55.4;In Week 14 of the 2003 season, Washington's Clinton Portis scored an all-time fantasy RB record of 55.4 points. He rushed for 218 yards and 5 touchdowns, adding 36 receiving yards."}
+        {0,"49.3;In Week 10 of the 2010 season on Monday Night Football, Philadelphia's Michael Vick scored an all-time fantasy QB record of 49.3 points. He threw for 333 yards and 4 touchdowns, adding 80 yards and 2 touchdowns on the ground.;Ed Yourdon (https://www.flickr.com/photos/72098626@N00)"},
     };
 
     protected override void OnParametersSet()
@@ -27,19 +28,15 @@
         int imageCount = Directory.GetFiles(@"wwwroot/images/loading").Length;
         if (imageCount > 0)
         {
-            imageID = new Random().Next(imageCount);
-            imagePath = $"images/loading/{imageID.ToString()}.jpg";
-        }
+            id = new Random().Next(imageCount);
+            imagePath = $"images/loading/{id.ToString()}.jpg";
 
-        int textCount = textOptions.Count();
-        if (textCount > 0)
-        {
-            textID = new Random().Next(textCount);
-            string[] fullText = textOptions[textID].Split(";");
-            if (fullText != null && fullText.Length >= 2)
+            string[] fullText = textOptions[id].Split(";");
+            if (fullText != null && fullText.Length == 3)
             {
-                stat = fullText.First();
-                text = fullText.Last();
+                stat = fullText[0];
+                text = fullText[1];
+                photoCredit = fullText[2];
             }
         }   
 

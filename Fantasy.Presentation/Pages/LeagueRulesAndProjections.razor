@@ -12,17 +12,18 @@
 <PageTitle>League Rules And Projections</PageTitle>
 
 <h1>League Rules And Projections</h1>
-<p>League ID: @userData.Rules.LeagueID</p>
+<p>Please review your league's rules, view the players in the draft pool, edit any player projections, and finally click the "Next" button at the bottom of the page to generate a strategy.</p>
 <br />
 
 <h2>Rules</h2>
+<p>Your league ID is @userData.Rules.LeagueID. </p>
 
 <RulesTable></RulesTable>
 
-<br />
+<p class="scroll-down">Scroll to bottom to proceed to next page</p>
 
 <h2>Players</h2>
-<p>You may edit the projected cost and points per week before requesting a draft strategy.</p>
+<p>You may edit the projected cost and points.</p>
 
 <table class=rules-table id="players">
     <colgroup>
@@ -60,7 +61,8 @@
 <br />
 <br />
 
-<button type="submit" class="btn-primary next-button" id="next-page" @onclick="NextPage">Generate Strategy</button>
+<button type="submit" class="btn-primary next-button" id="next-page" @onclick="NextPage">Next</button>
+<p>Click to generate your strategy</p>
 
 <br />
 <br />
