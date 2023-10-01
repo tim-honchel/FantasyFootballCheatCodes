@@ -63,6 +63,8 @@ namespace Fantasy.Presentation.Services.Implementations
 
         public async Task<RulesESPNViewModel> EspnRules(EspnRulesRequestObject request)
         {
+            request.espn_s2 = $"espn_s2={request.espn_s2};";
+            request.swid = $"SWID={request.swid};";
             HttpResponseMessage response = await _client.PostAsJsonAsync("espnRules", request); 
             if(!response.IsSuccessStatusCode)
             {

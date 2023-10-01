@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KrEFy7JukHkwZQ3xs63nA7TvzCi6SYLKNZzntFxxyjk=",
+  "Hash": "f1Zn1FkQZjqZzPzulQFMP4q8/eJUJC2NG6NkzLuB8tQ=",
   "Source": "Fantasy.Presentation",
   "BasePath": "_content/Fantasy.Presentation",
   "Mode": "Default",
@@ -406,6 +406,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\nfl-logo.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\images\\screenshots\\espn-cookie-1.jpg",
+      "SourceId": "Fantasy.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\",
+      "BasePath": "_content/Fantasy.Presentation",
+      "RelativePath": "images/screenshots/espn-cookie-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\screenshots\\espn-cookie-1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\images\\screenshots\\espn-league-id.jpg",
+      "SourceId": "Fantasy.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\",
+      "BasePath": "_content/Fantasy.Presentation",
+      "RelativePath": "images/screenshots/espn-league-id.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\screenshots\\espn-league-id.jpg"
     },
     {
       "Identity": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\images\\site-logo.jpg",
