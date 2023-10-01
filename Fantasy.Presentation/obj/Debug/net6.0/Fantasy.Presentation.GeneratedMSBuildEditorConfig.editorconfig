@@ -35,8 +35,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUb3BCYXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/EnterCbsLeagueInformation.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW50ZXJDYnNMZWFndWVJbmZvcm1hdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/EnterEspnLeagueInformation.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW50ZXJFc3BuTGVhZ3VlSW5mb3JtYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/EnterNflLeagueInformation.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW50ZXJOZmxMZWFndWVJbmZvcm1hdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/EnterYahooLeagueInformation.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW50ZXJZYWhvb0xlYWd1ZUluZm9ybWF0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/timho/Documents/repos/FantasyFootballCheatCodes/Fantasy.Presentation/Pages/Error.razor]

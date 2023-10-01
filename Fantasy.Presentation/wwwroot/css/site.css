@@ -73,6 +73,15 @@ html, body {
     top: 0.5rem;
 }
 
+#cbs {
+    background: url(/images/cbs-logo.jpeg) no-repeat;
+    background-size: contain;
+    border: none;
+    height: 150px;
+    margin-left: 10px;
+    width: 150px;
+}
+
 #espn {
     background: url(/images/espn-logo.jpeg) no-repeat;
     background-size: contain;
@@ -90,9 +99,17 @@ html, body {
     height:300px;
 }
 
+#nfl {
+    background: url(/images/nfl-logo.jpeg) no-repeat;
+    background-size: contain;
+    border: none;
+    height: 150px;
+    margin-left: 10px;
+    width: 150px;
+}
+
 #slogan{
     color: white;
-/*    display:inline-block;*/
     font-family: Albertus;
     font-size: 40px;
     margin-top: 8px;
@@ -104,17 +121,21 @@ html, body {
     color: white;
     float: right;
     font-weight: bold;
-/*    margin-top: 25px;
-    vertical-align: text-bottom;*/
 }
 
 #site-logo {
     background: url("../images/site-logo.jpg") no-repeat;
     background-size: contain;
     border: none;
-/*    display: inline-block;*/
     height: 60px;
     width:100px;
-/*    margin: 10px 10px 10px;*/
 }
 
+#yahoo {
+    background: url(/images/yahoo-logo.jpg) no-repeat;
+    background-size: contain;
+    border: none;
+    height: 150px;
+    margin-left: 10px;
+    width: 150px;
+}

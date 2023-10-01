@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "K1qdJOeT9TKu0ou6d6LZJNX1xsaHIB2mg6w7yw7+ajc=",
+  "Hash": "KrEFy7JukHkwZQ3xs63nA7TvzCi6SYLKNZzntFxxyjk=",
   "Source": "Fantasy.Presentation",
   "BasePath": "_content/Fantasy.Presentation",
   "Mode": "Default",
@@ -272,6 +272,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\images\\cbs-logo.jpeg",
+      "SourceId": "Fantasy.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\",
+      "BasePath": "_content/Fantasy.Presentation",
+      "RelativePath": "images/cbs-logo.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\cbs-logo.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\images\\espn-logo.jpeg",
       "SourceId": "Fantasy.Presentation",
       "SourceType": "Discovered",
@@ -374,6 +391,23 @@
       "OriginalItemSpec": "wwwroot\\images\\loading\\4.jpg"
     },
     {
+      "Identity": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\images\\nfl-logo.jpeg",
+      "SourceId": "Fantasy.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\",
+      "BasePath": "_content/Fantasy.Presentation",
+      "RelativePath": "images/nfl-logo.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\nfl-logo.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\images\\site-logo.jpg",
       "SourceId": "Fantasy.Presentation",
       "SourceType": "Discovered",
@@ -389,6 +423,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\site-logo.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\images\\yahoo-logo.jpg",
+      "SourceId": "Fantasy.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\timho\\Documents\\repos\\FantasyFootballCheatCodes\\Fantasy.Presentation\\wwwroot\\",
+      "BasePath": "_content/Fantasy.Presentation",
+      "RelativePath": "images/yahoo-logo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\yahoo-logo.jpg"
     }
   ]
 }
