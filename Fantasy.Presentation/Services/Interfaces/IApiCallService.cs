@@ -17,6 +17,7 @@ namespace Fantasy.Presentation.Services.Interfaces
         Task<PointAveragesViewModel> PointAverages(PointAveragesRequestObject request);
         Task<List<RosterViewModel>> PossibleRosters(PossibleRostersRequestObject request);
         Task<List<PlayerViewModel>> RelativePoints(RelativePointsRequestObject request);
+        Task<List<PlayerViewModel>> SimplifiedDraftPool(SimplifiedDraftPoolRequestObject request);
         Task<RosterViewModel> StrongerRoster(StrongerRosterRequestObject request);
         Task<RosterViewModel> StrongRoster(StrongRosterRequestObject request);
         Task<List<DraftBoardViewModel>> SuggestedRosters(SuggestedRostersRequestObject request);

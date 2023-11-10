@@ -140,6 +140,11 @@ namespace Fantasy.Presentation.Services.Implementations
             throw new NotImplementedException();
         }
 
+        public Task<List<PlayerViewModel>> SimplifiedDraftPool(SimplifiedDraftPoolRequestObject request)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<RosterViewModel> StrongerRoster(StrongerRosterRequestObject request)
         {
             throw new NotImplementedException();

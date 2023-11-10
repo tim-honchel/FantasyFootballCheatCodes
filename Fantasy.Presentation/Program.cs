@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<IApiCallService, ApiCallService>();
+builder.Services.AddScoped<IStrategyService, StrategyService>();
 builder.Services.AddSingleton<UserData>();
 
 var app = builder.Build();
