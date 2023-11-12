@@ -25,7 +25,7 @@ namespace Fantasy.Presentation.Tests.Pages
 
             string header = component.Find("h1").TextContent;
 
-            Assert.AreEqual(header, "Enter League Information");
+            Assert.AreEqual(header, "Enter ESPN League Information");
         }
         [Test]
         public void Page_Renders_LeagueIDInput()

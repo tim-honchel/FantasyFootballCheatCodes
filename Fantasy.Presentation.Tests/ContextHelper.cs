@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using TestContext = Bunit.TestContext;
 using Fantasy.Presentation.Data.State;
+using Microsoft.Extensions.Configuration;
 
 namespace Fantasy.Presentation.Tests
 {
@@ -42,6 +43,7 @@ namespace Fantasy.Presentation.Tests
             TestContext testContext = new(); 
             testContext.Services.AddSingleton(services.MockApiCallService.Object);
             testContext.Services.AddSingleton(services.UserData);
+            testContext.Services.AddSingleton(services.Configuration);
             return testContext;
         }
 
@@ -128,6 +130,10 @@ namespace Fantasy.Presentation.Tests
         {
             public Mock<IApiCallService> MockApiCallService { get; set; } = new();
             public UserData UserData { get; set; } = new();
+
+            public IConfiguration Configuration { get; set; } = ConfigurationHelper.GetIConfigurationRoot();
+
+ 
 
         }
     }
