@@ -43,20 +43,20 @@ namespace Fantasy.Logic.Implementations
         {
             Dictionary<int, string> positionFinder = new()
             {
-                {0, PositionConstants.TeamQuarterback },
-                {1, PositionConstants.Quarterback },
-                {2, PositionConstants.RunningBack },
-                {3, PositionConstants.WideReceiver },
-                {4, PositionConstants.TightEnd },
-                {5, PositionConstants.Kicker },
-                {6, PositionConstants.Punter },
-                {7, PositionConstants.Coach },
-                {8, PositionConstants.DefensiveTackle },
-                {9, PositionConstants.DefensiveEnd },
-                {10, PositionConstants.Linebacker },
-                {11, PositionConstants.Cornerback },
-                {12, PositionConstants.Safety },
-                {16, PositionConstants.TeamDefense },
+                {0, BasePositionConstants.TeamQuarterback },
+                {1, BasePositionConstants.Quarterback },
+                {2, BasePositionConstants.RunningBack },
+                {3, BasePositionConstants.WideReceiver },
+                {4, BasePositionConstants.TightEnd },
+                {5, BasePositionConstants.Kicker },
+                {6, BasePositionConstants.Punter },
+                {7, BasePositionConstants.Coach },
+                {8, BasePositionConstants.DefensiveTackle },
+                {9, BasePositionConstants.DefensiveEnd },
+                {10, BasePositionConstants.Linebacker },
+                {11, BasePositionConstants.Cornerback },
+                {12, BasePositionConstants.Safety },
+                {16, BasePositionConstants.TeamDefense },
 
             };
 

@@ -50,7 +50,7 @@ namespace Fantasy.Logic.Implementations
                 BacksAndReceivers = positionSlotCounts[3],
                 ReceiversAndEnds = positionSlotCounts[5],
                 OffensivePlayerUtilities = positionSlotCounts[7],
-                Linemen = positionSlotCounts[11],
+                DefensiveLinemen = positionSlotCounts[11],
                 DefensiveBacks = positionSlotCounts[14],
                 DefensivePlayerUtilities = positionSlotCounts[15],
             };

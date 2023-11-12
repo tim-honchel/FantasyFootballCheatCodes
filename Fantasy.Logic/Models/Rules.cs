@@ -28,7 +28,7 @@
         public int[] DefensiveTackles { get; set; } = new int[2];
         public int[] DefensiveEnds { get; set; } = new int[2];
         public int[] Linebackers { get; set; } = new int[2];
-        public int Linemen { get; set; } = 0;
+        public int DefensiveLinemen { get; set; } = 0;
         public int[] Cornerbacks { get; set; } = new int[2];
         public int[] Safeties { get; set; } = new int[2];
         public int DefensiveBacks { get; set; } = 0;
