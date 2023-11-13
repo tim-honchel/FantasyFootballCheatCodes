@@ -2,6 +2,6 @@
 {
     public interface IStrategyService
     {
-        Task EvaluatePlayers();
+        Task<bool> EvaluatePlayers();
     }
 }

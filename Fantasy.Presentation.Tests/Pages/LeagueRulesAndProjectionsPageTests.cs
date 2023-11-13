@@ -67,7 +67,7 @@ namespace Fantasy.Presentation.Tests.Pages
         }
 
         [Test]
-        public void NextButton_Click_NavigatesTo_LoadingPage()
+        public void NextButton_Click_NavigatesTo_StarterAnalysisPage_GivenSuccessfulApiCalls()
         {
             PlayerViewModel player = new();
             List<PlayerViewModel> players = new();
@@ -76,6 +76,7 @@ namespace Fantasy.Presentation.Tests.Pages
             userData.Players = players;
             ContextHelper.RegisteredServices services = _helper.GetServiceObject();
             services.MockApiCallService = _helper.GetMockApiService();
+            services.MockStrategyService = _helper.GetMockStrategyService(true, userData);
             services.UserData = userData;
             TestContext testContext = _helper.GetTestContextWithServices(services);
             NavigationManager navigation = testContext.Services.GetRequiredService<NavigationManager>();
@@ -84,7 +85,29 @@ namespace Fantasy.Presentation.Tests.Pages
             component.Find("button[id=\"next-page\"]").Click();
 
             string page = navigation.Uri.Substring(navigation.BaseUri.Length).ToLower();
-            Assert.AreEqual(page, "loading");
+            Assert.AreEqual(page, "starteranalysis");
+        }
+
+        [Test]
+        public void NextButton_Click_NavigatesTo_StarterAnalysisPage_GivenUnuccessfulApiCalls()
+        {
+            PlayerViewModel player = new();
+            List<PlayerViewModel> players = new();
+            players.Add(player);
+            UserData userData = _helper.GetUserData();
+            userData.Players = players;
+            ContextHelper.RegisteredServices services = _helper.GetServiceObject();
+            services.MockApiCallService = _helper.GetMockApiService();
+            services.MockStrategyService = _helper.GetMockStrategyService(false, userData);
+            services.UserData = userData;
+            TestContext testContext = _helper.GetTestContextWithServices(services);
+            NavigationManager navigation = testContext.Services.GetRequiredService<NavigationManager>();
+            IRenderedComponent<LeagueRulesAndProjections> component = testContext.RenderComponent<LeagueRulesAndProjections>();
+
+            component.Find("button[id=\"next-page\"]").Click();
+
+            string page = navigation.Uri.Substring(navigation.BaseUri.Length).ToLower();
+            Assert.AreEqual(page, "error/processing");
         }
 
     }

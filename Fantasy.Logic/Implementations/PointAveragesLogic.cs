@@ -135,7 +135,10 @@ namespace Fantasy.Logic.Implementations
 
         public void MockDraftBenchPosition(PointAverages averages, List<Player> players, Dictionary<string,int> benchSlotsByPosition, string position)
         {
-            players.Where(p => p.Position == position).OrderByDescending(p => p.WeeklyPoints).Take(benchSlotsByPosition[position]).ToList().ForEach(p => p.Position = position + "-bench");
+            if (benchSlotsByPosition.ContainsKey(position))
+            {
+                players.Where(p => p.Position == position).OrderByDescending(p => p.WeeklyPoints).Take(benchSlotsByPosition[position]).ToList().ForEach(p => p.Position = position + "-bench");
+            }        
         }
 
         public void MockDraftComboPosition(PointAverages averages, List<Player> players, Dictionary<string, int> startersByPosition, int teams, KeyValuePair<string, List<string>> position)

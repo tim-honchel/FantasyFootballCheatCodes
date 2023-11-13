@@ -22,8 +22,9 @@
     public Dictionary<string, string> errorMessages = new()
     {
         {"LeagueNotAccessible", "A league was found, but could not be accessed using the provided authorization. Please double check the cookies/credentials and try again."},
-        {"LeagueNotFound", "A league was not found for the League ID provided. Please dobule check the league ID and try again."},
-        {"LeagueNotSupported", "A league was found, but the rule structure is currently not supported."}
+        {"LeagueNotFound", "A league was not found for the League ID provided. Please double check the league ID and try again."},
+        {"LeagueNotSupported", "A league was found, but the rule structure is currently not supported."},
+        {"Processing", "There was an error while generating a draft strategy."}
     };
 
     protected override Task OnInitializedAsync()

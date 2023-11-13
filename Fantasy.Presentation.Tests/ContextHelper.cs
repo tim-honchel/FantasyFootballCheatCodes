@@ -25,6 +25,20 @@ namespace Fantasy.Presentation.Tests
             return mockService;
         }
 
+        public Mock<IStrategyService> GetMockStrategyService(bool success, UserData userData, string errorMessage = "")
+        {
+            Mock<IStrategyService> mockStrategyService = new();
+
+            mockStrategyService.Setup(m => m.EvaluatePlayers()).ReturnsAsync(success);
+
+            if (success = false && !string.IsNullOrEmpty(errorMessage))
+            {
+                userData.ErrorMessages.Add(errorMessage);
+            }
+
+            return mockStrategyService;
+        }
+
         public Mock<HttpMessageHandler> GetMockHandler()
         {
             var mockHandler = new Mock<HttpMessageHandler>(MockBehavior.Strict);
@@ -42,6 +56,7 @@ namespace Fantasy.Presentation.Tests
 
             TestContext testContext = new(); 
             testContext.Services.AddSingleton(services.MockApiCallService.Object);
+            testContext.Services.AddSingleton(services.MockStrategyService.Object);
             testContext.Services.AddSingleton(services.UserData);
             testContext.Services.AddSingleton(services.Configuration);
             return testContext;
@@ -129,6 +144,7 @@ namespace Fantasy.Presentation.Tests
         public class RegisteredServices
         {
             public Mock<IApiCallService> MockApiCallService { get; set; } = new();
+            public Mock<IStrategyService> MockStrategyService { get; set; } = new();
             public UserData UserData { get; set; } = new();
 
             public IConfiguration Configuration { get; set; } = ConfigurationHelper.GetIConfigurationRoot();

@@ -1,6 +1,7 @@
 ﻿using Fantasy.Presentation.Data.Exceptions;
 using Fantasy.Presentation.Data.RequestObjects;
 using Fantasy.Presentation.Data.Responses;
+using Fantasy.Presentation.Data.State;
 using Fantasy.Presentation.Data.ViewModels;
 using Fantasy.Presentation.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -11,13 +12,15 @@ namespace Fantasy.Presentation.Services.Implementations
     public class ApiCallService : IApiCallService
     {
         HttpClient _client;
+        UserData _userData;
 
-        public ApiCallService()
+        public ApiCallService(UserData userData)
         {
             _client = new HttpClient();
             string url = "https://localhost:7164/";
             _client.BaseAddress = new Uri(url);
             _client.DefaultRequestHeaders.Clear();
+            _userData = userData;
         }
 
         public ApiCallService(HttpMessageHandler handler) // for unit testing, to allow mocking
@@ -29,16 +32,19 @@ namespace Fantasy.Presentation.Services.Implementations
 
         public Task<CostAnalysisViewModel> CostAnalysis(CostAnalysisRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'costAnaylsis' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
 
         public Task<FileContentResult> CsvStarters(CsvStartersRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'csvStarters' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
 
         public Task<FileContentResult> CsvSuggestedRosters(SuggestedRostersRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'csvSuggestedRosters' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
 
@@ -84,6 +90,7 @@ namespace Fantasy.Presentation.Services.Implementations
 
         public Task<List<PlayerViewModel>> ExpectedValue(ExpectedValueRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'expectedValue' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
 
@@ -125,58 +132,82 @@ namespace Fantasy.Presentation.Services.Implementations
             return players;
         }
 
-        public Task<PointAveragesViewModel> PointAverages(PointAveragesRequestObject request)
+        public async Task<PointAveragesViewModel> PointAverages(PointAveragesRequestObject request)
         {
-            throw new NotImplementedException();
+            HttpResponseMessage response = await _client.PostAsJsonAsync("pointAverages", request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ServerErrorException();
+            }
+
+            PointAveragesResponseObject? result = await response.Content.ReadFromJsonAsync<PointAveragesResponseObject>();
+            if (result == null)
+            {
+                throw new NullContentException();
+            }
+
+            PointAveragesViewModel averages = result.Averages;
+
+            return averages;
         }
 
         public Task<List<RosterViewModel>> PossibleRosters(PossibleRostersRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'possibleRosters' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
 
         public Task<List<PlayerViewModel>> RelativePoints(RelativePointsRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'relativePoints' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
 
         public Task<List<PlayerViewModel>> SimplifiedDraftPool(SimplifiedDraftPoolRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'simplifiedDraftPool' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
 
         public Task<RosterViewModel> StrongerRoster(StrongerRosterRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'strongerRoster' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
 
         public Task<RosterViewModel> StrongRoster(StrongRosterRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'strongRoster' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
 
         public Task<List<DraftBoardViewModel>> SuggestedRosters(SuggestedRostersRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'suggestedRosters' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
 
         public Task<List<PlayerViewModel>> Tags(TagsRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'tags' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
 
         public Task<CountByIDViewModel> TopRosterFrequency(TopRosterFrequencyRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'topRosterFrequency' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
 
         public Task<List<PlayerViewModel>> TopRosterPercent(TopRosterPercentRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'topRosterPercent' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
 
         public Task<List<int>> TopRosterPlayers(TopRosterPlayersRequestObject request)
         {
+            _userData.ErrorMessages.Add("The 'topRosterPlayers' endpoint is not yet implemented.");
             throw new NotImplementedException();
         }
         public async Task<RuleValidityViewModel> ValidRules(ValidRulesRequestObject request)

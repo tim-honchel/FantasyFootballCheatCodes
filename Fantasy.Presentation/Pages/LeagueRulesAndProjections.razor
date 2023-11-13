@@ -1,7 +1,8 @@
 ﻿@page "/LeagueRulesAndProjections"
 
-@inject IApiCallService service
+@inject IApiCallService callService
 @inject NavigationManager navigation
+@inject IStrategyService strategyService
 @inject UserData userData;
 @using Fantasy.Presentation.Components
 @using Fantasy.Presentation.Data.RequestObjects
@@ -80,8 +81,21 @@
         }
     }
 
-    public void NextPage()
+    public async Task NextPage()
     {
         navigation.NavigateTo("Loading");
+
+        bool success = await strategyService.EvaluatePlayers();
+        
+        if (success == false)
+        {
+            navigation.NavigateTo("Error/Processing");
+        }
+        else
+        {
+            navigation.NavigateTo("StarterAnalysis");
+        }
+
+        
     }
 }
