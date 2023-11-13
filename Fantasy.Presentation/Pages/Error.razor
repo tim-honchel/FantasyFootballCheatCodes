@@ -1,7 +1,17 @@
 ﻿@page "/Error/{error}"
+@inject UserData userData
+@using Fantasy.Presentation.Data.State
 
 <h1>@error</h1>
 <p>@message</p>
+@if(userData.ErrorMessages.Count>0)
+{
+    <br />
+    @foreach (string errorMessage in userData.ErrorMessages)
+    {
+        <p style="color:darkred">- @errorMessage</p>
+    }
+}
 
 @code {
     [Parameter]

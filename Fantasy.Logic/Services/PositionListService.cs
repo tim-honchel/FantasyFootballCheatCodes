@@ -26,5 +26,22 @@ namespace Fantasy.Logic.Services
 
             return listOfBasePositions;
         }
+
+        public static List<string> GetListOfComboPositions()
+        {
+            var listOfComboPositions = new List<string>()
+
+            {
+                ComboPositionConstants.BacksAndReceivers,
+                ComboPositionConstants.DefensiveBacks,
+                ComboPositionConstants.DefensiveLinemen,
+                ComboPositionConstants.DefensivePlayerUtilities,
+                ComboPositionConstants.FLEX,
+                ComboPositionConstants.OffensivePlayerUtilities,
+                ComboPositionConstants.ReceiversAndEnds
+            };
+
+            return listOfComboPositions;
+        }
     }
 }

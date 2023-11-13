@@ -37,23 +37,21 @@ namespace Fantasy.Logic.Implementations
 
         public Dictionary<string, int> CalculateLimits(Positions positions, int teams)
         {
-            Dictionary<string, int> limits = new()
+            Dictionary<string, int> limits = PositionDictionaryService.GetMaximumPlayersPerPosition(positions);
+
+            foreach (KeyValuePair<string, int> position in limits)
             {
-                { BasePositionConstants.Coach, Math.Min(Math.Max(0,positions.Coaches[1] * teams),30) },
-                { BasePositionConstants.Cornerback, Math.Max(0,positions.Cornerbacks[1] * teams) },
-                { BasePositionConstants.DefensiveEnd, Math.Max(0,positions.DefensiveEnds[1] * teams)},
-                { BasePositionConstants.DefensiveTackle, Math.Max(0,positions.DefensiveTackles[1] * teams)},
-                { BasePositionConstants.Kicker, Math.Min(Math.Max(0,positions.Kickers[1] * teams),20)},
-                { BasePositionConstants.Linebacker, Math.Max(0,positions.Linebackers[1] * teams)},
-                { BasePositionConstants.Punter, Math.Min(Math.Max(0,positions.Punters[1] * teams),30)},
-                { BasePositionConstants.Quarterback, Math.Max(0,positions.Quarterbacks[1] * teams)},
-                { BasePositionConstants.RunningBack, Math.Max(0,positions.RunningBacks[1] * teams)},
-                { BasePositionConstants.Safety, Math.Max(0,positions.Safeties[1] * teams)},
-                { BasePositionConstants.TeamDefense, Math.Min(Math.Max(0,positions.TeamDefenses[1] * teams),30)},
-                { BasePositionConstants.TeamQuarterback, Math.Min(Math.Max(0,positions.TeamQuarterbacks[1] * teams),30)},
-                { BasePositionConstants.TightEnd, Math.Max(0,positions.TightEnds[1] * teams)},
-                { BasePositionConstants.WideReceiver, Math.Max(0,positions.WideReceivers[1] * teams)}
-            };
+                limits[position.Key] = position.Value * teams;
+
+                if (position.Key == BasePositionConstants.Coach || position.Key == BasePositionConstants.Punter || position.Key == BasePositionConstants.TeamDefense || position.Key == BasePositionConstants.TeamQuarterback)
+                {
+                    limits[position.Key] = Math.Min(limits[position.Key], 30);
+                }
+                else if (position.Key == BasePositionConstants.Kicker)
+                {
+                    limits[position.Key] = Math.Min(limits[position.Key], 20);
+                }
+            }
 
             return limits;
         }

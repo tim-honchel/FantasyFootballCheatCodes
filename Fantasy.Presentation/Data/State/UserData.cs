@@ -7,5 +7,6 @@ namespace Fantasy.Presentation.Data.State
         public RulesViewModel Rules { get; set; } = new();
         public List<PlayerViewModel> Players { get; set; } = new();
         public List<DraftBoardViewModel> DraftBoards { get; set; } = new();
+        public List<string> ErrorMessages { get; set; } = new();
     }
 }

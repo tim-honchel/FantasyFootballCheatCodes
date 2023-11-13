@@ -18,7 +18,7 @@ namespace Fantasy.Logic.Implementations
             int teams = request.Rules.Size.Teams;
             Positions positions = request.Rules.Positions;
 
-            Dictionary<string, int> starterSlotsByPosition = GetStarterSlotsByPosition(positions);
+            Dictionary<string, int> starterSlotsByPosition = PositionDictionaryService.GetStarterSlotsByPosition(positions);
             List<string> basePositions = PositionListService.GetListOfBasePositions();
             Dictionary<string, List<string>> comboPositions = PositionDictionaryService.GetComboPositionsAndTheirBasePositions();
             Dictionary<string, double> slopeByPosition = GetSlopeByPosition(players, basePositions, starterSlotsByPosition, teams);
@@ -113,37 +113,6 @@ namespace Fantasy.Logic.Implementations
             }
 
             return slopeByPosition;
-        }
-
-        public Dictionary<string, int> GetStarterSlotsByPosition(Positions positions)
-        {
-            Dictionary<string, int> starterSlotsByPosition = new()
-            {
-                { BasePositionConstants.Coach, positions.Coaches[0] },
-                { BasePositionConstants.Cornerback, positions.Cornerbacks[0] },
-                { BasePositionConstants.DefensiveEnd, positions.DefensiveEnds[0] },
-                { BasePositionConstants.DefensiveTackle, positions.DefensiveTackles[0] },
-                { BasePositionConstants.Kicker, positions.Kickers[0] },
-                { BasePositionConstants.Linebacker, positions.Linebackers[0] },
-                { BasePositionConstants.Punter, positions.Punters[0] },
-                { BasePositionConstants.Quarterback, positions.Quarterbacks[0] },
-                { BasePositionConstants.RunningBack, positions.RunningBacks[0] },
-                { BasePositionConstants.Safety, positions.Safeties[0] },
-                { BasePositionConstants.TeamDefense, positions.TeamDefenses[0] },
-                { BasePositionConstants.TeamQuarterback, positions.TeamQuarterbacks[0] },
-                { BasePositionConstants.TightEnd, positions.TightEnds[0] },
-                { BasePositionConstants.WideReceiver, positions.WideReceivers[0] },
-
-                { ComboPositionConstants.BacksAndReceivers, positions.BacksAndReceivers },
-                { ComboPositionConstants.DefensiveBacks, positions.DefensiveBacks },
-                { ComboPositionConstants.DefensiveLinemen, positions.DefensiveLinemen },
-                { ComboPositionConstants.DefensivePlayerUtilities, positions.DefensivePlayerUtilities },
-                { ComboPositionConstants.FLEX, positions.FLEX },
-                { ComboPositionConstants.OffensivePlayerUtilities, positions.OffensivePlayerUtilities },
-                { ComboPositionConstants.ReceiversAndEnds, positions.ReceiversAndEnds }
-            };
-
-            return starterSlotsByPosition;
         }
 
         public void IdentifyTopFreeAgent(PointAverages averages, List<Player> players, Dictionary<string, int> startersByPosition, string position)

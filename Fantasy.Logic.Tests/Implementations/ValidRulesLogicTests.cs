@@ -1,8 +1,8 @@
-﻿
-using Fantasy.Logic.Implementations;
+﻿using Fantasy.Logic.Implementations;
 using Fantasy.Logic.Models;
 using Fantasy.Logic.Requests;
 using Fantasy.Logic.Responses;
+using Fantasy.Logic.Services;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 
@@ -17,12 +17,12 @@ namespace Fantasy.Logic.Tests.Implementations
         [Test]
         public void Get_Returns_SuccessTrue_GivenValidRulesAndPlayers()
         {
-            Player player = new();
-            List<Player> players = new();
-            players.Add(player);
+            List<Player> players = TestService.GetValidPlayers();
+            Rules rules = TestService.GetValidRules();
             ValidRulesRequest request = new()
             {
-                Players = players
+                Players = players,
+                Rules = rules
             };
             
             ValidRulesResponse response = _logic.Get(request);
@@ -33,14 +33,12 @@ namespace Fantasy.Logic.Tests.Implementations
         [Test]
         public void Get_Returns_SuccessFalse_GivenNullRules()
         {
-            Settings? settings = null;
-            Rules rules = new()
-            {
-                Settings = settings
-            };
+            List<Player> players = TestService.GetValidPlayers();
+            Rules rules = new() {};
             ValidRulesRequest request = new()
             {
-                Rules= rules
+                Rules= rules,
+                Players = players
             };
 
             ValidRulesResponse response = _logic.Get(request);
@@ -51,7 +49,13 @@ namespace Fantasy.Logic.Tests.Implementations
         [Test]
         public void Get_Returns_SuccessFalse_GivenNullPlayers()
         {
-            ValidRulesRequest request = new();
+            List<Player> players = new();
+            Rules rules = TestService.GetValidRules();
+            ValidRulesRequest request = new()
+            {
+                Rules = rules,
+                Players = players
+            };
 
             ValidRulesResponse response = _logic.Get(request);
 
@@ -59,15 +63,39 @@ namespace Fantasy.Logic.Tests.Implementations
         }
 
         [Test]
-        public void Get_Returns_ValidationErrors_GivenInvalidRules()
+        public void Get_Returns_SuccessFalse_GivenInvalidRules()
         {
-            Assert.Ignore();
+            List<Player> players = TestService.GetValidPlayers();
+            Rules rules = TestService.GetValidRules();
+            rules.Status.DraftComplete = true;
+            ValidRulesRequest request = new()
+            {
+                Players = players,
+                Rules = rules
+            };
+
+            ValidRulesResponse response = _logic.Get(request);
+
+            Assert.That(response.Success, Is.False);
         }
 
         [Test]
-        public void Get_Returns_ValidationErrors_GivenInvalidPlayers()
+        public void Get_Returns_SuccessFalse_GivenInvalidPlayers()
         {
-            Assert.Ignore();
+            List<Player> players = TestService.GetValidPlayers();
+            players.RemoveAll(p => p.Position == BasePositionConstants.Quarterback);
+            Rules rules = TestService.GetValidRules();
+            ValidRulesRequest request = new()
+            {
+                Players = players,
+                Rules = rules
+            };
+
+            ValidRulesResponse response = _logic.Get(request);
+
+            Assert.That(response.Success, Is.False);
         }
+
+
     }
 }
