@@ -89,7 +89,7 @@ namespace Fantasy.Presentation.Tests.Pages
         }
 
         [Test]
-        public void NextButton_Click_NavigatesTo_StarterAnalysisPage_GivenUnuccessfulApiCalls()
+        public void NextButton_Click_NavigatesTo_ErrorPage_GivenUnsuccessfulApiCalls()
         {
             PlayerViewModel player = new();
             List<PlayerViewModel> players = new();

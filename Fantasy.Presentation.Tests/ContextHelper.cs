@@ -101,6 +101,16 @@ namespace Fantasy.Presentation.Tests
                 List<PlayerViewModel> players = new();
                 mockApiService.Setup(service => service.PlayerProjections(It.IsAny<PlayerProjectionsRequestObject>())).ReturnsAsync(players);
             }
+            else if (endpoint == Endpoint.pointAverages)
+            {
+                PointAveragesViewModel averages = new();
+                mockApiService.Setup(service => service.PointAverages(It.IsAny<PointAveragesRequestObject>())).ReturnsAsync(averages);
+            }
+            else if (endpoint == Endpoint.relativePoints)
+            {
+                List<PlayerViewModel> players = new();
+                mockApiService.Setup(service => service.RelativePoints(It.IsAny<RelativePointsRequestObject>())).ReturnsAsync(players);
+            }
             else if (endpoint == Endpoint.validRules)
             {
                 if (returnType == ReturnType.Default)
@@ -130,6 +140,8 @@ namespace Fantasy.Presentation.Tests
             espnRules,
             leagueRules,
             playerProjections,
+            pointAverages,
+            relativePoints,
             validRules
         }
 

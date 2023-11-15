@@ -1,6 +1,7 @@
 ﻿
 using Fantasy.Presentation.Data.RequestObjects;
 using Fantasy.Presentation.Data.Responses;
+using Fantasy.Presentation.Data.State;
 using Fantasy.Presentation.Data.ViewModels;
 using Fantasy.Presentation.Services.Implementations;
 using Moq;
@@ -64,7 +65,7 @@ namespace Fantasy.Presentation.Tests.Services
             }; 
             Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
             _helper.SetupMockHandler(handler, ContextHelper.Endpoint.espnPlayers, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
-            ApiCallService service = new ApiCallService(handler.Object);
+            ApiCallService service = new ApiCallService(new UserData(), handler.Object);
 
             List<PlayerESPNViewModel> response = await service.EspnPlayers(request);
 
@@ -88,7 +89,7 @@ namespace Fantasy.Presentation.Tests.Services
             };
             Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
             _helper.SetupMockHandler(handler, ContextHelper.Endpoint.espnRules, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
-            ApiCallService service = new ApiCallService(handler.Object);
+            ApiCallService service = new ApiCallService(new UserData(), handler.Object);
 
             RulesESPNViewModel response = await service.EspnRules(request);
 
@@ -125,7 +126,7 @@ namespace Fantasy.Presentation.Tests.Services
             };
             Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
             _helper.SetupMockHandler(handler, ContextHelper.Endpoint.leagueRules, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
-            ApiCallService service = new ApiCallService(handler.Object);
+            ApiCallService service = new ApiCallService(new UserData(), handler.Object);
 
             RulesViewModel response = await service.LeagueRules(request);
 
@@ -149,7 +150,7 @@ namespace Fantasy.Presentation.Tests.Services
             };
             Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
             _helper.SetupMockHandler(handler, ContextHelper.Endpoint.playerProjections, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
-            ApiCallService service = new ApiCallService(handler.Object);
+            ApiCallService service = new ApiCallService(new UserData(),handler.Object);
 
             List<PlayerViewModel> response = await service.PlayerProjections(request);
 
@@ -164,9 +165,21 @@ namespace Fantasy.Presentation.Tests.Services
 
 
         [Test]
-        public void PointAverages_Returns_PointAverages_GivenSuccessfulCall()
+        public async Task PointAverages_Returns_PointAverages_GivenSuccessfulCall()
         {
-            Assert.Ignore();
+            PointAveragesRequestObject request = new();
+            PointAveragesViewModel averages = new();
+            PointAveragesResponseObject mockResponse = new()
+            {
+                 Averages = averages
+            };
+            Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
+            _helper.SetupMockHandler(handler, ContextHelper.Endpoint.pointAverages, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
+            ApiCallService service = new ApiCallService(new UserData(), handler.Object);
+
+            PointAveragesViewModel response = await service.PointAverages(request);
+
+            Assert.AreEqual(JsonSerializer.Serialize(response), JsonSerializer.Serialize(averages));
         }
 
         [Test]
@@ -190,9 +203,21 @@ namespace Fantasy.Presentation.Tests.Services
 
 
         [Test]
-        public void RelativePoints_Returns_Players_GivenSuccessfulCall()
+        public async Task RelativePoints_Returns_Players_GivenSuccessfulCall()
         {
-            Assert.Ignore();
+            RelativePointsRequestObject request = new();
+            List<PlayerViewModel> players = new();
+            RelativePointsResponseObject mockResponse = new()
+            {
+                Players = players
+            };
+            Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
+            _helper.SetupMockHandler(handler, ContextHelper.Endpoint.relativePoints, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
+            ApiCallService service = new ApiCallService(new UserData(), handler.Object);
+
+            List<PlayerViewModel> response = await service.RelativePoints(request);
+
+            Assert.AreEqual(JsonSerializer.Serialize(response), JsonSerializer.Serialize(players));
         }
 
         [Test]
@@ -306,7 +331,7 @@ namespace Fantasy.Presentation.Tests.Services
             };
             Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
             _helper.SetupMockHandler(handler, ContextHelper.Endpoint.validRules, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
-            ApiCallService service = new ApiCallService(handler.Object);
+            ApiCallService service = new ApiCallService(new UserData(), handler.Object);
 
             RuleValidityViewModel response = await service.ValidRules(request);
 

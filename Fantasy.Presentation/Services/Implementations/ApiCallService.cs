@@ -23,11 +23,12 @@ namespace Fantasy.Presentation.Services.Implementations
             _userData = userData;
         }
 
-        public ApiCallService(HttpMessageHandler handler) // for unit testing, to allow mocking
+        public ApiCallService(UserData userData, HttpMessageHandler handler) // for unit testing, to allow mocking
         {
             _client = new HttpClient(handler);
             _client.BaseAddress = new Uri("https://testing/");
             _client.DefaultRequestHeaders.Clear();
+            _userData = userData;
         }
 
         public Task<CostAnalysisViewModel> CostAnalysis(CostAnalysisRequestObject request)
@@ -157,10 +158,23 @@ namespace Fantasy.Presentation.Services.Implementations
             throw new NotImplementedException();
         }
 
-        public Task<List<PlayerViewModel>> RelativePoints(RelativePointsRequestObject request)
+        public async Task<List<PlayerViewModel>> RelativePoints(RelativePointsRequestObject request)
         {
-            _userData.ErrorMessages.Add("The 'relativePoints' endpoint is not yet implemented.");
-            throw new NotImplementedException();
+            HttpResponseMessage response = await _client.PostAsJsonAsync("relativePoints", request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ServerErrorException();
+            }
+
+            PlayerProjectionsResponseObject? result = await response.Content.ReadFromJsonAsync<PlayerProjectionsResponseObject>();
+            if (result == null)
+            {
+                throw new NullContentException();
+            }
+
+            List<PlayerViewModel> players = result.Players;
+
+            return players;
         }
 
         public Task<List<PlayerViewModel>> SimplifiedDraftPool(SimplifiedDraftPoolRequestObject request)

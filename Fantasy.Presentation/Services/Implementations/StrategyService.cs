@@ -54,7 +54,7 @@ namespace Fantasy.Presentation.Services.Implementations
 
                 return true;
             }
-            catch (NotImplementedException e)
+            catch (NotImplementedException)
             {
                 return false;
             }
