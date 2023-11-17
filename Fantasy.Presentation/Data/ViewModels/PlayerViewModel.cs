@@ -9,6 +9,7 @@
         public string Team { get; set; } = string.Empty;
         public int Cost { get; set; } = 0;
         public double WeeklyPoints { get; set; } = 0;
+        public Dictionary<string, double> RelativePointsByPosition = new();
         public double QB1 { get; set; } = 0;
         public double QB2 { get; set; } = 0;
         public double RB1 { get; set; } = 0;

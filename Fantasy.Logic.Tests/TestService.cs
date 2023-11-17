@@ -65,87 +65,89 @@ namespace Fantasy.Logic.Tests
         {
             players.OrderByDescending(p => p.WeeklyPoints);
 
-            if (position == BasePositionConstants.Coach)
-            {
-                averages.HC1 = Math.Round(players.Average(p => p.WeeklyPoints),2);
-                averages.FAHC = Math.Round(players.Last().WeeklyPoints,2);
-            }
-            else if (position == BasePositionConstants.Cornerback)
-            {
-                averages.CB1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
-                averages.CB2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
-                averages.FACB = Math.Round(players.Last().WeeklyPoints, 2);
-            }
-            else if (position == BasePositionConstants.DefensiveEnd)
-            {
-                averages.DE1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
-                averages.DE2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
-                averages.FADE = Math.Round(players.Last().WeeklyPoints, 2);
-            }
-            else if (position == BasePositionConstants.DefensiveTackle)
-            {
-                averages.DT1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
-                averages.DT2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
-                averages.FADT = Math.Round(players.Last().WeeklyPoints, 2);
-            }
-            else if (position == BasePositionConstants.Kicker)
-            {
-                averages.K1 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
-                averages.FAK = Math.Round(players.Last().WeeklyPoints, 2);
-            }
-            else if (position == BasePositionConstants.Linebacker)
-            {
-                averages.LB1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
-                averages.LB2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
-                averages.FALB = Math.Round(players.Last().WeeklyPoints, 2);
-            }
-            else if (position == BasePositionConstants.Punter)
-            {
-                averages.P1 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
-                averages.FAP = Math.Round(players.Last().WeeklyPoints, 2);
-            }
-            else if (position == BasePositionConstants.Quarterback)
-            {
-                averages.QB1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
-                averages.QB2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
-                averages.FAQB = Math.Round(players.Last().WeeklyPoints, 2);
-            }
-            else if (position == BasePositionConstants.RunningBack)
-            {
-                averages.RB1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
-                averages.RB2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
-                averages.RB3 = Math.Round(players.Average(p => p.WeeklyPoints) - 1, 2);
-                averages.FARB = Math.Round(players.Last().WeeklyPoints, 2);
-            }
-            else if (position == BasePositionConstants.Safety)
-            {
-                averages.S1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
-                averages.S2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
-                averages.FAS = Math.Round(players.Last().WeeklyPoints, 2);
-            }
-            else if (position == BasePositionConstants.TeamDefense)
-            {
-                averages.DEF1 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
-                averages.FADEF = Math.Round(players.Last().WeeklyPoints, 2);
-            }
-            else if (position == BasePositionConstants.TeamQuarterback)
-            {
-                averages.TQB1 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
-                averages.FATQB = Math.Round(players.Last().WeeklyPoints, 2);
-            }
-            else if (position == BasePositionConstants.TightEnd)
-            {
-                averages.TE1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
-                averages.TE2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
-                averages.FATE = Math.Round(players.Last().WeeklyPoints, 2);
-            }
-            else if (position == BasePositionConstants.WideReceiver)
-            {
-                averages.WR1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
-                averages.WR2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
-                averages.WR3 = Math.Round(players.Average(p => p.WeeklyPoints) - 1, 2);
-                averages.FAWR = Math.Round(players.Last().WeeklyPoints, 2);
-            }
+
+
+            //if (position == BasePositionConstants.Coach)
+            //{
+            //    averages.HC1 = Math.Round(players.Average(p => p.WeeklyPoints),2);
+            //    averages.FAHC = Math.Round(players.Last().WeeklyPoints,2);
+            //}
+            //else if (position == BasePositionConstants.Cornerback)
+            //{
+            //    averages.CB1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
+            //    averages.CB2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
+            //    averages.FACB = Math.Round(players.Last().WeeklyPoints, 2);
+            //}
+            //else if (position == BasePositionConstants.DefensiveEnd)
+            //{
+            //    averages.DE1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
+            //    averages.DE2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
+            //    averages.FADE = Math.Round(players.Last().WeeklyPoints, 2);
+            //}
+            //else if (position == BasePositionConstants.DefensiveTackle)
+            //{
+            //    averages.DT1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
+            //    averages.DT2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
+            //    averages.FADT = Math.Round(players.Last().WeeklyPoints, 2);
+            //}
+            //else if (position == BasePositionConstants.Kicker)
+            //{
+            //    averages.K1 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
+            //    averages.FAK = Math.Round(players.Last().WeeklyPoints, 2);
+            //}
+            //else if (position == BasePositionConstants.Linebacker)
+            //{
+            //    averages.LB1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
+            //    averages.LB2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
+            //    averages.FALB = Math.Round(players.Last().WeeklyPoints, 2);
+            //}
+            //else if (position == BasePositionConstants.Punter)
+            //{
+            //    averages.P1 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
+            //    averages.FAP = Math.Round(players.Last().WeeklyPoints, 2);
+            //}
+            //else if (position == BasePositionConstants.Quarterback)
+            //{
+            //    averages.QB1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
+            //    averages.QB2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
+            //    averages.FAQB = Math.Round(players.Last().WeeklyPoints, 2);
+            //}
+            //else if (position == BasePositionConstants.RunningBack)
+            //{
+            //    averages.RB1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
+            //    averages.RB2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
+            //    averages.RB3 = Math.Round(players.Average(p => p.WeeklyPoints) - 1, 2);
+            //    averages.FARB = Math.Round(players.Last().WeeklyPoints, 2);
+            //}
+            //else if (position == BasePositionConstants.Safety)
+            //{
+            //    averages.S1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
+            //    averages.S2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
+            //    averages.FAS = Math.Round(players.Last().WeeklyPoints, 2);
+            //}
+            //else if (position == BasePositionConstants.TeamDefense)
+            //{
+            //    averages.DEF1 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
+            //    averages.FADEF = Math.Round(players.Last().WeeklyPoints, 2);
+            //}
+            //else if (position == BasePositionConstants.TeamQuarterback)
+            //{
+            //    averages.TQB1 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
+            //    averages.FATQB = Math.Round(players.Last().WeeklyPoints, 2);
+            //}
+            //else if (position == BasePositionConstants.TightEnd)
+            //{
+            //    averages.TE1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
+            //    averages.TE2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
+            //    averages.FATE = Math.Round(players.Last().WeeklyPoints, 2);
+            //}
+            //else if (position == BasePositionConstants.WideReceiver)
+            //{
+            //    averages.WR1 = Math.Round(players.First().WeeklyPoints, 2) - 1;
+            //    averages.WR2 = Math.Round(players.Average(p => p.WeeklyPoints), 2);
+            //    averages.WR3 = Math.Round(players.Average(p => p.WeeklyPoints) - 1, 2);
+            //    averages.FAWR = Math.Round(players.Last().WeeklyPoints, 2);
+            //}
 
             return averages;
         }
