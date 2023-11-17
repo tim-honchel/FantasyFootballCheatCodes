@@ -5,5 +5,6 @@ namespace Fantasy.Presentation.Data.RequestObjects
     public class CostAnalysisRequestObject
     {
         public List<PlayerViewModel> Players { get; set; } = new();
+        public DraftType DraftType { get; set; }
     }
 }

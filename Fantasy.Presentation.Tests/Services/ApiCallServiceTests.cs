@@ -19,9 +19,21 @@ namespace Fantasy.Presentation.Tests.Services
         ContextHelper _helper = new ContextHelper();
 
         [Test]
-        public void CostAnalysis_Returns_CostAnalysis_GivenSuccessfulCall()
+        public async Task CostAnalysis_Returns_CostAnalysis_GivenSuccessfulCall()
         {
-            Assert.Ignore();
+            CostAnalysisRequestObject request = new();
+            CostAnalysisViewModel analysis = new();
+            CostAnalysisResponseObject mockResponse = new()
+            {
+                Analysis = analysis,
+            };
+            Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
+            _helper.SetupMockHandler(handler, ContextHelper.Endpoint.costAnalysis, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
+            ApiCallService service = new ApiCallService(new UserData(), handler.Object);
+
+            CostAnalysisViewModel response = await service.CostAnalysis(request);
+
+            Assert.AreEqual(JsonSerializer.Serialize(response), JsonSerializer.Serialize(analysis));
         }
 
         [Test]

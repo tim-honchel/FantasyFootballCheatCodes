@@ -20,6 +20,47 @@ namespace Fantasy.Logic.Tests
             return players;
         }
 
+        public static List<Player> AddCostToPlayers(List<Player> players, double costMultiplier)
+        {
+            foreach (Player player in players)
+            {
+                if (player.FA <= 0)
+                {
+                    player.Cost = 0;
+                }
+                else
+                {
+                    player.Cost = Math.Max(1, (int) (player.FA * costMultiplier));
+                }
+            }
+
+            return players;
+        }
+
+        public static List<Player> AddFAValueToPlayers(List<Player> players)
+        {
+            Dictionary<string, double> topFreeAgentsByPosition = new();
+
+            List<string> basePositions = PositionListService.GetListOfBasePositions();
+
+            foreach (string position in basePositions)
+            {
+                List<Player> playersByPosition = players.Where(p => p.Position == position).ToList();
+                if (playersByPosition != null && playersByPosition.Count > 0)
+                {
+                    topFreeAgentsByPosition[position] = (playersByPosition.Average(p => p.WeeklyPoints) + playersByPosition.OrderByDescending(p => p.WeeklyPoints).Last().WeeklyPoints) / 2;
+                }
+                
+            }
+
+            foreach (Player player in players)
+            {
+                player.FA = Math.Round(player.WeeklyPoints - topFreeAgentsByPosition[player.Position],2);
+            }
+
+            return players;
+        }
+
         public static PointAverages GenerateAverage(PointAverages averages, List<Player> players, string position)
         {
             players.OrderByDescending(p => p.WeeklyPoints);

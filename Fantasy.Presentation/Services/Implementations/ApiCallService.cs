@@ -31,11 +31,25 @@ namespace Fantasy.Presentation.Services.Implementations
             _userData = userData;
         }
 
-        public Task<CostAnalysisViewModel> CostAnalysis(CostAnalysisRequestObject request)
+        public async Task<CostAnalysisViewModel> CostAnalysis(CostAnalysisRequestObject request)
         {
-            _userData.ErrorMessages.Add("The 'costAnaylsis' endpoint is not yet implemented.");
-            throw new NotImplementedException();
+            HttpResponseMessage response = await _client.PostAsJsonAsync("costAnalysis", request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ServerErrorException();
+            }
+
+            CostAnalysisResponseObject? result = await response.Content.ReadFromJsonAsync<CostAnalysisResponseObject>();
+            if (result == null)
+            {
+                throw new NullContentException();
+            }
+
+            CostAnalysisViewModel analysis = result.Analysis;
+
+            return analysis;
         }
+    
 
         public Task<FileContentResult> CsvStarters(CsvStartersRequestObject request)
         {
