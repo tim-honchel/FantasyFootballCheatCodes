@@ -27,7 +27,7 @@ namespace Fantasy.Presentation.Tests.Services
 
             await service.EvaluatePlayers();
 
-            Assert.That(userData.Players.First().QB1 != 0);
+            Assert.That(userData.Players.First().RelativePoints["QB1"] != 0);
             Assert.That(userData.Players.First().ExpectedValue != 0);
             Assert.That(userData.Players.First().PercentOfTopRosters != 0);
             Assert.That(userData.Players.First().Tags.Count > 0);
@@ -41,10 +41,10 @@ namespace Fantasy.Presentation.Tests.Services
 
             callService.Setup(service => service.PointAverages(It.Is<PointAveragesRequestObject>(x => x.Players.Count > 0))).ReturnsAsync(new PointAveragesViewModel());
 
-            mockPlayers.First().QB1 = 1;
+            mockPlayers.First().RelativePoints["QB1"] = 1;
             callService.Setup(service => service.RelativePoints(It.Is<RelativePointsRequestObject>(x => x.PointAverages != null))).ReturnsAsync(mockPlayers);
 
-            callService.Setup(service => service.CostAnalysis(It.Is<CostAnalysisRequestObject>(x=>x.Players.First().QB1 == 1))).ReturnsAsync(new CostAnalysisViewModel());
+            callService.Setup(service => service.CostAnalysis(It.Is<CostAnalysisRequestObject>(x => x.Players.First().RelativePoints["QB1"] == 1))).ReturnsAsync(new CostAnalysisViewModel());
 
             mockPlayers.First().ExpectedValue = 10;
             callService.Setup(service => service.ExpectedValue(It.Is<ExpectedValueRequestObject>(x => x.CostAnalysis != null))).ReturnsAsync(mockPlayers);

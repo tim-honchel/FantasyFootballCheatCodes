@@ -21,7 +21,7 @@ namespace Fantasy.Logic.Tests.Implementations
 
             PointAveragesResponse response = _logic.Get(request);
             
-            Assert.That(response.Averages != null);
+            Assert.That(response.Averages.AverageByPosition.Count() > 0);
         }
 
         [Test]
@@ -33,14 +33,12 @@ namespace Fantasy.Logic.Tests.Implementations
 
             PointAveragesResponse response = _logic.Get(request);
 
-            Assert.That(response.Averages.QB1 != 0);
-            Assert.That(response.Averages.RB1 != 0);
-            Assert.That(response.Averages.RB2 != 0);
-            Assert.That(response.Averages.WR1 != 0);
-            Assert.That(response.Averages.WR2 != 0);
-            Assert.That(response.Averages.TE1 != 0);
-            Assert.That(response.Averages.DEF1 != 0);
-            Assert.That(response.Averages.K1 != 0);
+            List<string> basePositions = PositionListService.GetListOfBasePositions();
+            Dictionary<string,int> starters = PositionDictionaryService.GetStarterSlotsByPosition(rules.Positions);
+            int freeAgentPositions = starters.Count(s => basePositions.Contains(s.Key));
+            int starterSlots = starters.Sum(s => s.Value);
+
+            Assert.That(response.Averages.AverageByPosition.Keys.Count() == starterSlots + freeAgentPositions);
         }
 
         [Test]
