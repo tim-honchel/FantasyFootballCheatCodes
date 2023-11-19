@@ -9,7 +9,7 @@
         public string Team { get; set; } = string.Empty;
         public int Cost { get; set; } = 0;
         public double WeeklyPoints { get; set; } = 0;
-        public Dictionary<string, double> RelativePoints = new();
+        public Dictionary<string, double> RelativePoints { get; set; } = new();
         public double FA { get; set; } = 0;
         public double ExpectedValueLow { get; set; } = 0;
         public double ExpectedValue { get; set; } = 0;

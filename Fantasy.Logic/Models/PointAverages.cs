@@ -2,6 +2,6 @@
 {
     public class PointAverages
     {
-        public Dictionary<string, double> AverageByPosition = new();
+        public Dictionary<string, double> AverageByPosition { get; set; } = new();
     }
 }

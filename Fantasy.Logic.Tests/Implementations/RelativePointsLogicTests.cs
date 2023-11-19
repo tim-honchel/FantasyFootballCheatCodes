@@ -63,8 +63,8 @@ namespace Fantasy.Logic.Tests.Implementations
 
             RelativePointsResponse response = _logic.Get(request);
 
-            Assert.That(response.Players.Where(p => p.Position == BasePositionConstants.Quarterback).First().RelativePoints[$"{BasePositionConstants.Quarterback}1"] == response.Players.Where(p => p.Position == BasePositionConstants.Quarterback).First().WeeklyPoints - averages.AverageByPosition[$"{BasePositionConstants.Quarterback}1"]);
-            Assert.That(response.Players.Where(p => p.Position == BasePositionConstants.RunningBack).First().RelativePoints[$"{BasePositionConstants.RunningBack}1"] == response.Players.Where(p => p.Position == BasePositionConstants.RunningBack).First().WeeklyPoints - averages.AverageByPosition[$"{BasePositionConstants.RunningBack}1"]);
+            Assert.That(response.Players.Where(p => p.Position == BasePositionConstants.Quarterback).First().RelativePoints[$"{BasePositionConstants.Quarterback}1"] == Math.Round(response.Players.Where(p => p.Position == BasePositionConstants.Quarterback).First().WeeklyPoints - averages.AverageByPosition[$"{BasePositionConstants.Quarterback}1"],2));
+            Assert.That(response.Players.Where(p => p.Position == BasePositionConstants.RunningBack).First().RelativePoints[$"{BasePositionConstants.RunningBack}1"] == Math.Round(response.Players.Where(p => p.Position == BasePositionConstants.RunningBack).First().WeeklyPoints - averages.AverageByPosition[$"{BasePositionConstants.RunningBack}1"],2));
 
         }
 
