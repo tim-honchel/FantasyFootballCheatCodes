@@ -116,9 +116,21 @@ namespace Fantasy.Presentation.Tests.Services
 
 
         [Test]
-        public void ExpectedValue_Returns_Players_GivenSuccessfulCall()
+        public async Task ExpectedValue_Returns_Players_GivenSuccessfulCall()
         {
-            Assert.Ignore();
+            ExpectedValueRequestObject request = new();
+            List<PlayerViewModel> players = _helper.GetMockPlayers();
+            ExpectedValueResponseObject mockResponse = new()
+            {
+                Players = players
+            };
+            Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
+            _helper.SetupMockHandler(handler, ContextHelper.Endpoint.expectedValue, HttpMethod.Put, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
+            ApiCallService service = new ApiCallService(new UserData(), handler.Object);
+
+            List<PlayerViewModel> response = await service.ExpectedValue(request);
+
+            Assert.AreEqual(JsonSerializer.Serialize(response), JsonSerializer.Serialize(players));
         }
 
         [Test]
@@ -155,7 +167,7 @@ namespace Fantasy.Presentation.Tests.Services
         public async Task PlayerProjections_Returns_Players_GivenSuccessfulCall()
         {
             PlayerProjectionsRequestObject request = new();
-            List<PlayerViewModel> players = new();
+            List<PlayerViewModel> players = _helper.GetMockPlayers();
             PlayerProjectionsResponseObject mockResponse = new()
             {
                 Players = players
@@ -218,7 +230,7 @@ namespace Fantasy.Presentation.Tests.Services
         public async Task RelativePoints_Returns_Players_GivenSuccessfulCall()
         {
             RelativePointsRequestObject request = new();
-            List<PlayerViewModel> players = new();
+            List<PlayerViewModel> players = _helper.GetMockPlayers();
             RelativePointsResponseObject mockResponse = new()
             {
                 Players = players
@@ -329,9 +341,7 @@ namespace Fantasy.Presentation.Tests.Services
         {
 
             RulesViewModel rules = new();
-            PlayerViewModel player = new PlayerViewModel();
-            List<PlayerViewModel> players = new List<PlayerViewModel>();
-            players.Add(player);
+            List<PlayerViewModel> players = _helper.GetMockPlayers();
             ValidRulesRequestObject request = new()
             {
                 Players = players,

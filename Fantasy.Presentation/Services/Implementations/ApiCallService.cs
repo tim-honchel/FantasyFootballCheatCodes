@@ -103,10 +103,23 @@ namespace Fantasy.Presentation.Services.Implementations
             return rules;
         }
 
-        public Task<List<PlayerViewModel>> ExpectedValue(ExpectedValueRequestObject request)
+        public async Task<List<PlayerViewModel>> ExpectedValue(ExpectedValueRequestObject request)
         {
-            _userData.ErrorMessages.Add("The 'expectedValue' endpoint is not yet implemented.");
-            throw new NotImplementedException();
+            HttpResponseMessage response = await _client.PutAsJsonAsync("expectedValue", request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ServerErrorException();
+            }
+
+            ExpectedValueResponseObject? result = await response.Content.ReadFromJsonAsync<ExpectedValueResponseObject>();
+            if (result == null)
+            {
+                throw new NullContentException();
+            }
+
+            List<PlayerViewModel> players = result.Players;
+
+            return players;
         }
 
         public async Task<RulesViewModel> LeagueRules(LeagueRulesRequestObject request)

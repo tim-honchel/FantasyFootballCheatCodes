@@ -106,6 +106,34 @@ namespace Fantasy.Logic.Tests
             return averages;
         }
 
+        public static CostAnalysis GetMockCostAnalysis(List<Player> players)
+        {
+            CostAnalysis analysis = new CostAnalysis();
+
+            List<string> basePositions = PositionListService.GetListOfBasePositions();
+
+            foreach (string position in basePositions)
+            {
+                if (players.Where(p => p.Position == position).Count() == 0)
+                {
+                    break;
+                }
+
+                analysis.PositionCostBase[position] = players.Where(p => p.Position == position && p.Cost <= 1).Max(p =>p.FA);
+                
+                if (players.Where(p => p.Position == position && p.Cost > 1).Count() == 0)
+                {
+                    break;
+                }
+
+                analysis.PositionCostMultiplier[position] = Math.Round(players.Where(p => p.Position == position && p.Cost > 1).Average(p => p.Cost - 1) / players.Where(p => p.Position == position && p.Cost > 1).Average(p => p.FA - analysis.PositionCostBase[position]),2);
+
+                analysis.PositionCostErrorMargin[position] = 1;
+            }
+
+            return analysis;
+        }
+
         public static List<Player> GetValidPlayers()
         {
             List<Player> players = new() { };

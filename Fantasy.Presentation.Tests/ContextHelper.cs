@@ -45,6 +45,13 @@ namespace Fantasy.Presentation.Tests
             return mockHandler;
         }
         
+        public List<PlayerViewModel> GetMockPlayers()
+        {
+            PlayerViewModel mockPlayer = new();
+            List<PlayerViewModel> mockPlayers = new();
+            mockPlayers.Add(mockPlayer);
+            return mockPlayers;
+        }
 
         public RegisteredServices GetServiceObject()
         {
@@ -96,6 +103,11 @@ namespace Fantasy.Presentation.Tests
                     mockApiService.Setup(service => service.EspnRules(It.IsAny<EspnRulesRequestObject>())).Throws<LeagueNotAccessibleException>();
                 }
             }
+            else if (endpoint == Endpoint.expectedValue)
+            {
+                List<PlayerViewModel> players = new();
+                mockApiService.Setup(service => service.ExpectedValue(It.IsAny<ExpectedValueRequestObject>())).ReturnsAsync(players);
+            }
             else if (endpoint == Endpoint.leagueRules)
             {
                 RulesViewModel rules = new();
@@ -144,6 +156,7 @@ namespace Fantasy.Presentation.Tests
             costAnalysis,
             espnPlayers,
             espnRules,
+            expectedValue,
             leagueRules,
             playerProjections,
             pointAverages,
