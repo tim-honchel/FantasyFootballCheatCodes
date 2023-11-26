@@ -13,7 +13,7 @@ namespace Fantasy.Logic.Tests
 
             for (int i = 0; i < number; i++)
             {
-                players.Add(new Player() { Position = position, WeeklyPoints = Math.Round(points, 2) });
+                players.Add(new Player() { Position = position, DraftPosition = position, WeeklyPoints = Math.Round(points, 2) });
                 points = Math.Max(0, points - decrement);
             }
 

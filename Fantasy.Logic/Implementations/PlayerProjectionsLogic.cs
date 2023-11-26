@@ -26,6 +26,7 @@ namespace Fantasy.Logic.Implementations
                     LastName = lastName,
                     FirstInitial = firstInitial,
                     Position = position,
+                    DraftPosition = position,
                     Team = team,
                     Cost = playerESPN.DraftAuctionValue,
                     WeeklyPoints = playerESPN.ThisYearProjectedPointsPerWeek

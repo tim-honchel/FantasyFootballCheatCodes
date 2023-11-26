@@ -32,6 +32,7 @@ namespace Fantasy.Logic.Implementations
 
             CostAnalysis analysis = new()
             {
+                PositionCostBase = new(),
                 PositionCostMultiplier = new(),
                 PositionCostErrorMargin = new(),
             };
@@ -40,12 +41,38 @@ namespace Fantasy.Logic.Implementations
             
             foreach (string position in basePositions)
             {
-                CalculateMultiplier(analysis, players.Where(p => p.Position == position && p.FA > 0.2 && p.Cost > 0).ToList(), position);
+                CalculateBase(analysis, players.Where(p => p.Position == position && p.FA > 0).ToList(), position);
+                CalculateMultiplier(analysis, players.Where(p => p.Position == position && p.FA > analysis.PositionCostBase[position] && p.Cost > 1).ToList(), position);
             }
 
             response.Analysis = analysis;
 
             return response;
+        }
+
+        public void CalculateBase(CostAnalysis analysis, List<Player> players, string position)
+        {
+            if (players == null || players.Count == 0)
+            {
+                return;
+            }
+
+            double average1Dollar = 0;
+            double best1Dollar = 0;
+            double worst2Dollar = 0;
+
+            if (players.Where(p => p.Cost == 1).Count() > 0)
+            {
+                average1Dollar = players.Where(p => p.Cost == 1).Average(p => p.FA);
+                best1Dollar = players.Where(p => p.Cost == 1).Max(p => p.FA);
+                worst2Dollar = best1Dollar;
+            }
+            if (players.Where(p => p.Cost > 1).Count() > 0)
+            {
+                worst2Dollar = players.Where(p => p.Cost > 1).Min(p => p.FA);
+            }
+
+            analysis.PositionCostBase[position] = Math.Round(worst2Dollar >= best1Dollar ? best1Dollar : Math.Max(average1Dollar, worst2Dollar),2);
         }
 
         public void CalculateMultiplier(CostAnalysis analysis, List<Player> players, string position)
@@ -54,23 +81,33 @@ namespace Fantasy.Logic.Implementations
             {
                 return;
             }
-
-            analysis.PositionCostMultiplier[position] = Math.Round(players.Average(p => p.Cost / p.FA),2);
-            analysis.PositionCostErrorMargin[position] = Math.Round(players.Average(p => Math.Abs(p.Cost - (p.FA * analysis.PositionCostMultiplier[position]))));
+            analysis.PositionCostMultiplier[position] = Math.Round(players.Average(p => (p.Cost - 1) / (p.FA - analysis.PositionCostBase[position])), 2);
+            analysis.PositionCostErrorMargin[position] = Math.Round(players.Average(p => Math.Abs(p.Cost - (1 + (p.FA - analysis.PositionCostBase[position]) * analysis.PositionCostMultiplier[position]))));
 
             if (analysis.PositionCostErrorMargin[position] > 1)
             {
                 ExcludeOutliers(analysis, players, position);
             }
-            
+
         }
 
         public void ExcludeOutliers(CostAnalysis analysis, List<Player> players, string position)
         {
-            List<Player> nonOutliers = players.Where(p => Math.Abs(p.Cost - (p.FA * analysis.PositionCostMultiplier[position])) <= 1.25* analysis.PositionCostErrorMargin[position]).ToList();
 
-            analysis.PositionCostMultiplier[position] = Math.Round(nonOutliers.Average(p => p.Cost / p.FA), 2);
-            analysis.PositionCostErrorMargin[position] = Math.Round(nonOutliers.Average(p => Math.Abs(p.Cost - (p.FA * analysis.PositionCostMultiplier[position]))));
+            int minPlayers = Math.Max(3,players.Count() / 2);
+
+            while (analysis.PositionCostErrorMargin[position] > 1 && players.Count() > minPlayers)
+            {
+                foreach (Player player in players)
+                {
+                    player.ExpectedValue = 1 + (player.FA - analysis.PositionCostBase[position]) * analysis.PositionCostMultiplier[position];
+                    player.ExpectedValueLow = player.ExpectedValue - player.Cost;
+                }
+                players.Remove(players.Where(n => n.ExpectedValueLow == players.Max(n => n.ExpectedValueLow)).First());
+                players.Remove(players.Where(n => n.ExpectedValueLow == players.Min(n => n.ExpectedValueLow)).First());
+                analysis.PositionCostMultiplier[position] = Math.Round(players.Average(p => (p.Cost - 1) / (p.FA - analysis.PositionCostBase[position])), 2);
+                analysis.PositionCostErrorMargin[position] = Math.Round(players.Average(p => Math.Abs(p.Cost - (1 + (p.FA - analysis.PositionCostBase[position]) * analysis.PositionCostMultiplier[position]))));
+            }
         }
     }
 }
