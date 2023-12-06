@@ -204,10 +204,23 @@ namespace Fantasy.Presentation.Services.Implementations
             return players;
         }
 
-        public Task<List<PlayerViewModel>> SimplifiedDraftPool(SimplifiedDraftPoolRequestObject request)
+        public async Task<List<PlayerViewModel>> SimplifiedDraftPool(SimplifiedDraftPoolRequestObject request)
         {
-            _userData.ErrorMessages.Add("The 'simplifiedDraftPool' endpoint is not yet implemented.");
-            throw new NotImplementedException();
+            HttpResponseMessage response = await _client.PostAsJsonAsync("simplifiedDraftPool", request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ServerErrorException();
+            }
+
+            SimplifiedDraftPoolResponseObject? result = await response.Content.ReadFromJsonAsync<SimplifiedDraftPoolResponseObject>();
+            if (result == null)
+            {
+                throw new NullContentException();
+            }
+
+            List<PlayerViewModel> players = result.Players;
+
+            return players;
         }
 
         public Task<RosterViewModel> StrongerRoster(StrongerRosterRequestObject request)

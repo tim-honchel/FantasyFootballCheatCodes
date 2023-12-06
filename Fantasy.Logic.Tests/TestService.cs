@@ -61,6 +61,32 @@ namespace Fantasy.Logic.Tests
             return players;
         }
 
+        public static List<Player> AddRelativePointsToPlayers(List<Player> players, PointAverages averages)
+        {
+            foreach (Player player in players)
+            {
+                string position = player.Position;
+                double average1 = averages.AverageByPosition.ContainsKey($"{position}1") ? averages.AverageByPosition[$"{position}1"] : 0;
+                double average2 = averages.AverageByPosition.ContainsKey($"{position}2") ? averages.AverageByPosition[$"{position}2"] : 0;
+                double average3 = averages.AverageByPosition.ContainsKey($"{position}3") ? averages.AverageByPosition[$"{position}3"] : 0;
+
+                if (average1 > 0)
+                {
+                    player.RelativePoints[$"{position}1"] = Math.Round(player.WeeklyPoints - average1, 2);
+                }
+                if (average2 > 0)
+                {
+                    player.RelativePoints[$"{position}2"] = Math.Round(player.WeeklyPoints - average2, 2);
+                }
+                if (average3 > 0)
+                {
+                    player.RelativePoints[$"{position}3"] = Math.Round(player.WeeklyPoints - average3, 2);
+                }
+            }
+
+            return players;
+        }
+
         public static PointAverages GenerateAverage(PointAverages averages, List<Player> players, string position)
         {
             players.OrderByDescending(p => p.WeeklyPoints);

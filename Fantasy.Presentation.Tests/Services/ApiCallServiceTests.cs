@@ -250,9 +250,32 @@ namespace Fantasy.Presentation.Tests.Services
             Assert.Ignore();
         }
 
+        [Test]
+        public async Task SimplifiedDraftPool_Returns_Players_GivenSuccessfulCall()
+        {
+            SimplifiedDraftPoolRequestObject request = new();
+            List<PlayerViewModel> players = _helper.GetMockPlayers();
+            SimplifiedDraftPoolResponseObject mockResponse = new()
+            {
+                Players = players
+            };
+            Mock<HttpMessageHandler> handler = _helper.GetMockHandler();
+            _helper.SetupMockHandler(handler, ContextHelper.Endpoint.simplifiedDraftPool, HttpMethod.Post, HttpStatusCode.OK, JsonSerializer.Serialize(mockResponse));
+            ApiCallService service = new ApiCallService(new UserData(), handler.Object);
+
+            List<PlayerViewModel> response = await service.SimplifiedDraftPool(request);
+
+            Assert.AreEqual(JsonSerializer.Serialize(response), JsonSerializer.Serialize(players));
+        }
 
         [Test]
-        public void StrongerRoster_Returns_CostAnalysis_GivenSuccessfulCall()
+        public void SimplifiedDraftPool_Throws_CustomException_GivenUnsuccessfulCall()
+        {
+            Assert.Ignore();
+        }
+
+        [Test]
+        public void StrongerRoster_Returns_Players_GivenSuccessfulCall()
         {
             Assert.Ignore();
         }
@@ -265,7 +288,7 @@ namespace Fantasy.Presentation.Tests.Services
 
 
         [Test]
-        public void StrongRoster_Returns_CostAnalysis_GivenSuccessfulCall()
+        public void StrongRoster_Returns_Players_GivenSuccessfulCall()
         {
             Assert.Ignore();
         }

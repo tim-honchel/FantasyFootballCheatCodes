@@ -31,7 +31,7 @@ namespace Fantasy.Presentation.Services.Implementations
                 ExpectedValueRequestObject expectedValueRequest = new ExpectedValueRequestObject() { CostAnalysis = costAnalysis, Players = _userData.Players};
                 _userData.Players = await _callService.ExpectedValue(expectedValueRequest);
             
-                SimplifiedDraftPoolRequestObject simplifiedDraftPoolRequest = new SimplifiedDraftPoolRequestObject() { Players = _userData.Players };
+                SimplifiedDraftPoolRequestObject simplifiedDraftPoolRequest = new SimplifiedDraftPoolRequestObject() { Players = _userData.Players, PointAverages = pointAverages };
                 List<PlayerViewModel> simplifiedDraftPool = await _callService.SimplifiedDraftPool(simplifiedDraftPoolRequest);
 
                 StrongRosterRequestObject strongRosterRequest = new StrongRosterRequestObject() { Players = simplifiedDraftPool, Rules = _userData.Rules };
