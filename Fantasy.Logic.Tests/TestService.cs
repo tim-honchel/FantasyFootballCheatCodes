@@ -86,6 +86,50 @@ namespace Fantasy.Logic.Tests
 
             return players;
         }
+        public static List<Player> AddComboRelativePointsToPlayers(List<Player> players, PointAverages averages)
+        {
+            Dictionary<string, List<string>> positions = PositionDictionaryService.GetComboPositionsAndTheirBasePositions();
+            foreach (Player player in players)
+            {
+                foreach (KeyValuePair<string, List<string>> comboPosition in positions)
+                {
+                    if (comboPosition.Value.Contains(player.Position))
+                    {
+                        string position = comboPosition.Key;
+                        double average1 = averages.AverageByPosition.ContainsKey($"{position}1") ? averages.AverageByPosition[$"{position}1"] : 0;
+                        double average2 = averages.AverageByPosition.ContainsKey($"{position}2") ? averages.AverageByPosition[$"{position}2"] : 0;
+                        double average3 = averages.AverageByPosition.ContainsKey($"{position}3") ? averages.AverageByPosition[$"{position}3"] : 0;
+
+                        if (average1 > 0)
+                        {
+                            player.RelativePoints[$"{position}1"] = Math.Round(player.WeeklyPoints - average1, 2);
+                        }
+                        if (average2 > 0)
+                        {
+                            player.RelativePoints[$"{position}2"] = Math.Round(player.WeeklyPoints - average2, 2);
+                        }
+                        if (average3 > 0)
+                        {
+                            player.RelativePoints[$"{position}3"] = Math.Round(player.WeeklyPoints - average3, 2);
+                        }
+                    }
+                }
+
+            }
+
+            return players;
+        }
+
+        public static List<Player> AddPlayerID(List<Player> players)
+        {
+            int id = 0;
+            foreach (Player player in players)
+            {
+                player.PlayerID = id;
+                id++;
+            }
+            return players;
+        }
 
         public static PointAverages GenerateAverage(PointAverages averages, List<Player> players, string position)
         {
@@ -158,6 +202,35 @@ namespace Fantasy.Logic.Tests
             }
 
             return analysis;
+        }
+
+        public static List<Player> GetValidDraftPool(Positions positions)
+        {
+            Dictionary<string, int> starterSlots = PositionDictionaryService.GetStarterSlotsByPosition(positions);
+            List<string> basePositions = PositionListService.GetListOfBasePositions();
+
+            List<Player> draftPool = new();
+
+            foreach (KeyValuePair<string, int> position in starterSlots)
+            {
+                if (position.Value > 0 && basePositions.Contains(position.Key))
+                {
+                    AddPlayers(draftPool, position.Key, 5 * position.Value, 20, (double)(1) / (double)(position.Value));
+
+                    List<Player> newPlayers = draftPool.Where(p => p.Position == position.Key).ToList();
+
+                    int cost = newPlayers.Count();
+                    
+                    foreach (Player player in newPlayers)
+                    {
+                        player.Cost = cost;
+                        cost -= 1;
+                    }
+                }
+
+            }
+
+            return draftPool;
         }
 
         public static List<Player> GetValidPlayers()
@@ -250,6 +323,33 @@ namespace Fantasy.Logic.Tests
             };
 
             return rules;
+        }
+
+        public static List<string> GetStartingPositions(Positions positions)
+        {
+            List<string> startingPositions = new();
+            List<string> basePositions = PositionListService.GetListOfBasePositions();
+            List<string> comboPositions = new();
+
+            Dictionary<string, int> starterSlotsByPosition = PositionDictionaryService.GetStarterSlotsByPosition(positions);
+            foreach (KeyValuePair<string, int> position in starterSlotsByPosition)
+            {
+                for (int i = 1; i <= position.Value; i++)
+                {
+                    if (basePositions.Contains(position.Key))
+                    {
+                        startingPositions.Add($"{position.Key}{i}");
+                    }
+                    else
+                    {
+                        comboPositions.Add($"{position.Key}{i}");
+                    }
+                }
+            }
+
+            startingPositions.AddRange(comboPositions);
+
+            return startingPositions;
         }
     }
 }

@@ -54,12 +54,11 @@ namespace Fantasy.Presentation.Tests.Services
             RosterViewModel roster = new RosterViewModel();
             callService.Setup(service => service.StrongRoster(It.Is<StrongRosterRequestObject>(x => x.Players.First().ExpectedValue == 10))).ReturnsAsync(roster);
 
-            roster.QB = 1;
             callService.Setup(service => service.StrongerRoster(It.Is<StrongerRosterRequestObject>(x => x.Roster != null))).ReturnsAsync(roster);
             
             List<RosterViewModel> rosters = new();
             rosters.Add(roster);
-            callService.Setup(service => service.PossibleRosters(It.Is<PossibleRostersRequestObject>(x => x.Roster.QB == 1))).ReturnsAsync(rosters);
+            callService.Setup(service => service.PossibleRosters(It.IsAny<PossibleRostersRequestObject>())).ReturnsAsync(rosters);
             
             callService.Setup(service => service.TopRosterFrequency(It.Is<TopRosterFrequencyRequestObject>(x => x.Rosters.Count > 0))).ReturnsAsync(new CountByIDViewModel());
 

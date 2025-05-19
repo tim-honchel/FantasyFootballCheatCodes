@@ -229,10 +229,23 @@ namespace Fantasy.Presentation.Services.Implementations
             throw new NotImplementedException();
         }
 
-        public Task<RosterViewModel> StrongRoster(StrongRosterRequestObject request)
+        public async Task<RosterViewModel> StrongRoster(StrongRosterRequestObject request)
         {
-            _userData.ErrorMessages.Add("The 'strongRoster' endpoint is not yet implemented.");
-            throw new NotImplementedException();
+            HttpResponseMessage response = await _client.PostAsJsonAsync("strongRoster", request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ServerErrorException();
+            }
+
+            StrongRosterResponseObject? result = await response.Content.ReadFromJsonAsync<StrongRosterResponseObject>();
+            if (result == null)
+            {
+                throw new NullContentException();
+            }
+
+            RosterViewModel roster = result.Roster;
+
+            return roster;
         }
 
         public Task<List<DraftBoardViewModel>> SuggestedRosters(SuggestedRostersRequestObject request)

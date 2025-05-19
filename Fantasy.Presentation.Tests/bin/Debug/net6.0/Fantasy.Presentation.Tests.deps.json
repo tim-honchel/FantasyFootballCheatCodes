@@ -943,7 +943,10 @@
       },
       "Fantasy.Presentation/1.0.0": {
         "runtime": {
-          "Fantasy.Presentation.dll": {}
+          "Fantasy.Presentation.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

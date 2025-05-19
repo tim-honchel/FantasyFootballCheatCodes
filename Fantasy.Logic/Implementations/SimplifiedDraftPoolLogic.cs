@@ -53,28 +53,6 @@ namespace Fantasy.Logic.Implementations
                 }
             }
 
-
-
-            //foreach (string draftPosition in draftPositions)
-            //{
-            //    string position = draftPosition.Substring(0, draftPosition.Length - 1);
-            //    if (basePositions.Contains(position) && !positions.Contains(position))
-            //    {
-            //        positions.Add(position);
-            //    }
-            //    else if (comboPositions.Keys.Contains(position))
-            //    {
-            //        foreach (string basePosition in comboPositions[position])
-            //        {
-            //            if (basePositions.Contains(position) && !positions.Contains(position))
-            //            {
-            //                positions.Add(position);
-            //            }
-            //        }
-            //    }
-
-            //}
-
             return positions;
         }
 
@@ -88,18 +66,21 @@ namespace Fantasy.Logic.Implementations
             }
 
             int salary = players[0].Cost + 1;
+            int playersAdded = 0;
 
             foreach (Player player in players)
             {
-                if (salary <= 1)
+                if (salary <= 1 && playersAdded > 0)
                 {
                     break;
                 }
                 else if (player.Cost < salary)
                 {
+                    player.Cost = Math.Max(player.Cost, 1);
                     salary = player.Cost;
                     player.DraftPosition = position; 
                     draftPool.Add(player);
+                    playersAdded++;
                 }
             }
 

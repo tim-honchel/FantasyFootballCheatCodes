@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Fantasy.Logic.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83de571f02cc1dc9616f1cc8b0ab2d84b1352fdc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Fantasy.Logic.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Fantasy.Logic.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

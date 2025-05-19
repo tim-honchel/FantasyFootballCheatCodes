@@ -6,7 +6,6 @@ C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\bi
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\bin\Debug\net6.0\Fantasy.Presentation.runtimeconfig.json
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\bin\Debug\net6.0\Fantasy.Presentation.dll
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\bin\Debug\net6.0\Fantasy.Presentation.pdb
-C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\obj\Debug\net6.0\Fantasy.Presentation.csproj.AssemblyReference.cache
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\obj\Debug\net6.0\Fantasy.Presentation.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\obj\Debug\net6.0\Fantasy.Presentation.AssemblyInfoInputs.cache
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\obj\Debug\net6.0\Fantasy.Presentation.AssemblyInfo.cs
@@ -24,3 +23,9 @@ C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\ob
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\obj\Debug\net6.0\Fantasy.Presentation.pdb
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\obj\Debug\net6.0\Fantasy.Presentation.genruntimeconfig.cache
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\obj\Debug\net6.0\ref\Fantasy.Presentation.dll
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\obj\Debug\net6.0\Fantasy.Presentation.sourcelink.json
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\obj\Debug\net6.0\staticwebassets\msbuild.Fantasy.Presentation.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\obj\Debug\net6.0\staticwebassets\msbuild.build.Fantasy.Presentation.props
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Fantasy.Presentation.props
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Fantasy.Presentation.props
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation\obj\Debug\net6.0\staticwebassets.pack.json

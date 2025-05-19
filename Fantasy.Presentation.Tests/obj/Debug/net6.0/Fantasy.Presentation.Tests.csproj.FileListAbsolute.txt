@@ -115,7 +115,6 @@ C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Te
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\scopedcss\bundle\Fantasy.Presentation.Tests.styles.css
-C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\Fantasy.Presentation.Tests.csproj.CopyComplete
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\Fantasy.Presentation.Tests.dll
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\refint\Fantasy.Presentation.Tests.dll
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\Fantasy.Presentation.Tests.pdb
@@ -123,3 +122,10 @@ C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Te
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\ref\Fantasy.Presentation.Tests.dll
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\bin\Debug\net6.0\Castle.Core.dll
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\bin\Debug\net6.0\Moq.dll
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\Fantasy.Presentation.Tests.sourcelink.json
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\staticwebassets\msbuild.Fantasy.Presentation.Tests.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\staticwebassets\msbuild.build.Fantasy.Presentation.Tests.props
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Fantasy.Presentation.Tests.props
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Fantasy.Presentation.Tests.props
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.Presentation.Tests\obj\Debug\net6.0\Fantasy..DDE2A3FB.Up2Date

@@ -19,7 +19,6 @@ C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\n
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\scopedcss\bundle\Fantasy.API.styles.css
-C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\Fantasy.API.csproj.CopyComplete
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\Fantasy.API.dll
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\refint\Fantasy.API.dll
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\Fantasy.API.pdb
@@ -28,3 +27,10 @@ C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\n
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\bin\Debug\net6.0\Fantasy.Logic.dll
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\bin\Debug\net6.0\Fantasy.Logic.pdb
 C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\Fantasy.API.sourcelink.json
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\staticwebassets\msbuild.Fantasy.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\staticwebassets\msbuild.build.Fantasy.API.props
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Fantasy.API.props
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Fantasy.API.props
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\timho\Documents\repos\FantasyFootballCheatCodes\Fantasy.API\obj\Debug\net6.0\Fantasy..6A912CF6.Up2Date

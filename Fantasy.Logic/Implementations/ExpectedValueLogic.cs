@@ -19,6 +19,10 @@ namespace Fantasy.Logic.Implementations
                 {
                     player.ExpectedValue = 1;
                 }
+                else if (!request.CostAnalysis.PositionCostMultiplier.ContainsKey(player.Position))
+                {
+                    player.ExpectedValue = 0;
+                }
                 else
                 {
                     player.ExpectedValue = Math.Round(1 + (player.FA - request.CostAnalysis.PositionCostBase[player.Position]) * request.CostAnalysis.PositionCostMultiplier[player.Position],0);

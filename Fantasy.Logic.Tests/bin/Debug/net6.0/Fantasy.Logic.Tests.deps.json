@@ -843,7 +843,10 @@
           "Newtonsoft.Json": "9.0.1"
         },
         "runtime": {
-          "Fantasy.Logic.dll": {}
+          "Fantasy.Logic.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
